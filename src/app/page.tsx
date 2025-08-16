@@ -1,12 +1,15 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Github, Linkedin, Mail, MapPin, Phone, ExternalLink, Calendar, GraduationCap, Briefcase, Code, Award, Users, Heart, BookOpen, Trophy, Headphones, FileText, BookOpenCheck, Menu, X, Presentation } from 'lucide-react';
 import { MovingBorderButton } from '../components/MovingBorder';
+import { annotate, annotationGroup } from 'rough-notation';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('about');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const aboutTextRef = useRef<HTMLDivElement>(null);
+  const [animationsStarted, setAnimationsStarted] = useState(false);
 
   const menuItems = [
     { id: 'about', label: 'About Me', icon: Users },
@@ -25,7 +28,74 @@ export default function Home() {
   const handleMenuItemClick = (itemId: string) => {
     setActiveSection(itemId);
     setIsMobileMenuOpen(false); // Mobilde menü seçiminden sonra kapat
+    // About dışında bir section'a geçilirse animasyon state'ini reset et
+    if (itemId !== 'about') {
+      setAnimationsStarted(false);
+    }
   };
+
+  // About section'a girince highlight animasyonlarını başlat
+  useEffect(() => {
+    if (activeSection === 'about' && aboutTextRef.current && !animationsStarted) {
+      const timer = setTimeout(() => {
+        // Technology highlights için elementleri bul
+        const techElements = aboutTextRef.current?.querySelectorAll('.highlight-tech');
+        const availabilityElement = aboutTextRef.current?.querySelector('.availability-highlight');
+
+        if (techElements && techElements.length > 0) {
+          // Tech highlights oluştur - CSS animasyonlu
+          const techElements = aboutTextRef.current?.querySelectorAll('.highlight-tech');
+          const colors = ['#3B82F6', '#10B981', '#8B5CF6', '#F59E0B', '#06B6D4']; // blue, emerald, purple, amber, cyan
+          
+          Array.from(techElements || []).forEach((element, index) => {
+            const htmlElement = element as HTMLElement;
+            const color = colors[index % colors.length];
+            
+            // CSS animasyonu ile düzgün highlight
+            setTimeout(() => {
+              htmlElement.style.background = `linear-gradient(120deg, ${color}40 0%, ${color}40 100%)`;
+              htmlElement.style.backgroundSize = '0% 100%';
+              htmlElement.style.backgroundRepeat = 'no-repeat';
+              htmlElement.style.backgroundPosition = 'left center';
+                             htmlElement.style.transition = 'background-size 600ms ease-in-out';
+              htmlElement.style.borderRadius = '4px';
+              htmlElement.style.padding = '2px 4px';
+              
+              // Animasyonu başlat
+              setTimeout(() => {
+                htmlElement.style.backgroundSize = '100% 100%';
+              }, 50);
+                         }, index * 300); // Delay artırıldı - daha uzun aralıklarla
+          });
+
+          // Availability highlight oluştur
+          let availabilityAnnotation;
+          if (availabilityElement) {
+            availabilityAnnotation = annotate(availabilityElement as HTMLElement, {
+              type: 'box',
+              color: '#10B981', // softer emerald
+              animationDuration: 800,
+              strokeWidth: 2,
+              padding: 6,
+              iterations: 1
+            });
+          }
+
+                    // Availability animasyonunu başlat - tech highlights bittikten sonra
+          if (availabilityAnnotation) {
+            setTimeout(() => {
+              availabilityAnnotation.show();
+              setAnimationsStarted(true);
+            }, 2800); // 4*300ms(delays) + 600ms(duration) + 1200ms(extra buffer) = 2800ms
+          } else {
+            setAnimationsStarted(true);
+          }
+        }
+      }, 300);
+
+      return () => clearTimeout(timer);
+    }
+  }, [activeSection, animationsStarted]);
 
   const renderContent = () => {
     switch (activeSection) {
@@ -35,27 +105,65 @@ export default function Home() {
             <div>
               <h2 className="text-sf-large font-sf-bold text-slate-900 mb-6 drop-shadow-sm">About Me</h2>
               <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-8 shadow-xl border border-white/30">
-                <div className="prose prose-slate max-w-none">
+                <div className="prose prose-slate max-w-none" ref={aboutTextRef}>
                   <p className="text-sf-body font-sf-regular text-slate-800 leading-relaxed mb-6 drop-shadow-sm">
                     I'm a Mobile Application Developer passionate about creating exceptional user experiences 
                     on iOS and Android platforms. I specialize in building native and cross-platform mobile 
                     applications that are performant, intuitive, and scalable.
                   </p>
                   <p className="text-slate-800 leading-relaxed mb-6 drop-shadow-sm">
-                    My expertise spans Swift/SwiftUI for iOS, Kotlin/Java for Android, and React Native for 
+                    My expertise spans <span className="highlight-tech">Swift</span>/<span className="highlight-tech">SwiftUI</span> for iOS, <span className="highlight-tech">Kotlin</span>/Java for Android, <span className="highlight-tech">React Native</span> and <span className="highlight-tech">Flutter</span> for 
                     cross-platform development. I love crafting beautiful interfaces and implementing complex 
                     functionality that delights users.
                   </p>
-                  <p className="text-slate-800 leading-relaxed drop-shadow-sm">
+                  <p className="text-slate-800 leading-relaxed mb-6 drop-shadow-sm">
                     When I'm not coding, you'll find me exploring the latest mobile development trends, 
                     contributing to open source mobile projects, or prototyping innovative app concepts 
-                    that push the boundaries of mobile user experience.
+                    that push the boundaries of mobile user experience. 
+                    </p>
+                  <p className="text-slate-800 leading-relaxed mb-6 drop-shadow-sm">
+                    I'm currently
+                    <span className="availability-highlight font-sf-semibold"> open for freelance and job opportunities </span> 
+                      and excited to bring your mobile app ideas to life!
                   </p>
                 </div>
               </div>
             </div>
             
             <div>
+              <div className="mb-6">
+                <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-8 shadow-xl border border-white/30 text-center relative overflow-hidden">
+                  {/* Subtle gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-emerald-500/5 pointer-events-none"></div>
+                  
+                  <div className="relative z-10">
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500/20 to-emerald-500/20 backdrop-blur-sm rounded-2xl border border-white/30 mb-4 shadow-lg">
+                      <Calendar className="w-8 h-8 text-slate-700" />
+                    </div>
+                    
+                    <h3 className="text-sf-title2 font-sf-bold text-slate-900 mb-3 drop-shadow-sm">
+                      Let's Schedule a Meeting
+                    </h3>
+                    <p className="text-sf-body font-sf-regular text-slate-700 mb-6 drop-shadow-sm max-w-md mx-auto">
+                      Ready to bring your mobile app vision to life? Book a free consultation to discuss your project requirements and explore possibilities.
+                    </p>
+                    
+                    <a 
+                      href="https://cal.com/meliharik" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center gap-3 bg-white/30 backdrop-blur-xl backdrop-saturate-150 hover:bg-white/40 text-slate-800 font-sf-semibold px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl border border-white/40 hover:border-white/60 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
+                    >
+                      <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-lg flex items-center justify-center">
+                        <Calendar className="w-4 h-4 text-white" />
+                      </div>
+                      <span>Schedule Free Consultation</span>
+                      <div className="w-2 h-2 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-full opacity-60 group-hover:opacity-100 transition-opacity"></div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
               <h3 className="text-sf-title2 font-sf-semibold text-slate-900 mb-4 drop-shadow-sm">Skills & Technologies</h3>
               <div className="bg-white/15 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/20">
                 <div className="flex flex-wrap gap-3">
@@ -886,7 +994,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="text-sm text-slate-700 mb-1 drop-shadow-sm">Location</p>
-                    <span className="text-slate-900 font-medium drop-shadow-sm">Bursa, Turkey</span>
+                    <span className="text-slate-900 font-medium drop-shadow-sm">Tartu, Estonia</span>
                   </div>
                 </div>
                 
@@ -1030,7 +1138,7 @@ export default function Home() {
               <p className="text-sf-headline font-sf-medium text-slate-800 mb-3 drop-shadow-sm">Mobile Application Developer</p>
               <p className="text-sf-subhead font-sf-regular text-slate-700 flex items-center gap-2 drop-shadow-sm">
                 <MapPin className="w-4 h-4" />
-                Bursa, Turkey
+                Tartu, Estonia
               </p>
             </div>
             
