@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Github, Linkedin, Mail, MapPin, Phone, ExternalLink, Calendar, GraduationCap, Briefcase, Code, Award, Users, Heart, BookOpen, Trophy, Headphones, FileText, BookOpenCheck, Menu, X } from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin, Phone, ExternalLink, Calendar, GraduationCap, Briefcase, Code, Award, Users, Heart, BookOpen, Trophy, Headphones, FileText, BookOpenCheck, Menu, X, Presentation } from 'lucide-react';
 import { MovingBorderButton } from '../components/MovingBorder';
 
 export default function Home() {
@@ -15,6 +15,7 @@ export default function Home() {
     { id: 'education', label: 'Education', icon: GraduationCap },
     { id: 'volunteer', label: 'Volunteer Work', icon: Heart },
     { id: 'certifications', label: 'Certifications', icon: Award },
+    { id: 'presentations', label: 'Presentations', icon: Presentation },
     { id: 'podcasts', label: 'Podcasts', icon: Headphones },
     { id: 'blogs', label: 'Blog Posts', icon: FileText },
     { id: 'papers', label: 'Academic Papers', icon: BookOpenCheck },
@@ -36,17 +37,19 @@ export default function Home() {
               <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-8 shadow-xl border border-white/30">
                 <div className="prose prose-slate max-w-none">
                   <p className="text-sf-body font-sf-regular text-slate-800 leading-relaxed mb-6 drop-shadow-sm">
-                    I'm a Platform Developer & AI Specialist passionate about privacy-preserving technologies 
-                    and artificial intelligence. I focus on creating secure, scalable systems that protect user 
-                    privacy while delivering powerful AI capabilities.
+                    I'm a Mobile Application Developer passionate about creating exceptional user experiences 
+                    on iOS and Android platforms. I specialize in building native and cross-platform mobile 
+                    applications that are performant, intuitive, and scalable.
                   </p>
                   <p className="text-slate-800 leading-relaxed mb-6 drop-shadow-sm">
-                    My expertise spans machine learning, data engineering, and full-stack development. 
-                    I enjoy working on challenging problems that sit at the intersection of AI and cybersecurity.
+                    My expertise spans Swift/SwiftUI for iOS, Kotlin/Java for Android, and React Native for 
+                    cross-platform development. I love crafting beautiful interfaces and implementing complex 
+                    functionality that delights users.
                   </p>
                   <p className="text-slate-800 leading-relaxed drop-shadow-sm">
-                    When I'm not coding, you'll find me contributing to open source projects, participating 
-                    in hackathons, or exploring the latest developments in artificial intelligence and privacy technology.
+                    When I'm not coding, you'll find me exploring the latest mobile development trends, 
+                    contributing to open source mobile projects, or prototyping innovative app concepts 
+                    that push the boundaries of mobile user experience.
                   </p>
                 </div>
               </div>
@@ -56,7 +59,7 @@ export default function Home() {
               <h3 className="text-sf-title2 font-sf-semibold text-slate-900 mb-4 drop-shadow-sm">Skills & Technologies</h3>
               <div className="bg-white/15 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/20">
                 <div className="flex flex-wrap gap-3">
-                  {['Python', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Node.js', 'TensorFlow', 'PyTorch', 'Docker', 'Kubernetes', 'AWS', 'PostgreSQL', 'MongoDB'].map((skill) => (
+                  {['Swift', 'SwiftUI', 'Kotlin', 'Java', 'React Native', 'Flutter', 'Dart', 'Xcode', 'Android Studio', 'Firebase', 'Core Data', 'SQLite', 'REST APIs'].map((skill) => (
                     <span key={skill} className="px-4 py-2 bg-white/30 backdrop-blur-sm text-slate-800 rounded-full text-sf-subhead font-sf-medium border border-white/40 hover:bg-white/50 transition-all drop-shadow-sm">
                       {skill}
                     </span>
@@ -78,13 +81,13 @@ export default function Home() {
                   <div className="absolute left-0 top-2 w-4 h-4 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full shadow-lg"></div>
                   <div className="absolute left-2 top-6 w-0.5 h-20 bg-gradient-to-b from-blue-200 to-transparent"></div>
                   <div className="mb-3">
-                    <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">AI Research Intern</h3>
-                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600 font-medium drop-shadow-sm">Privacy Tech Company</p>
+                    <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Senior iOS Developer</h3>
+                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600 font-medium drop-shadow-sm">TechFlow Solutions</p>
                     <p className="text-sm text-slate-700 mt-1 drop-shadow-sm">June 2023 - Present</p>
                   </div>
                   <p className="text-slate-800 leading-relaxed drop-shadow-sm">
-                    Developing privacy-preserving machine learning algorithms and implementing secure data processing pipelines 
-                    for enterprise clients.
+                    Leading iOS app development using Swift and SwiftUI, implementing complex UI animations and Core Data integration. 
+                    Built high-performance apps serving 100K+ users with 4.8+ App Store ratings.
                   </p>
                 </div>
 
@@ -92,26 +95,26 @@ export default function Home() {
                   <div className="absolute left-0 top-2 w-4 h-4 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full shadow-lg"></div>
                   <div className="absolute left-2 top-6 w-0.5 h-20 bg-gradient-to-b from-emerald-200 to-transparent"></div>
                   <div className="mb-3">
-                    <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Full Stack Developer</h3>
-                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 font-medium drop-shadow-sm">Tech Startup</p>
+                    <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Mobile App Developer</h3>
+                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 font-medium drop-shadow-sm">Digital Innovation Agency</p>
                     <p className="text-sm text-slate-700 mt-1 drop-shadow-sm">Jan 2023 - June 2023</p>
                   </div>
                   <p className="text-slate-800 leading-relaxed drop-shadow-sm">
-                    Built scalable web applications using React, Node.js, and cloud technologies. 
-                    Implemented CI/CD pipelines and improved system performance by 40%.
+                    Developed cross-platform mobile apps using React Native and Flutter. Created 5+ apps for clients 
+                    with seamless iOS and Android experiences, improving user engagement by 60%.
                   </p>
                 </div>
 
                 <div className="relative pl-8">
                   <div className="absolute left-0 top-2 w-4 h-4 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full shadow-lg"></div>
                   <div className="mb-3">
-                    <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Software Engineering Intern</h3>
-                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-purple-600 font-medium drop-shadow-sm">Enterprise Solutions</p>
+                    <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Android Developer Intern</h3>
+                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-purple-600 font-medium drop-shadow-sm">MobileFirst Technologies</p>
                     <p className="text-sm text-slate-700 mt-1 drop-shadow-sm">Summer 2022</p>
                   </div>
                   <p className="text-slate-800 leading-relaxed drop-shadow-sm">
-                    Developed microservices architecture and implemented automated testing frameworks. 
-                    Collaborated with cross-functional teams on enterprise software solutions.
+                    Built native Android apps using Kotlin and Jetpack Compose. Implemented Material Design principles 
+                    and integrated RESTful APIs with efficient data handling and offline capabilities.
                   </p>
                 </div>
               </div>
@@ -127,20 +130,20 @@ export default function Home() {
             <div className="grid gap-6">
               <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">NASA Space Apps Challenge</h3>
+                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">FinanceTracker iOS App</h3>
                   <div className="flex items-center gap-2 bg-gradient-to-r from-amber-400/20 to-orange-400/20 backdrop-blur-sm px-3 py-1 rounded-full border border-amber-300/30">
                     <Trophy className="w-4 h-4 text-amber-700" />
-                    <span className="text-sm font-medium text-amber-800 drop-shadow-sm">2nd Place</span>
+                    <span className="text-sm font-medium text-amber-800 drop-shadow-sm">Featured on App Store</span>
                   </div>
                 </div>
                 <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
-                  Developed an AI-powered solution for space debris tracking and collision prediction using machine learning algorithms.
+                  A comprehensive personal finance management app with intuitive SwiftUI interface, Core Data persistence, and Chart framework for beautiful visualizations.
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="flex gap-2">
-                    <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">Python</span>
-                    <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">TensorFlow</span>
-                    <span className="px-3 py-1 bg-violet-400/20 backdrop-blur-sm text-violet-800 rounded-lg text-sm border border-violet-300/30 drop-shadow-sm">NASA APIs</span>
+                    <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">SwiftUI</span>
+                    <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">Core Data</span>
+                    <span className="px-3 py-1 bg-violet-400/20 backdrop-blur-sm text-violet-800 rounded-lg text-sm border border-violet-300/30 drop-shadow-sm">Charts</span>
                   </div>
                   <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer drop-shadow-sm" />
                 </div>
@@ -148,17 +151,17 @@ export default function Home() {
 
               <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">TEKNOFEST Innovation</h3>
+                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">FoodDelivery Android App</h3>
                   <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full border border-white/40 drop-shadow-sm">2023</span>
                 </div>
                 <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
-                  Created an IoT-based smart city solution with real-time data analytics and predictive modeling for urban planning.
+                  Feature-rich food delivery app with real-time order tracking, seamless payment integration, and smooth animations using Jetpack Compose.
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="flex gap-2">
-                    <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">IoT</span>
-                    <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">React</span>
-                    <span className="px-3 py-1 bg-orange-400/20 backdrop-blur-sm text-orange-800 rounded-lg text-sm border border-orange-300/30 drop-shadow-sm">Arduino</span>
+                    <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">Kotlin</span>
+                    <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">Jetpack Compose</span>
+                    <span className="px-3 py-1 bg-orange-400/20 backdrop-blur-sm text-orange-800 rounded-lg text-sm border border-orange-300/30 drop-shadow-sm">Firebase</span>
                   </div>
                   <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer drop-shadow-sm" />
                 </div>
@@ -166,17 +169,17 @@ export default function Home() {
 
               <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Privacy-First Chat App</h3>
+                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">ChatApp React Native</h3>
                   <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full border border-white/40 drop-shadow-sm">2023</span>
                 </div>
                 <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
-                  End-to-end encrypted messaging application with zero-knowledge architecture and blockchain-based identity verification.
+                  Cross-platform messaging app with real-time chat, push notifications, and beautiful animations. Supports both iOS and Android with native performance.
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="flex gap-2">
-                    <span className="px-3 py-1 bg-rose-400/20 backdrop-blur-sm text-rose-800 rounded-lg text-sm border border-rose-300/30 drop-shadow-sm">Cryptography</span>
-                    <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">Node.js</span>
-                    <span className="px-3 py-1 bg-violet-400/20 backdrop-blur-sm text-violet-800 rounded-lg text-sm border border-violet-300/30 drop-shadow-sm">Blockchain</span>
+                    <span className="px-3 py-1 bg-rose-400/20 backdrop-blur-sm text-rose-800 rounded-lg text-sm border border-rose-300/30 drop-shadow-sm">React Native</span>
+                    <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">TypeScript</span>
+                    <span className="px-3 py-1 bg-violet-400/20 backdrop-blur-sm text-violet-800 rounded-lg text-sm border border-violet-300/30 drop-shadow-sm">Socket.io</span>
                   </div>
                   <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer drop-shadow-sm" />
                 </div>
@@ -184,17 +187,17 @@ export default function Home() {
 
               <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Robotic Arm Control System</h3>
+                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">WeatherPro Flutter App</h3>
                   <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full border border-white/40 drop-shadow-sm">2022</span>
                 </div>
                 <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
-                  Computer vision-based robotic arm control system with machine learning for object recognition and path planning.
+                  Beautiful weather application built with Flutter and Dart, featuring location-based forecasts, animated weather icons, and offline capabilities.
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="flex gap-2">
-                    <span className="px-3 py-1 bg-cyan-400/20 backdrop-blur-sm text-cyan-800 rounded-lg text-sm border border-cyan-300/30 drop-shadow-sm">OpenCV</span>
-                    <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">Python</span>
-                    <span className="px-3 py-1 bg-red-400/20 backdrop-blur-sm text-red-800 rounded-lg text-sm border border-red-300/30 drop-shadow-sm">Robotics</span>
+                    <span className="px-3 py-1 bg-cyan-400/20 backdrop-blur-sm text-cyan-800 rounded-lg text-sm border border-cyan-300/30 drop-shadow-sm">Flutter</span>
+                    <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">Dart</span>
+                    <span className="px-3 py-1 bg-red-400/20 backdrop-blur-sm text-red-800 rounded-lg text-sm border border-red-300/30 drop-shadow-sm">Weather APIs</span>
                   </div>
                   <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer drop-shadow-sm" />
                 </div>
@@ -385,6 +388,143 @@ export default function Home() {
                 <p className="text-slate-800 drop-shadow-sm">
                   Global hackathon achievement for innovative space technology solution.
                 </p>
+              </div>
+            </div>
+          </div>
+        );
+
+      case 'presentations':
+        return (
+          <div className="space-y-8">
+            <h2 className="text-sf-large font-sf-bold text-slate-900 mb-8 drop-shadow-sm">Conference Presentations</h2>
+            
+            <div className="grid gap-6">
+              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
+                <div className="flex items-start gap-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Presentation className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-start justify-between mb-3">
+                      <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">SwiftUI Best Practices for Modern iOS Apps</h3>
+                      <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full border border-white/40 drop-shadow-sm">Jan 2024</span>
+                    </div>
+                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 font-medium mb-3 drop-shadow-sm">
+                      iOS Dev Turkey Conference 2024
+                    </p>
+                    <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
+                      Deep dive into advanced SwiftUI patterns, performance optimization techniques, and architectural best practices 
+                      for building scalable iOS applications with modern design principles.
+                    </p>
+                    <div className="flex items-center gap-4">
+                      <div className="flex gap-2">
+                        <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">SwiftUI</span>
+                        <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">iOS</span>
+                        <span className="px-3 py-1 bg-violet-400/20 backdrop-blur-sm text-violet-800 rounded-lg text-sm border border-violet-300/30 drop-shadow-sm">Architecture</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-sm text-slate-700 drop-shadow-sm">
+                        <span>200+ attendees</span>
+                        <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer drop-shadow-sm" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
+                <div className="flex items-start gap-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Presentation className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-start justify-between mb-3">
+                      <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Building Cross-Platform Apps with React Native</h3>
+                      <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full border border-white/40 drop-shadow-sm">Oct 2023</span>
+                    </div>
+                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 font-medium mb-3 drop-shadow-sm">
+                      Mobile Developer Summit Istanbul
+                    </p>
+                    <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
+                      Comprehensive guide to React Native development, covering navigation, state management, native module integration, 
+                      and strategies for achieving 95%+ code sharing between iOS and Android.
+                    </p>
+                    <div className="flex items-center gap-4">
+                      <div className="flex gap-2">
+                        <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">React Native</span>
+                        <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">Cross-platform</span>
+                        <span className="px-3 py-1 bg-orange-400/20 backdrop-blur-sm text-orange-800 rounded-lg text-sm border border-orange-300/30 drop-shadow-sm">TypeScript</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-sm text-slate-700 drop-shadow-sm">
+                        <span>150+ attendees</span>
+                        <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer drop-shadow-sm" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
+                <div className="flex items-start gap-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Presentation className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-start justify-between mb-3">
+                      <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Modern Android Development with Jetpack Compose</h3>
+                      <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full border border-white/40 drop-shadow-sm">Jul 2023</span>
+                    </div>
+                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 font-medium mb-3 drop-shadow-sm">
+                      Android Developers Meetup Ankara
+                    </p>
+                    <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
+                      Introduction to declarative UI development with Jetpack Compose, covering state management, custom components, 
+                      animations, and migration strategies from traditional View-based Android development.
+                    </p>
+                    <div className="flex items-center gap-4">
+                      <div className="flex gap-2">
+                        <span className="px-3 py-1 bg-purple-400/20 backdrop-blur-sm text-purple-800 rounded-lg text-sm border border-purple-300/30 drop-shadow-sm">Jetpack Compose</span>
+                        <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">Android</span>
+                        <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">Kotlin</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-sm text-slate-700 drop-shadow-sm">
+                        <span>80+ attendees</span>
+                        <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer drop-shadow-sm" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
+                <div className="flex items-start gap-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Presentation className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-start justify-between mb-3">
+                      <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Flutter vs React Native: A Developer's Perspective</h3>
+                      <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full border border-white/40 drop-shadow-sm">Mar 2023</span>
+                    </div>
+                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600 font-medium mb-3 drop-shadow-sm">
+                      Mobile Tech Conference Bursa
+                    </p>
+                    <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
+                      Comprehensive comparison of Flutter and React Native frameworks, discussing performance, development experience, 
+                      ecosystem maturity, and decision criteria for choosing the right cross-platform solution.
+                    </p>
+                    <div className="flex items-center gap-4">
+                      <div className="flex gap-2">
+                        <span className="px-3 py-1 bg-cyan-400/20 backdrop-blur-sm text-cyan-800 rounded-lg text-sm border border-cyan-300/30 drop-shadow-sm">Flutter</span>
+                        <span className="px-3 py-1 bg-rose-400/20 backdrop-blur-sm text-rose-800 rounded-lg text-sm border border-rose-300/30 drop-shadow-sm">React Native</span>
+                        <span className="px-3 py-1 bg-amber-400/20 backdrop-blur-sm text-amber-800 rounded-lg text-sm border border-amber-300/30 drop-shadow-sm">Comparison</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-sm text-slate-700 drop-shadow-sm">
+                        <span>120+ attendees</span>
+                        <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer drop-shadow-sm" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -713,8 +853,8 @@ export default function Home() {
             
             <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-8 shadow-xl border border-white/30">
               <p className="text-slate-800 text-lg mb-8 leading-relaxed drop-shadow-sm">
-                I'm always interested in discussing new opportunities, innovative projects, 
-                and collaborations in AI and privacy technology. Feel free to reach out!
+                I'm always excited to discuss new mobile app opportunities, innovative projects, 
+                and collaborations in iOS/Android development. Let's build something amazing together!
               </p>
               
               <div className="space-y-6">
@@ -801,8 +941,8 @@ export default function Home() {
               className="w-10 h-10 rounded-xl object-cover shadow-lg"
             />
             <div>
-              <h1 className="text-sf-headline font-sf-semibold text-slate-900">Melih Arık</h1>
-              <p className="text-sf-footnote font-sf-regular text-slate-700">Platform Developer & AI Specialist</p>
+                             <h1 className="text-sf-headline font-sf-semibold text-slate-900">Melih Arık</h1>
+               <p className="text-sf-footnote font-sf-regular text-slate-700">Mobile Application Developer</p>
             </div>
           </div>
           <button
@@ -887,7 +1027,7 @@ export default function Home() {
                 className="w-20 h-20 rounded-2xl object-cover shadow-lg mb-4"
               />
               <h1 className="text-sf-title1 font-sf-bold text-slate-900 mb-1 drop-shadow-sm">Melih Arık</h1>
-              <p className="text-sf-headline font-sf-medium text-slate-800 mb-3 drop-shadow-sm">Platform Developer & AI Specialist</p>
+              <p className="text-sf-headline font-sf-medium text-slate-800 mb-3 drop-shadow-sm">Mobile Application Developer</p>
               <p className="text-sf-subhead font-sf-regular text-slate-700 flex items-center gap-2 drop-shadow-sm">
                 <MapPin className="w-4 h-4" />
                 Bursa, Turkey
