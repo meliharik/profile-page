@@ -366,57 +366,94 @@ export default function Home() {
           <div className="space-y-8">
             <h2 className="text-sf-large font-sf-bold text-slate-900 mb-8 drop-shadow-sm">Education</h2>
             
-            <div className="space-y-6">
-              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30">
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Bachelor of Science in Computer Engineering</h3>
-                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 font-medium drop-shadow-sm">Bursa Uludağ University</p>
+            <div className="space-y-8">
+              {/* Master's Degree */}
+              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 lg:p-8 shadow-xl border border-white/30">
+                <div className="flex flex-col lg:flex-row lg:items-start gap-4 lg:gap-6">
+                  <div className="flex-shrink-0 hidden lg:block">
+                    <img 
+                      src="/universities/tartu.png" 
+                      alt="University of Tartu" 
+                      className="w-20 h-20 rounded-2xl object-contain bg-white/50 p-2 shadow-lg"
+                    />
                   </div>
-                  <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-2 rounded-lg border border-white/40 drop-shadow-sm">2020 - 2024</span>
-                </div>
-                <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
-                  Specialized in Artificial Intelligence and Machine Learning. Graduated with honors.
-                </p>
-                <div className="flex gap-2">
-                  <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">AI/ML</span>
-                  <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">Data Structures</span>
-                  <span className="px-3 py-1 bg-violet-400/20 backdrop-blur-sm text-violet-800 rounded-lg text-sm border border-violet-300/30 drop-shadow-sm">Algorithms</span>
+                  <div className="flex-1">
+                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-3 lg:gap-4 mb-4">
+                      <div className="flex-1">
+                        <h3 className="text-sf-title1 font-sf-bold text-slate-900 mb-2 drop-shadow-sm">Master of Science</h3>
+                        <h4 className="text-sf-title3 font-sf-semibold text-slate-800 mb-1 drop-shadow-sm">Software Engineering</h4>
+                        <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 font-sf-semibold drop-shadow-sm">University of Tartu, Estonia</p>
+                      </div>
+                      <div className="lg:text-right">
+                        <span className="text-sf-headline font-sf-semibold text-slate-700 bg-white/30 backdrop-blur-sm px-4 py-2 rounded-xl border border-white/40 drop-shadow-sm">
+                          2025 - Present
+                        </span>
+                      </div>
+                    </div>
+                    <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
+                      Focusing on mobile computing, distributed systems, and human-computer interaction. Research in mobile app optimization and cross-platform development frameworks.
+                    </p>
+                    <div className="flex gap-2 flex-wrap">
+                      <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">Mobile Computing</span>
+                      <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">HCI</span>
+                      <span className="px-3 py-1 bg-violet-400/20 backdrop-blur-sm text-violet-800 rounded-lg text-sm border border-violet-300/30 drop-shadow-sm">Distributed Systems</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30">
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">English Language Preparation</h3>
-                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 font-medium drop-shadow-sm">Ankara University Language School</p>
+              {/* Bachelor's Degree */}
+              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 lg:p-8 shadow-xl border border-white/30">
+                <div className="flex flex-col lg:flex-row lg:items-start gap-4 lg:gap-6">
+                  <div className="flex-shrink-0 hidden lg:block">
+                    <img 
+                      src="/universities/buu.png" 
+                      alt="Bursa Uludağ University" 
+                      className="w-20 h-20 rounded-2xl object-contain bg-white/50 p-2 shadow-lg"
+                    />
                   </div>
-                  <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-2 rounded-lg border border-white/40 drop-shadow-sm">2019 - 2020</span>
-                </div>
-                <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
-                  Intensive English language program focused on academic and technical communication.
-                </p>
-                <div className="flex gap-2">
-                  <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">English</span>
-                  <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">Academic Writing</span>
+                  <div className="flex-1">
+                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-3 lg:gap-4 mb-4">
+                      <div className="flex-1">
+                        <h3 className="text-sf-title1 font-sf-bold text-slate-900 mb-2 drop-shadow-sm">Computer Engineering</h3>
+                        <h4 className="text-sf-title3 font-sf-semibold text-slate-800 mb-1 drop-shadow-sm">Bachelor of Science</h4>
+                        <p className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 font-sf-semibold drop-shadow-sm">Bursa Uludağ University, Turkey</p>
+                      </div>
+                      <div className="lg:text-right">
+                        <span className="text-sf-headline font-sf-semibold text-slate-700 bg-white/30 backdrop-blur-sm px-4 py-2 rounded-xl border border-white/40 drop-shadow-sm">
+                          2019 - 2024
+                        </span>
+                      </div>
+                    </div>
+                    
+                  </div>
                 </div>
               </div>
 
-              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30">
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">High School Diploma</h3>
-                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-purple-600 font-medium drop-shadow-sm">Anatolian High School</p>
+              {/* Language School */}
+              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 lg:p-8 shadow-xl border border-white/30">
+                <div className="flex flex-col lg:flex-row lg:items-start gap-4 lg:gap-6">
+                  <div className="flex-shrink-0 hidden lg:block">
+                    <img 
+                      src="/universities/ilac.png" 
+                      alt="Language School" 
+                      className="w-20 h-20 rounded-2xl object-contain bg-white/50 p-2 shadow-lg"
+                    />
                   </div>
-                  <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-2 rounded-lg border border-white/40 drop-shadow-sm">2015 - 2019</span>
-                </div>
-                <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
-                  Mathematics and Science focused curriculum with early introduction to programming.
-                </p>
-                <div className="flex gap-2">
-                  <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">Mathematics</span>
-                  <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">Physics</span>
-                  <span className="px-3 py-1 bg-violet-400/20 backdrop-blur-sm text-violet-800 rounded-lg text-sm border border-violet-300/30 drop-shadow-sm">Programming</span>
+                  <div className="flex-1">
+                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-3 lg:gap-4 mb-4">
+                      <div className="flex-1">
+                        <h3 className="text-sf-title1 font-sf-bold text-slate-900 mb-2 drop-shadow-sm">ILAC</h3>
+                        <h4 className="text-sf-title3 font-sf-semibold text-slate-800 mb-1 drop-shadow-sm">Language School</h4>
+                        <p className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-purple-600 font-sf-semibold drop-shadow-sm">Toronto, Canada</p>
+                      </div>
+                      <div className="lg:text-right">
+                        <span className="text-sf-headline font-sf-semibold text-slate-700 bg-white/30 backdrop-blur-sm px-4 py-2 rounded-xl border border-white/40 drop-shadow-sm">
+                          05.2017 - 08.2017
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
