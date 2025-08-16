@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Github, Linkedin, Mail, MapPin, Phone, ExternalLink, Calendar, GraduationCap, Briefcase, Code, Award, Users, Heart, BookOpen, Trophy, Headphones, FileText, BookOpenCheck, Menu, X } from 'lucide-react';
+import { MovingBorderButton } from '../components/MovingBorder';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('about');
@@ -794,9 +795,11 @@ export default function Home() {
       <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white/20 backdrop-blur-xl backdrop-saturate-150 border-b border-white/30">
         <div className="flex items-center justify-between p-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-xl flex items-center justify-center text-white text-sm font-sf-bold shadow-lg">
-              MA
-            </div>
+            <img 
+              src="/profile.jpg" 
+              alt="Melih Arık" 
+              className="w-10 h-10 rounded-xl object-cover shadow-lg"
+            />
             <div>
               <h1 className="text-sf-headline font-sf-semibold text-slate-900">Melih Arık</h1>
               <p className="text-sf-footnote font-sf-regular text-slate-700">Platform Developer & AI Specialist</p>
@@ -823,7 +826,7 @@ export default function Home() {
                     <li key={item.id}>
                       <button
                         onClick={() => handleMenuItemClick(item.id)}
-                        className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all text-left font-sf-medium backdrop-blur-sm ${
+                        className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all text-left font-sf-medium backdrop-blur-sm ${
                           activeSection === item.id
                             ? 'bg-white/60 text-slate-900 shadow-lg'
                             : 'text-slate-800 hover:bg-white/30 hover:text-slate-900'
@@ -832,7 +835,7 @@ export default function Home() {
                         <Icon className="w-5 h-5" />
                         <span className="text-sf-callout">{item.label}</span>
                       </button>
-                    </li>
+          </li>
                   );
                 })}
               </ul>
@@ -841,14 +844,14 @@ export default function Home() {
               <div className="flex gap-3 mt-6 pt-4 border-t border-white/20">
                 <a 
                   href="https://github.com/meliharik" 
-                  target="_blank" 
+            target="_blank"
                   className="flex-1 h-10 bg-white/30 hover:bg-white/50 rounded-xl flex items-center justify-center text-slate-800 hover:text-slate-900 transition-all backdrop-blur-sm"
                 >
                   <Github className="w-4 h-4" />
-                </a>
-                <a 
+          </a>
+          <a
                   href="https://linkedin.com/in/meliharik" 
-                  target="_blank" 
+            target="_blank"
                   className="flex-1 h-10 bg-white/30 hover:bg-white/50 rounded-xl flex items-center justify-center text-slate-800 hover:text-slate-900 transition-all backdrop-blur-sm"
                 >
                   <Linkedin className="w-4 h-4" />
@@ -878,9 +881,11 @@ export default function Home() {
           <div className="relative z-10">
             {/* Profile Header */}
             <div className="p-8 border-b border-white/20">
-              <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-white text-xl font-sf-bold mb-4 shadow-lg">
-                MA
-              </div>
+              <img 
+                src="/profile.jpg" 
+                alt="Melih Arık" 
+                className="w-20 h-20 rounded-2xl object-cover shadow-lg mb-4"
+              />
               <h1 className="text-sf-title1 font-sf-bold text-slate-900 mb-1 drop-shadow-sm">Melih Arık</h1>
               <p className="text-sf-headline font-sf-medium text-slate-800 mb-3 drop-shadow-sm">Platform Developer & AI Specialist</p>
               <p className="text-sf-subhead font-sf-regular text-slate-700 flex items-center gap-2 drop-shadow-sm">
@@ -894,11 +899,34 @@ export default function Home() {
               <ul className="space-y-2">
                 {menuItems.map((item) => {
                   const Icon = item.icon;
+                  
+                  // Contact öğesi için özel animated border (sadece desktop)
+                  if (item.id === 'contact') {
+                    return (
+                      <li key={item.id} className="hidden lg:block">
+                        <MovingBorderButton
+                          onClick={() => handleMenuItemClick(item.id)}
+                          borderRadius="0.75rem"
+                          duration={4000}
+                          className={`flex items-center gap-3 px-4 py-2.5 font-sf-medium transition-all text-left justify-start ${
+                            activeSection === item.id
+                              ? 'bg-white/60 text-slate-900'
+                              : 'bg-white/30 text-slate-800 hover:bg-white/50 hover:text-slate-900'
+                          }`}
+                        >
+                          <Icon className="w-5 h-5" />
+                          {item.label}
+                        </MovingBorderButton>
+                      </li>
+                    );
+                  }
+                  
+                                    // Diğer menü öğeleri normal (ve Contact'ı mobilde normal göster)
                   return (
                     <li key={item.id}>
                       <button
                         onClick={() => handleMenuItemClick(item.id)}
-                        className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all text-left font-sf-medium backdrop-blur-sm ${
+                        className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all text-left font-sf-medium backdrop-blur-sm ${
                           activeSection === item.id
                             ? 'bg-white/60 text-slate-900 shadow-lg'
                             : 'text-slate-800 hover:bg-white/30 hover:text-slate-900'
@@ -918,19 +946,19 @@ export default function Home() {
               <div className="flex gap-3 mb-6">
                 <a 
                   href="https://github.com/meliharik" 
-                  target="_blank" 
+          target="_blank"
                   className="w-12 h-12 bg-white/30 hover:bg-white/50 rounded-xl flex items-center justify-center text-slate-800 hover:text-slate-900 transition-all backdrop-blur-sm"
                 >
                   <Github className="w-5 h-5" />
-                </a>
-                <a 
+        </a>
+        <a
                   href="https://linkedin.com/in/meliharik" 
-                  target="_blank" 
+          target="_blank"
                   className="w-12 h-12 bg-white/30 hover:bg-white/50 rounded-xl flex items-center justify-center text-slate-800 hover:text-slate-900 transition-all backdrop-blur-sm"
                 >
                   <Linkedin className="w-5 h-5" />
-                </a>
-                <a 
+        </a>
+        <a
                   href="mailto:melih@example.com" 
                   className="w-12 h-12 bg-white/30 hover:bg-white/50 rounded-xl flex items-center justify-center text-slate-800 hover:text-slate-900 transition-all backdrop-blur-sm"
                 >
