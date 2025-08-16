@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { Github, Linkedin, Mail, MapPin, Phone, ExternalLink, Calendar, GraduationCap, Briefcase, Code, Award, Users, Heart, BookOpen, Trophy, Headphones, FileText, BookOpenCheck, Menu, X, Presentation } from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin, Phone, ExternalLink, Calendar, GraduationCap, Briefcase, Code, Award, Users, Heart, BookOpen, Trophy, Headphones, FileText, BookOpenCheck, Menu, X, Presentation, Coffee } from 'lucide-react';
 import { MovingBorderButton } from '../components/MovingBorder';
 import { annotate, annotationGroup } from 'rough-notation';
 
@@ -10,14 +10,14 @@ export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const aboutTextRef = useRef<HTMLDivElement>(null);
   const [animationsStarted, setAnimationsStarted] = useState(false);
+  const [showHeaderProfile, setShowHeaderProfile] = useState(false);
+  const heroSectionRef = useRef<HTMLDivElement>(null);
 
   const menuItems = [
     { id: 'about', label: 'About Me', icon: Users },
+    { id: 'education', label: 'Education', icon: GraduationCap },
     { id: 'experience', label: 'Experience', icon: Briefcase },
     { id: 'projects', label: 'Projects', icon: Code },
-    { id: 'education', label: 'Education', icon: GraduationCap },
-    { id: 'volunteer', label: 'Volunteer Work', icon: Heart },
-    { id: 'certifications', label: 'Certifications', icon: Award },
     { id: 'presentations', label: 'Presentations', icon: Presentation },
     { id: 'podcasts', label: 'Podcasts', icon: Headphones },
     { id: 'blogs', label: 'Blog Posts', icon: FileText },
@@ -97,13 +97,60 @@ export default function Home() {
     }
   }, [activeSection, animationsStarted]);
 
+  // Hero section görünürlüğünü takip et - tamamen kaybolunca header profil göster
+  useEffect(() => {
+    if (activeSection !== 'about' || !heroSectionRef.current) {
+      setShowHeaderProfile(false);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Hero section tamamen ekrandan çıkınca (isIntersecting false) header profil göster
+        setShowHeaderProfile(!entry.isIntersecting);
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0 // Hero section tamamen kaybolunca tetikle
+      }
+    );
+
+    observer.observe(heroSectionRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [activeSection]);
+
   const renderContent = () => {
     switch (activeSection) {
       case 'about':
         return (
           <div className="space-y-8">
+            {/* Mobile Hero Section - sadece mobile'da görünür */}
+            <div className="lg:hidden" ref={heroSectionRef}>
+              <div className="flex flex-col items-center text-center mb-8 py-8">
+                <div className="mb-6">
+                  <img 
+                    src="/profile.jpg" 
+                    alt="Melih Arık" 
+                    className="w-32 h-32 rounded-3xl object-cover shadow-2xl border-4 border-white/30 backdrop-blur-sm"
+                  />
+                </div>
+                <div>
+                  <h1 className="text-sf-large font-sf-heavy text-slate-900 mb-2 drop-shadow-lg">Melih Arık</h1>
+                  <p className="text-sf-title2 font-sf-semibold text-slate-800 mb-3 drop-shadow-sm">Mobile Application Developer</p>
+                  <p className="text-sf-body font-sf-regular text-slate-700 flex items-center justify-center gap-2 drop-shadow-sm">
+                    <MapPin className="w-4 h-4" />
+                    Tartu, Estonia
+                  </p>
+                </div>
+              </div>
+            </div>
+
             <div>
-              <h2 className="text-sf-large font-sf-bold text-slate-900 mb-6 drop-shadow-sm">About Me</h2>
+              <h2 className="text-sf-large font-sf-bold text-slate-900 mb-6 drop-shadow-sm hidden lg:block">About Me</h2>
               <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-8 shadow-xl border border-white/30">
                 <div className="prose prose-slate max-w-none" ref={aboutTextRef}>
                   <p className="text-sf-body font-sf-regular text-slate-800 leading-relaxed mb-6 drop-shadow-sm">
@@ -376,7 +423,7 @@ export default function Home() {
           </div>
         );
 
-      case 'volunteer':
+      case 'volunteer_removed':
         return (
           <div className="space-y-8">
             <h2 className="text-sf-large font-sf-bold text-slate-900 mb-8 drop-shadow-sm">Volunteer Work & Communities</h2>
@@ -437,7 +484,7 @@ export default function Home() {
           </div>
         );
 
-      case 'certifications':
+      case 'certifications_removed':
         return (
           <div className="space-y-8">
             <h2 className="text-sf-large font-sf-bold text-slate-900 mb-8 drop-shadow-sm">Certifications & Achievements</h2>
@@ -1039,9 +1086,23 @@ export default function Home() {
         <div className="absolute top-[65%] right-[12%] w-56 h-56 bg-gradient-to-r from-teal-400 to-blue-500 rounded-full opacity-25 blur-3xl animate-float6 animation-delay-2000"></div>
       </div>
 
-      {/* Mobile Header - Sadece mobilde görünür */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white/20 backdrop-blur-xl backdrop-saturate-150 border-b border-white/30">
-        <div className="flex items-center justify-between p-4">
+      {/* Mobile Menu Button - Her zaman görünür */}
+      <div className="lg:hidden fixed top-4 right-4 z-50">
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="w-12 h-12 bg-white/30 backdrop-blur-xl backdrop-saturate-150 rounded-2xl flex items-center justify-center text-slate-800 hover:bg-white/50 transition-all shadow-xl border border-white/40"
+        >
+          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
+      </div>
+
+      {/* Mobile Header - Profil bilgisi */}
+      <div className={`lg:hidden fixed top-0 left-0 right-0 z-40 bg-white/20 backdrop-blur-xl backdrop-saturate-150 border-b border-white/30 transition-all duration-500 ${
+        activeSection === 'about' 
+          ? (showHeaderProfile ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform -translate-y-4 pointer-events-none')
+          : 'opacity-100 transform translate-y-0'
+      }`}>
+        <div className="flex items-center justify-start p-4">
           <div className="flex items-center gap-3">
             <img 
               src="/profile.jpg" 
@@ -1049,16 +1110,10 @@ export default function Home() {
               className="w-10 h-10 rounded-xl object-cover shadow-lg"
             />
             <div>
-                             <h1 className="text-sf-headline font-sf-semibold text-slate-900">Melih Arık</h1>
-               <p className="text-sf-footnote font-sf-regular text-slate-700">Mobile Application Developer</p>
+              <h1 className="text-sf-headline font-sf-semibold text-slate-900">Melih Arık</h1>
+              <p className="text-sf-footnote font-sf-regular text-slate-700">Mobile Application Developer</p>
             </div>
           </div>
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="w-10 h-10 bg-white/30 backdrop-blur-sm rounded-xl flex items-center justify-center text-slate-800 hover:bg-white/50 transition-all shadow-lg"
-          >
-            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
         </div>
       </div>
 
@@ -1217,16 +1272,14 @@ export default function Home() {
               {/* Footer */}
               <div className="pt-4 border-t border-white/20">
                 <div className="text-center space-y-2">
-                  <p className="text-sf-caption1 font-sf-regular text-slate-700 drop-shadow-sm">
-                    Built with Next.js & Tailwind CSS
-                  </p>
                   <p className="text-sf-caption1 font-sf-regular text-slate-600 drop-shadow-sm">
-                    © {new Date().getFullYear()} Melih Arık
+                    ©{new Date().getFullYear()} Melih Arık
                   </p>
                   <div className="flex items-center justify-center gap-1 text-sf-caption1 font-sf-regular text-slate-600 drop-shadow-sm">
                     <span>Made with</span>
-                    <span className="text-red-500 animate-pulse">♥</span>
-                    <span>in Turkey</span>
+                    <Heart className="w-3 h-3 text-red-500 fill-current animate-pulse" />
+                    <span>and</span>
+                    <Coffee className="w-3 h-3 text-amber-600" />
                   </div>
                 </div>
               </div>
@@ -1238,6 +1291,39 @@ export default function Home() {
         <div className="flex-1 p-4 lg:p-8 pt-20 lg:pt-8">
           <div className="max-w-4xl mx-auto lg:mx-0">
             {renderContent()}
+            
+            {/* Mobile Footer - Sadece mobile'da görünür */}
+            <div className="lg:hidden mt-12 pt-8 border-t border-white/20">
+              <div className="text-center">
+                <p className="text-sf-footnote font-sf-regular text-slate-600 mb-4 flex items-center justify-center gap-1">
+                  Made by Melih Arık with <Heart className="w-3 h-3 text-red-500 fill-current" /> and <Coffee className="w-3 h-3 text-amber-600" />
+                </p>
+                <div className="flex items-center justify-center gap-6">
+                  <a 
+                    href="https://github.com/meliharik" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center text-slate-700 hover:bg-white/30 hover:text-slate-900 transition-all"
+                  >
+                    <Github className="w-4 h-4" />
+                  </a>
+                  <a 
+                    href="https://linkedin.com/in/meliharik" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center text-slate-700 hover:bg-white/30 hover:text-slate-900 transition-all"
+                  >
+                    <Linkedin className="w-4 h-4" />
+                  </a>
+                  <a 
+                    href="mailto:melih@example.com" 
+                    className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center text-slate-700 hover:bg-white/30 hover:text-slate-900 transition-all"
+                  >
+                    <Mail className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
