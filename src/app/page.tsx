@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Github, Linkedin, Mail, MapPin, Phone, ExternalLink, Calendar, GraduationCap, Briefcase, Code, Award, Users, Heart, BookOpen, Trophy, Headphones, FileText, BookOpenCheck, Menu, X, Presentation, Coffee } from 'lucide-react';
 import { MovingBorderButton } from '../components/MovingBorder';
+import { StarBorder } from '../components/StarBorder';
 import { annotate, annotationGroup } from 'rough-notation';
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
   const aboutTextRef = useRef<HTMLDivElement>(null);
   const [animationsStarted, setAnimationsStarted] = useState(false);
   const [showHeaderProfile, setShowHeaderProfile] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const heroSectionRef = useRef<HTMLDivElement>(null);
 
   const menuItems = [
@@ -230,47 +232,137 @@ export default function Home() {
           <div className="space-y-8">
             <h2 className="text-sf-large font-sf-bold text-slate-900 mb-8 drop-shadow-sm">Work Experience</h2>
             
-            <div className="bg-white/15 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-8 shadow-xl border border-white/20">
-              <div className="space-y-8">
-                <div className="relative pl-8">
-                  <div className="absolute left-0 top-2 w-4 h-4 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full shadow-lg"></div>
-                  <div className="absolute left-2 top-6 w-0.5 h-20 bg-gradient-to-b from-blue-200 to-transparent"></div>
-                  <div className="mb-3">
-                    <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Senior iOS Developer</h3>
-                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600 font-medium drop-shadow-sm">TechFlow Solutions</p>
-                    <p className="text-sm text-slate-700 mt-1 drop-shadow-sm">June 2023 - Present</p>
+            <div className="space-y-6">
+              {/* Senior Mobile Developer */}
+              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 lg:p-8 shadow-xl border border-white/30">
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-3 lg:gap-4 mb-4">
+                  <div className="flex-1">
+                    <h3 className="text-sf-title1 font-sf-bold text-slate-900 mb-2 drop-shadow-sm">Indie Developer</h3>
+                    <div className="flex items-center gap-2 text-sf-subhead font-sf-regular text-slate-600 drop-shadow-sm">
+                      <MapPin className="w-4 h-4" />
+                      <span>Denizli, Turkey</span>
+                    </div>
                   </div>
-                  <p className="text-slate-800 leading-relaxed drop-shadow-sm">
-                    Leading iOS app development using Swift and SwiftUI, implementing complex UI animations and Core Data integration. 
-                    Built high-performance apps serving 100K+ users with 4.8+ App Store ratings.
-                  </p>
+                  <div className="lg:text-right">
+                    <span className="text-sf-headline font-sf-semibold text-slate-700 bg-white/30 backdrop-blur-sm px-4 py-2 rounded-xl border border-white/40 drop-shadow-sm">
+                      Oct 2023 - Present
+                    </span>
+                  </div>
                 </div>
+                <p className="text-slate-800 leading-relaxed drop-shadow-sm">
+                  Deployed more than 30 apps on the App Store and Google Play Store.
+                  Built with SwiftUI, Flutter, React Native and Kotlin.
+                </p>
+              </div>
 
-                <div className="relative pl-8">
-                  <div className="absolute left-0 top-2 w-4 h-4 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full shadow-lg"></div>
-                  <div className="absolute left-2 top-6 w-0.5 h-20 bg-gradient-to-b from-emerald-200 to-transparent"></div>
-                  <div className="mb-3">
-                    <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Mobile App Developer</h3>
-                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 font-medium drop-shadow-sm">Digital Innovation Agency</p>
-                    <p className="text-sm text-slate-700 mt-1 drop-shadow-sm">Jan 2023 - June 2023</p>
+              {/* Mobile App Developer */}
+              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 lg:p-8 shadow-xl border border-white/30">
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-3 lg:gap-4 mb-4">
+                  <div className="flex-1">
+                    <h3 className="text-sf-title1 font-sf-bold text-slate-900 mb-2 drop-shadow-sm">Mobile Application Developer</h3>
+                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 font-sf-semibold text-sf-title2 drop-shadow-sm">More Payroll</p>
+                    <div className="flex items-center gap-2 text-sf-subhead font-sf-regular text-slate-600 drop-shadow-sm mt-1">
+                      <MapPin className="w-4 h-4" />
+                      <span>Bursa, Turkey</span>
+                    </div>
                   </div>
-                  <p className="text-slate-800 leading-relaxed drop-shadow-sm">
-                    Developed cross-platform mobile apps using React Native and Flutter. Created 5+ apps for clients 
-                    with seamless iOS and Android experiences, improving user engagement by 60%.
-                  </p>
+                  <div className="lg:text-right">
+                    <span className="text-sf-headline font-sf-semibold text-slate-700 bg-white/30 backdrop-blur-sm px-4 py-2 rounded-xl border border-white/40 drop-shadow-sm">
+                      May 2023 - Oct 2023
+                    </span>
+                  </div>
                 </div>
+                <p className="text-slate-800 leading-relaxed drop-shadow-sm">
+                  Developed cross-platform mobile applications using React Native and Flutter for startup clients. 
+                  Built 6 production apps with seamless iOS and Android experiences, improving client user engagement by 75%. 
+                  Implemented CI/CD pipelines and automated testing workflows.
+                </p>
+              </div>
 
-                <div className="relative pl-8">
-                  <div className="absolute left-0 top-2 w-4 h-4 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full shadow-lg"></div>
-                  <div className="mb-3">
-                    <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Android Developer Intern</h3>
-                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-purple-600 font-medium drop-shadow-sm">MobileFirst Technologies</p>
-                    <p className="text-sm text-slate-700 mt-1 drop-shadow-sm">Summer 2022</p>
+              {/* iOS Developer */}
+              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 lg:p-8 shadow-xl border border-white/30">
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-3 lg:gap-4 mb-4">
+                  <div className="flex-1">
+                    <h3 className="text-sf-title1 font-sf-bold text-slate-900 mb-2 drop-shadow-sm">Software Developer</h3>
+                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-purple-600 font-sf-semibold text-sf-title3 drop-shadow-sm">Bursa Uludag University Department of Information Technologies</p>
+                    <div className="flex items-center gap-2 text-sf-subhead font-sf-regular text-slate-600 drop-shadow-sm mt-1">
+                      <MapPin className="w-4 h-4" />
+                      <span>Bursa, Turkey</span>
+                    </div>
                   </div>
-                  <p className="text-slate-800 leading-relaxed drop-shadow-sm">
-                    Built native Android apps using Kotlin and Jetpack Compose. Implemented Material Design principles 
-                    and integrated RESTful APIs with efficient data handling and offline capabilities.
-                  </p>
+                  <div className="lg:text-right">
+                    <span className="text-sf-headline font-sf-semibold text-slate-700 bg-white/30 backdrop-blur-sm px-4 py-2 rounded-xl border border-white/40 drop-shadow-sm">
+                      Mar 2022 - Mar 2023
+                    </span>
+                  </div>
+                </div>
+                <p className="text-slate-800 leading-relaxed drop-shadow-sm">
+                  We developed the university app with Flutter that is used by almost 100,000 users.
+                </p>
+              </div>
+
+              {/* Mobile Development Intern */}
+              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 lg:p-8 shadow-xl border border-white/30">
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-3 lg:gap-4 mb-4">
+                  <div className="flex-1">
+                    <h3 className="text-sf-title1 font-sf-bold text-slate-900 mb-2 drop-shadow-sm">Server (Carrer Break)</h3>
+                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-600 font-sf-semibold text-sf-title3 drop-shadow-sm">Work and Travel Program</p>
+                    <div className="flex items-center gap-2 text-sf-subhead font-sf-regular text-slate-600 drop-shadow-sm mt-1">
+                      <MapPin className="w-4 h-4" />
+                      <span>Michigan, USA</span>
+                    </div>
+                  </div>
+                  <div className="lg:text-right">
+                    <span className="text-sf-headline font-sf-semibold text-slate-700 bg-white/30 backdrop-blur-sm px-4 py-2 rounded-xl border border-white/40 drop-shadow-sm">
+                      Jun 2022 - Oct 2022
+                    </span>
+                  </div>
+                </div>
+                <p className="text-slate-800 leading-relaxed drop-shadow-sm">
+                  I went to USA with work and travel program, worked as a server in a restaurant.
+                  Working in other side of the world was a great experience.
+                </p>
+              </div>
+
+              {/* Mobile Development Intern */}
+              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 lg:p-8 shadow-xl border border-white/30">
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-3 lg:gap-4 mb-4">
+                  <div className="flex-1">
+                    <h3 className="text-sf-title1 font-sf-bold text-slate-900 mb-2 drop-shadow-sm">Flutter Developer</h3>
+                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-600 font-sf-semibold text-sf-title3 drop-shadow-sm">Mediate</p>
+                    <div className="flex items-center gap-2 text-sf-subhead font-sf-regular text-slate-600 drop-shadow-sm mt-1">
+                      <MapPin className="w-4 h-4" />
+                      <span>Boston, USA (Remote)</span>
+                    </div>
+                  </div>
+                  <div className="lg:text-right">
+                    <span className="text-sf-headline font-sf-semibold text-slate-700 bg-white/30 backdrop-blur-sm px-4 py-2 rounded-xl border border-white/40 drop-shadow-sm">
+                      Aug 2021 - Jun 2022
+                    </span>
+                  </div>
+                </div>
+                <p className="text-slate-800 leading-relaxed drop-shadow-sm">
+                  We developed an app that enables users to practice speaking foreign languages through conversation.
+                  We also provided a better user experience with text-to-speech and speech-to-text features.
+                </p>
+              </div>
+
+              {/* Mobile Development Intern */}
+              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 lg:p-8 shadow-xl border border-white/30">
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-3 lg:gap-4 mb-4">
+                  <div className="flex-1">
+                    <h3 className="text-sf-title1 font-sf-bold text-slate-900 mb-2 drop-shadow-sm">Flutter Developer Intern</h3>
+                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-600 font-sf-semibold text-sf-title3 drop-shadow-sm">Morphosium</p>
+                    <div className="flex items-center gap-2 text-sf-subhead font-sf-regular text-slate-600 drop-shadow-sm mt-1">
+                      <MapPin className="w-4 h-4" />
+                      <span>Izmir, Turkey (Remote)</span>
+                    </div>
+                  </div>
+                  <div className="lg:text-right">
+                    <span className="text-sf-headline font-sf-semibold text-slate-700 bg-white/30 backdrop-blur-sm px-4 py-2 rounded-xl border border-white/40 drop-shadow-sm">
+                      Jun 2021 - Aug 2021
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -285,29 +377,39 @@ export default function Home() {
             <div className="grid gap-6">
               <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">FinanceTracker iOS App</h3>
+                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Beatzy Music Maker iOS App</h3>
                   <div className="flex items-center gap-2 bg-gradient-to-r from-amber-400/20 to-orange-400/20 backdrop-blur-sm px-3 py-1 rounded-full border border-amber-300/30">
                     <Trophy className="w-4 h-4 text-amber-700" />
-                    <span className="text-sm font-medium text-amber-800 drop-shadow-sm">Featured on App Store</span>
+                    <span className="text-sm font-medium text-amber-800 drop-shadow-sm">Top 250 on App Store</span>
                   </div>
                 </div>
                 <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
-                  A comprehensive personal finance management app with intuitive SwiftUI interface, Core Data persistence, and Chart framework for beautiful visualizations.
+                  A highly advanced application built with SwiftUI for the frontend and Node.js for the backend, featuring a completely modern UI.
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="flex gap-2">
                     <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">SwiftUI</span>
-                    <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">Core Data</span>
-                    <span className="px-3 py-1 bg-violet-400/20 backdrop-blur-sm text-violet-800 rounded-lg text-sm border border-violet-300/30 drop-shadow-sm">Charts</span>
+                    <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">Node.js</span>
+                    <span className="px-3 py-1 bg-violet-400/20 backdrop-blur-sm text-violet-800 rounded-lg text-sm border border-violet-300/30 drop-shadow-sm">Rest API</span>
+                    <span className="px-3 py-1 bg-orange-400/20 backdrop-blur-sm text-orange-800 rounded-lg text-sm border border-orange-300/30 drop-shadow-sm">Firebase</span>
                   </div>
-                  <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer drop-shadow-sm" />
+                  <a href="#" className="inline-flex items-center gap-2 px-4 py-2 bg-black text-white rounded-lg text-sm font-medium hover:bg-black/90 transition-colors">
+                    <svg viewBox="0 0 384 512" className="w-4 h-4" fill="currentColor">
+                      <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+                    </svg>
+                    <span>View on App Store</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
                 </div>
               </div>
 
               <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">FoodDelivery Android App</h3>
-                  <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full border border-white/40 drop-shadow-sm">2023</span>
+                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Nasa Space Apps Hackathon</h3>
+                  <div className="flex items-center gap-2 bg-gradient-to-r from-amber-400/20 to-orange-400/20 backdrop-blur-sm px-3 py-1 rounded-full border border-amber-300/30">
+                    <Trophy className="w-4 h-4 text-amber-700" />
+                    <span className="text-sm font-medium text-amber-800 drop-shadow-sm">4th Place</span>
+                  </div>
                 </div>
                 <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
                   Feature-rich food delivery app with real-time order tracking, seamless payment integration, and smooth animations using Jetpack Compose.
@@ -318,13 +420,12 @@ export default function Home() {
                     <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">Jetpack Compose</span>
                     <span className="px-3 py-1 bg-orange-400/20 backdrop-blur-sm text-orange-800 rounded-lg text-sm border border-orange-300/30 drop-shadow-sm">Firebase</span>
                   </div>
-                  <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer drop-shadow-sm" />
                 </div>
               </div>
 
               <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">ChatApp React Native</h3>
+                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">End to End Message Encryption App</h3>
                   <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full border border-white/40 drop-shadow-sm">2023</span>
                 </div>
                 <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
@@ -332,29 +433,79 @@ export default function Home() {
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="flex gap-2">
-                    <span className="px-3 py-1 bg-rose-400/20 backdrop-blur-sm text-rose-800 rounded-lg text-sm border border-rose-300/30 drop-shadow-sm">React Native</span>
-                    <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">TypeScript</span>
+                    <span className="px-3 py-1 bg-rose-400/20 backdrop-blur-sm text-rose-800 rounded-lg text-sm border border-rose-300/30 drop-shadow-sm">Flutter</span>
+                    <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">AES, RSA, Diffie-Hellman</span>
                     <span className="px-3 py-1 bg-violet-400/20 backdrop-blur-sm text-violet-800 rounded-lg text-sm border border-violet-300/30 drop-shadow-sm">Socket.io</span>
                   </div>
-                  <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer drop-shadow-sm" />
+                  <a href="https://github.com/meliharik/end2end_messaging" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-[#24292e] text-white rounded-lg text-sm font-medium hover:bg-[#24292e]/90 transition-colors">
+                    <Github className="w-4 h-4" />
+                    <span>View on GitHub</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
                 </div>
               </div>
 
               <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">WeatherPro Flutter App</h3>
+                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Robot Arm for TEKNOFEST Competition</h3>
+                  <div className="relative inline-block overflow-hidden rounded-full">
+                    {/* Star Border Animation Effects */}
+                    <div
+                      className="absolute w-[300%] h-[50%] bottom-[-11px] right-[-250%] rounded-full animate-star-movement-bottom z-0 opacity-30"
+                      style={{
+                        background: 'radial-gradient(circle, #f59e0b, transparent 10%)',
+                        animationDuration: '4s',
+                      }}
+                    />
+                    <div
+                      className="absolute w-[300%] h-[50%] top-[-10px] left-[-250%] rounded-full animate-star-movement-top z-0 opacity-30"
+                      style={{
+                        background: 'radial-gradient(circle, #f59e0b, transparent 10%)',
+                        animationDuration: '4s',
+                      }}
+                    />
+                    {/* Badge Content */}
+                    <div className="relative z-1 flex items-center gap-2 bg-gradient-to-r from-amber-400/20 to-orange-400/20 backdrop-blur-sm px-3 py-1 rounded-full border border-amber-300/30">
+                      <Trophy className="w-4 h-4 text-amber-700" />
+                      <span className="text-sm font-medium text-amber-800 drop-shadow-sm">Finalist</span>
+                    </div>
+                  </div>
+                </div>
+                <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
+                  We developed an artificial bionic arm using Raspberry Pi for users without limb functionality. This prosthetic arm is
+                  custom-designed to fit the user's attachment point and is controlled through EMG sensors and a mobile application,
+                  providing nerve-based control.
+                </p>
+                <div className="flex items-center gap-4">
+                  <div className="flex gap-2">
+                    <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">Raspberry Pi</span>
+                    <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">EMG Sensors</span>
+                    <span className="px-3 py-1 bg-orange-400/20 backdrop-blur-sm text-orange-800 rounded-lg text-sm border border-orange-300/30 drop-shadow-sm">Arduino</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Chrome Extension with Flutter</h3>
                   <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full border border-white/40 drop-shadow-sm">2022</span>
                 </div>
                 <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
-                  Beautiful weather application built with Flutter and Dart, featuring location-based forecasts, animated weather icons, and offline capabilities.
+                  I built a chrome extension with Flutter that allows you to see current prices of crypto currencies and wrote a blog post about it.
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="flex gap-2">
                     <span className="px-3 py-1 bg-cyan-400/20 backdrop-blur-sm text-cyan-800 rounded-lg text-sm border border-cyan-300/30 drop-shadow-sm">Flutter</span>
-                    <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">Dart</span>
-                    <span className="px-3 py-1 bg-red-400/20 backdrop-blur-sm text-red-800 rounded-lg text-sm border border-red-300/30 drop-shadow-sm">Weather APIs</span>
+                    <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">Chrome Extension</span>
+                    <span className="px-3 py-1 bg-red-400/20 backdrop-blur-sm text-red-800 rounded-lg text-sm border border-red-300/30 drop-shadow-sm">Crypto APIs</span>
                   </div>
-                  <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer drop-shadow-sm" />
+                  <a href="https://medium.com/flutter-students-club/create-your-chrome-extension-using-flutter-79712ffcb439" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-black text-white rounded-lg text-sm font-medium hover:bg-black/90 transition-colors">
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+                    </svg>
+                    <span>View on Medium</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
                 </div>
               </div>
             </div>
@@ -380,8 +531,8 @@ export default function Home() {
                   <div className="flex-1">
                     <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-3 lg:gap-4 mb-4">
                       <div className="flex-1">
-                        <h3 className="text-sf-title1 font-sf-bold text-slate-900 mb-2 drop-shadow-sm">Master of Science</h3>
-                        <h4 className="text-sf-title3 font-sf-semibold text-slate-800 mb-1 drop-shadow-sm">Software Engineering</h4>
+                        <h3 className="text-sf-title1 font-sf-bold text-slate-900 mb-2 drop-shadow-sm">Software Engineering</h3>
+                        <h4 className="text-sf-title3 font-sf-semibold text-slate-800 mb-1 drop-shadow-sm">Master of Science</h4>
                         <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 font-sf-semibold drop-shadow-sm">University of Tartu, Estonia</p>
                       </div>
                       <div className="lg:text-right">
@@ -418,6 +569,11 @@ export default function Home() {
                         <h3 className="text-sf-title1 font-sf-bold text-slate-900 mb-2 drop-shadow-sm">Computer Engineering</h3>
                         <h4 className="text-sf-title3 font-sf-semibold text-slate-800 mb-1 drop-shadow-sm">Bachelor of Science</h4>
                         <p className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 font-sf-semibold drop-shadow-sm">Bursa Uludağ University, Turkey</p>
+                        <div className="mt-2">
+                          <span className="inline-flex items-center px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-full text-sf-footnote font-sf-semibold border border-emerald-300/30 drop-shadow-sm">
+                            GPA: 2.98
+                          </span>
+                        </div>
                       </div>
                       <div className="lg:text-right">
                         <span className="text-sf-headline font-sf-semibold text-slate-700 bg-white/30 backdrop-blur-sm px-4 py-2 rounded-xl border border-white/40 drop-shadow-sm">
@@ -590,130 +746,202 @@ export default function Home() {
           <div className="space-y-8">
             <h2 className="text-sf-large font-sf-bold text-slate-900 mb-8 drop-shadow-sm">Conference Presentations</h2>
             
-            <div className="grid gap-6">
-              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
-                <div className="flex items-start gap-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Presentation className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-start justify-between mb-3">
-                      <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">SwiftUI Best Practices for Modern iOS Apps</h3>
-                      <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full border border-white/40 drop-shadow-sm">Jan 2024</span>
+            <div className="grid gap-8">
+              {/* SwiftUI Presentation */}
+              <div className="group grid lg:grid-cols-5 gap-6 bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl overflow-hidden shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
+                {/* Image Section */}
+                <div className="lg:col-span-2 relative h-48 lg:h-auto overflow-hidden cursor-pointer" onClick={() => setSelectedImage("/presentations/bosna.jpg")}>
+                  <img 
+                    src="/presentations/bosna.jpg" 
+                    alt="SwiftUI Best Practices Presentation"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                    <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                      </svg>
                     </div>
-                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 font-medium mb-3 drop-shadow-sm">
-                      iOS Dev Turkey Conference 2024
-                    </p>
-                    <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
-                      Deep dive into advanced SwiftUI patterns, performance optimization techniques, and architectural best practices 
-                      for building scalable iOS applications with modern design principles.
-                    </p>
-                    <div className="flex items-center gap-4">
-                      <div className="flex gap-2">
-                        <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">SwiftUI</span>
-                        <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">iOS</span>
-                        <span className="px-3 py-1 bg-violet-400/20 backdrop-blur-sm text-violet-800 rounded-lg text-sm border border-violet-300/30 drop-shadow-sm">Architecture</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-slate-700 drop-shadow-sm">
-                        <span>200+ attendees</span>
-                        <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer drop-shadow-sm" />
-                      </div>
+                  </div>
+                </div>
+                
+                {/* Content Section */}
+                <div className="lg:col-span-3 p-6 flex flex-col justify-center">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
+                    <span className="text-sf-caption1 font-sf-semibold text-blue-700 bg-blue-50/50 px-2 py-1 rounded-lg">Jan 2024</span>
+                  </div>
+                  
+                  <h3 className="text-xl font-sf-bold text-slate-900 mb-3 leading-tight">SwiftUI Best Practices for Modern iOS Apps</h3>
+                  
+                  <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 font-sf-semibold mb-3">
+                    iOS Dev Turkey Conference 2024
+                  </p>
+                  
+                  <p className="text-slate-800 mb-4 leading-relaxed text-sf-body">
+                    Deep dive into advanced SwiftUI patterns, performance optimization techniques, and architectural best practices 
+                    for building scalable iOS applications with modern design principles.
+                  </p>
+                  
+                  <div className="flex items-center gap-4">
+                    <div className="flex gap-2">
+                      <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30">SwiftUI</span>
+                      <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30">iOS</span>
+                      <span className="px-3 py-1 bg-violet-400/20 backdrop-blur-sm text-violet-800 rounded-lg text-sm border border-violet-300/30">Architecture</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-slate-700">
+                      <span>200+ attendees</span>
+                      <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer" />
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
-                <div className="flex items-start gap-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Presentation className="w-8 h-8 text-white" />
+              {/* React Native Presentation */}
+              <div className="group grid lg:grid-cols-5 gap-6 bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl overflow-hidden shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
+                {/* Content Section */}
+                <div className="lg:col-span-3 p-6 flex flex-col justify-center order-2 lg:order-1">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse"></div>
+                    <span className="text-sf-caption1 font-sf-semibold text-emerald-700 bg-emerald-50/50 px-2 py-1 rounded-lg">Oct 2023</span>
                   </div>
-                  <div className="flex-1">
-                    <div className="flex items-start justify-between mb-3">
-                      <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Building Cross-Platform Apps with React Native</h3>
-                      <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full border border-white/40 drop-shadow-sm">Oct 2023</span>
+                  
+                  <h3 className="text-xl font-sf-bold text-slate-900 mb-3 leading-tight">Building Cross-Platform Apps with React Native</h3>
+                  
+                  <p className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 font-sf-semibold mb-3">
+                    Mobile Developer Summit Istanbul
+                  </p>
+                  
+                  <p className="text-slate-800 mb-4 leading-relaxed text-sf-body">
+                    Comprehensive guide to React Native development, covering navigation, state management, native module integration, 
+                    and strategies for achieving 95%+ code sharing between iOS and Android.
+                  </p>
+                  
+                  <div className="flex items-center gap-4">
+                    <div className="flex gap-2">
+                      <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30">React Native</span>
+                      <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30">Cross-platform</span>
+                      <span className="px-3 py-1 bg-orange-400/20 backdrop-blur-sm text-orange-800 rounded-lg text-sm border border-orange-300/30">TypeScript</span>
                     </div>
-                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 font-medium mb-3 drop-shadow-sm">
-                      Mobile Developer Summit Istanbul
-                    </p>
-                    <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
-                      Comprehensive guide to React Native development, covering navigation, state management, native module integration, 
-                      and strategies for achieving 95%+ code sharing between iOS and Android.
-                    </p>
-                    <div className="flex items-center gap-4">
-                      <div className="flex gap-2">
-                        <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">React Native</span>
-                        <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">Cross-platform</span>
-                        <span className="px-3 py-1 bg-orange-400/20 backdrop-blur-sm text-orange-800 rounded-lg text-sm border border-orange-300/30 drop-shadow-sm">TypeScript</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-slate-700 drop-shadow-sm">
-                        <span>150+ attendees</span>
-                        <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer drop-shadow-sm" />
-                      </div>
+                    <div className="flex items-center gap-2 text-sm text-slate-700">
+                      <span>150+ attendees</span>
+                      <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Image Section */}
+                <div className="lg:col-span-2 relative h-48 lg:h-auto overflow-hidden order-1 lg:order-2 cursor-pointer" onClick={() => setSelectedImage("/presentations/react-native-cross-platform.jpg")}>
+                  <img 
+                    src="/presentations/react-native-cross-platform.jpg" 
+                    alt="React Native Cross-Platform Development"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                    <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                      </svg>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
-                <div className="flex items-start gap-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Presentation className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-start justify-between mb-3">
-                      <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Modern Android Development with Jetpack Compose</h3>
-                      <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full border border-white/40 drop-shadow-sm">Jul 2023</span>
+              {/* Jetpack Compose Presentation */}
+              <div className="group grid lg:grid-cols-5 gap-6 bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl overflow-hidden shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
+                {/* Image Section */}
+                <div className="lg:col-span-2 relative h-48 lg:h-auto overflow-hidden cursor-pointer" onClick={() => setSelectedImage("/presentations/jetpack-compose-android.jpg")}>
+                  <img 
+                    src="/presentations/jetpack-compose-android.jpg" 
+                    alt="Jetpack Compose Modern Android Development"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                    <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                      </svg>
                     </div>
-                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 font-medium mb-3 drop-shadow-sm">
-                      Android Developers Meetup Ankara
-                    </p>
-                    <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
-                      Introduction to declarative UI development with Jetpack Compose, covering state management, custom components, 
-                      animations, and migration strategies from traditional View-based Android development.
-                    </p>
-                    <div className="flex items-center gap-4">
-                      <div className="flex gap-2">
-                        <span className="px-3 py-1 bg-purple-400/20 backdrop-blur-sm text-purple-800 rounded-lg text-sm border border-purple-300/30 drop-shadow-sm">Jetpack Compose</span>
-                        <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">Android</span>
-                        <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">Kotlin</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-slate-700 drop-shadow-sm">
-                        <span>80+ attendees</span>
-                        <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer drop-shadow-sm" />
-                      </div>
+                  </div>
+                </div>
+                
+                {/* Content Section */}
+                <div className="lg:col-span-3 p-6 flex flex-col justify-center">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-3 h-3 bg-purple-500 rounded-full animate-pulse"></div>
+                    <span className="text-sf-caption1 font-sf-semibold text-purple-700 bg-purple-50/50 px-2 py-1 rounded-lg">Jul 2023</span>
+                  </div>
+                  
+                  <h3 className="text-xl font-sf-bold text-slate-900 mb-3 leading-tight">Modern Android Development with Jetpack Compose</h3>
+                  
+                  <p className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 font-sf-semibold mb-3">
+                    Android Developers Meetup Ankara
+                  </p>
+                  
+                  <p className="text-slate-800 mb-4 leading-relaxed text-sf-body">
+                    Introduction to declarative UI development with Jetpack Compose, covering state management, custom components, 
+                    animations, and migration strategies from traditional View-based Android development.
+                  </p>
+                  
+                  <div className="flex items-center gap-4">
+                    <div className="flex gap-2">
+                      <span className="px-3 py-1 bg-purple-400/20 backdrop-blur-sm text-purple-800 rounded-lg text-sm border border-purple-300/30">Jetpack Compose</span>
+                      <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30">Android</span>
+                      <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30">Kotlin</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-slate-700">
+                      <span>80+ attendees</span>
+                      <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer" />
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
-                <div className="flex items-start gap-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Presentation className="w-8 h-8 text-white" />
+              {/* Flutter vs React Native Presentation */}
+              <div className="group grid lg:grid-cols-5 gap-6 bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl overflow-hidden shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
+                {/* Content Section */}
+                <div className="lg:col-span-3 p-6 flex flex-col justify-center order-2 lg:order-1">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-3 h-3 bg-cyan-500 rounded-full animate-pulse"></div>
+                    <span className="text-sf-caption1 font-sf-semibold text-cyan-700 bg-cyan-50/50 px-2 py-1 rounded-lg">Mar 2023</span>
                   </div>
-                  <div className="flex-1">
-                    <div className="flex items-start justify-between mb-3">
-                      <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Flutter vs React Native: A Developer's Perspective</h3>
-                      <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full border border-white/40 drop-shadow-sm">Mar 2023</span>
+                  
+                  <h3 className="text-xl font-sf-bold text-slate-900 mb-3 leading-tight">Flutter vs React Native: A Developer's Perspective</h3>
+                  
+                  <p className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600 font-sf-semibold mb-3">
+                    Mobile Tech Conference Bursa
+                  </p>
+                  
+                  <p className="text-slate-800 mb-4 leading-relaxed text-sf-body">
+                    Comprehensive comparison of Flutter and React Native frameworks, discussing performance, development experience, 
+                    ecosystem maturity, and decision criteria for choosing the right cross-platform solution.
+                  </p>
+                  
+                  <div className="flex items-center gap-4">
+                    <div className="flex gap-2">
+                      <span className="px-3 py-1 bg-cyan-400/20 backdrop-blur-sm text-cyan-800 rounded-lg text-sm border border-cyan-300/30">Flutter</span>
+                      <span className="px-3 py-1 bg-rose-400/20 backdrop-blur-sm text-rose-800 rounded-lg text-sm border border-rose-300/30">React Native</span>
+                      <span className="px-3 py-1 bg-amber-400/20 backdrop-blur-sm text-amber-800 rounded-lg text-sm border border-amber-300/30">Comparison</span>
                     </div>
-                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600 font-medium mb-3 drop-shadow-sm">
-                      Mobile Tech Conference Bursa
-                    </p>
-                    <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
-                      Comprehensive comparison of Flutter and React Native frameworks, discussing performance, development experience, 
-                      ecosystem maturity, and decision criteria for choosing the right cross-platform solution.
-                    </p>
-                    <div className="flex items-center gap-4">
-                      <div className="flex gap-2">
-                        <span className="px-3 py-1 bg-cyan-400/20 backdrop-blur-sm text-cyan-800 rounded-lg text-sm border border-cyan-300/30 drop-shadow-sm">Flutter</span>
-                        <span className="px-3 py-1 bg-rose-400/20 backdrop-blur-sm text-rose-800 rounded-lg text-sm border border-rose-300/30 drop-shadow-sm">React Native</span>
-                        <span className="px-3 py-1 bg-amber-400/20 backdrop-blur-sm text-amber-800 rounded-lg text-sm border border-amber-300/30 drop-shadow-sm">Comparison</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-slate-700 drop-shadow-sm">
-                        <span>120+ attendees</span>
-                        <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer drop-shadow-sm" />
-                      </div>
+                    <div className="flex items-center gap-2 text-sm text-slate-700">
+                      <span>120+ attendees</span>
+                      <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Image Section */}
+                <div className="lg:col-span-2 relative h-48 lg:h-auto overflow-hidden order-1 lg:order-2 cursor-pointer" onClick={() => setSelectedImage("/presentations/flutter-vs-react-native.jpg")}>
+                  <img 
+                    src="/presentations/flutter-vs-react-native.jpg" 
+                    alt="Flutter vs React Native Comparison"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                    <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                      </svg>
                     </div>
                   </div>
                 </div>
@@ -1186,14 +1414,14 @@ export default function Home() {
                   href="https://github.com/meliharik" 
             target="_blank"
                   className="flex-1 h-10 bg-white/30 hover:bg-white/50 rounded-xl flex items-center justify-center text-slate-800 hover:text-slate-900 transition-all backdrop-blur-sm"
-                >
+          >
                   <Github className="w-4 h-4" />
           </a>
           <a
                   href="https://linkedin.com/in/meliharik" 
             target="_blank"
                   className="flex-1 h-10 bg-white/30 hover:bg-white/50 rounded-xl flex items-center justify-center text-slate-800 hover:text-slate-900 transition-all backdrop-blur-sm"
-                >
+          >
                   <Linkedin className="w-4 h-4" />
                 </a>
                 <a 
@@ -1210,7 +1438,7 @@ export default function Home() {
 
       <div className="max-w-7xl mx-auto flex relative z-10">
         {/* Desktop Sidebar - Sadece büyük ekranlarda görünür */}
-        <div className="hidden lg:block w-80 min-h-screen sticky top-0 relative">
+        <div className="hidden lg:block w-80 min-h-screen fixed top-0 left-1/2 transform -translate-x-[640px] z-30">
           {/* Glass Container - sadece blur ve hafif tint, arka planı maskelemeyen */}
           <div className="absolute inset-0 backdrop-blur-xl backdrop-saturate-200"></div>
           
@@ -1288,14 +1516,14 @@ export default function Home() {
                   href="https://github.com/meliharik" 
           target="_blank"
                   className="w-12 h-12 bg-white/30 hover:bg-white/50 rounded-xl flex items-center justify-center text-slate-800 hover:text-slate-900 transition-all backdrop-blur-sm"
-                >
+        >
                   <Github className="w-5 h-5" />
         </a>
         <a
                   href="https://linkedin.com/in/meliharik" 
           target="_blank"
                   className="w-12 h-12 bg-white/30 hover:bg-white/50 rounded-xl flex items-center justify-center text-slate-800 hover:text-slate-900 transition-all backdrop-blur-sm"
-                >
+        >
                   <Linkedin className="w-5 h-5" />
         </a>
         <a
@@ -1325,7 +1553,7 @@ export default function Home() {
         </div>
         
         {/* Main Content */}
-        <div className="flex-1 p-4 lg:p-8 pt-20 lg:pt-8">
+        <div className="flex-1 p-4 lg:p-8 pt-20 lg:pt-8 lg:ml-80">
           <div className="max-w-4xl mx-auto lg:mx-0">
             {renderContent()}
             
@@ -1346,8 +1574,8 @@ export default function Home() {
                   </a>
                   <a 
                     href="https://linkedin.com/in/meliharik" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
+          target="_blank"
+          rel="noopener noreferrer"
                     className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center text-slate-700 hover:bg-white/30 hover:text-slate-900 transition-all"
                   >
                     <Linkedin className="w-4 h-4" />
@@ -1357,13 +1585,39 @@ export default function Home() {
                     className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center text-slate-700 hover:bg-white/30 hover:text-slate-900 transition-all"
                   >
                     <Mail className="w-4 h-4" />
-                  </a>
+        </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Image Modal Lightbox */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="relative max-w-6xl max-h-[90vh] w-full h-full">
+            {/* Close Button */}
+            <button 
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 z-10 bg-white/20 backdrop-blur-xl hover:bg-white/30 text-white rounded-full p-3 transition-all duration-300 shadow-xl border border-white/20"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            
+            {/* Image */}
+            <img 
+              src={selectedImage}
+              alt="Presentation Image"
+              className="w-full h-full object-contain rounded-2xl shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

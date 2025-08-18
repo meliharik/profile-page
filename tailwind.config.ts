@@ -54,6 +54,8 @@ const config: Config = {
         'float6': 'float6 17s ease-in-out infinite',
         'pulse-custom': 'pulse-custom 3s ease-in-out infinite',
         'gradient': 'gradient 8s ease infinite',
+        'star-movement-bottom': 'star-movement-bottom linear infinite alternate',
+        'star-movement-top': 'star-movement-top linear infinite alternate',
       },
       keyframes: {
         'fade-in-up': {
@@ -118,6 +120,14 @@ const config: Config = {
           '0%': { 'background-position': '0% 50%' },
           '50%': { 'background-position': '100% 50%' },
           '100%': { 'background-position': '0% 50%' }
+        },
+        'star-movement-bottom': {
+          '0%': { transform: 'translate(0%, 0%)', opacity: '1' },
+          '100%': { transform: 'translate(-100%, 0%)', opacity: '0' },
+        },
+        'star-movement-top': {
+          '0%': { transform: 'translate(0%, 0%)', opacity: '1' },
+          '100%': { transform: 'translate(100%, 0%)', opacity: '0' },
         }
       },
       backgroundImage: {
