@@ -14,6 +14,8 @@ export default function Home() {
   const [showHeaderProfile, setShowHeaderProfile] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const heroSectionRef = useRef<HTMLDivElement>(null);
+  const [mediumPosts, setMediumPosts] = useState<any[]>([]);
+  const [loadingPosts, setLoadingPosts] = useState(false);
 
   const menuItems = [
     { id: 'about', label: 'About Me', icon: Users },
@@ -35,6 +37,30 @@ export default function Home() {
       setAnimationsStarted(false);
     }
   };
+
+  // Fetch Medium posts
+  const fetchMediumPosts = async () => {
+    setLoadingPosts(true);
+    try {
+      const response = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@melihify');
+      const data = await response.json();
+      
+      if (data.status === 'ok') {
+        setMediumPosts(data.items || []);
+      }
+    } catch (error) {
+      console.error('Error fetching Medium posts:', error);
+    } finally {
+      setLoadingPosts(false);
+    }
+  };
+
+  // Fetch posts when blogs section is accessed
+  useEffect(() => {
+    if (activeSection === 'blogs' && mediumPosts.length === 0) {
+      fetchMediumPosts();
+    }
+  }, [activeSection, mediumPosts.length]);
 
   // About section'a girince highlight animasyonlarını başlat
   useEffect(() => {
@@ -1010,107 +1036,100 @@ export default function Home() {
           <div className="space-y-8">
             <h2 className="text-sf-large font-sf-bold text-slate-900 mb-8 drop-shadow-sm">Blog Posts & Articles</h2>
             
-            <div className="grid gap-6">
-              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Privacy-Preserving Machine Learning: A Practical Guide</h3>
-                  <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full border border-white/40 drop-shadow-sm">Jan 2024</span>
-                </div>
-                <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 font-medium mb-3 drop-shadow-sm">
-                  Medium • AI & Privacy Series
-                </p>
-                <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
-                  A comprehensive guide to implementing privacy-preserving machine learning techniques, including differential privacy, 
-                  federated learning, and homomorphic encryption with practical Python examples.
-                </p>
-                <div className="flex items-center gap-4">
-                  <div className="flex gap-2">
-                    <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">Privacy</span>
-                    <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">Machine Learning</span>
-                    <span className="px-3 py-1 bg-amber-400/20 backdrop-blur-sm text-amber-800 rounded-lg text-sm border border-amber-300/30 drop-shadow-sm">12 min read</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-slate-700 drop-shadow-sm">
-                    <span>2.4K views</span>
-                    <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer drop-shadow-sm" />
+            {loadingPosts ? (
+              <div className="flex items-center justify-center py-12">
+                <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-8 shadow-xl border border-white/30">
+                  <div className="flex items-center gap-3">
+                    <div className="w-6 h-6 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+                    <span className="text-slate-800 font-medium">Loading Medium posts...</span>
                   </div>
                 </div>
               </div>
-
-              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Building Secure APIs with Zero-Knowledge Architecture</h3>
-                  <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full border border-white/40 drop-shadow-sm">Dec 2023</span>
-                </div>
-                <p className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 font-medium mb-3 drop-shadow-sm">
-                  Dev.to • Security Best Practices
-                </p>
-                <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
-                  Learn how to design and implement APIs that never see user data in plaintext, using zero-knowledge proofs 
-                  and client-side encryption to maintain privacy while providing full functionality.
-                </p>
-                <div className="flex items-center gap-4">
-                  <div className="flex gap-2">
-                    <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">Security</span>
-                    <span className="px-3 py-1 bg-violet-400/20 backdrop-blur-sm text-violet-800 rounded-lg text-sm border border-violet-300/30 drop-shadow-sm">API Design</span>
-                    <span className="px-3 py-1 bg-amber-400/20 backdrop-blur-sm text-amber-800 rounded-lg text-sm border border-amber-300/30 drop-shadow-sm">8 min read</span>
+            ) : (
+              <div className="grid gap-8">
+                {mediumPosts.length > 0 ? (
+                  mediumPosts.slice(-2).reverse().map((post, index) => {
+                    const publishDate = new Date(post.pubDate).toLocaleDateString('en-US', { 
+                      year: 'numeric', 
+                      month: 'short' 
+                    });
+                    
+                    // Extract plain text from HTML content
+                    const description = post.description?.replace(/<[^>]*>/g, '').substring(0, 200) + '...';
+                    
+                    // Extract reading time (if available in content)
+                    const readingTime = Math.ceil(post.content?.length / 1000) || '5';
+                    
+                    return (
+                      <div key={index} className="group grid lg:grid-cols-5 gap-6 bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl overflow-hidden shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
+                        {/* Image Section */}
+                        <div className={`lg:col-span-2 relative h-48 lg:h-auto overflow-hidden ${index % 2 === 0 ? 'order-1' : 'order-2 lg:order-2'}`}>
+                          <img 
+                            src={post.description?.match(/<img[^>]+src="([^">]+)"/)?.[1] || 'https://via.placeholder.com/400x200/00ab6b/ffffff?text=Medium+Article'} 
+                            alt={post.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).src = 'https://via.placeholder.com/400x200/00ab6b/ffffff?text=Medium+Article';
+                            }}
+                          />
+                          <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                            <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        {/* Content Section */}
+                        <div className={`lg:col-span-3 p-6 flex flex-col justify-center ${index % 2 === 0 ? 'order-2' : 'order-1 lg:order-1'}`}>
+                          <div className="flex items-center gap-3 mb-4">
+                            <div className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse"></div>
+                            <span className="text-sf-caption1 font-sf-semibold text-emerald-700 bg-emerald-50/50 px-2 py-1 rounded-lg">{publishDate}</span>
+                          </div>
+                          
+                          <h3 className="text-xl font-sf-bold text-slate-900 mb-3 leading-tight line-clamp-2">
+                            {post.title}
+                          </h3>
+                          
+                          <p className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 font-sf-semibold mb-3">
+                            Medium • @melihify
+                          </p>
+                          
+                          <p className="text-slate-800 mb-4 leading-relaxed text-sf-body line-clamp-3">
+                            {description}
+                          </p>
+                          
+                          <div className="space-y-4">
+                            <div className="flex flex-wrap gap-2">
+                              {post.categories?.slice(0, 2).map((category: string, catIndex: number) => (
+                                <span key={catIndex} className="px-2 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-md text-xs border border-emerald-300/30 capitalize">
+                                  {category}
+                                </span>
+                              ))}
+                              <span className="px-2 py-1 bg-amber-400/20 backdrop-blur-sm text-amber-800 rounded-md text-xs border border-amber-300/30">{readingTime} min read</span>
+                            </div>
+                            <div className="flex items-center gap-3">
+                              <span className="text-sm text-slate-700">Read on</span>
+                              <a href={post.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-3 py-1.5 rounded-lg text-sm font-medium transition-colors">
+                                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                                  <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75S24 8.83 24 12z"/>
+                                </svg>
+                                Medium
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })
+                ) : (
+                  <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-8 shadow-xl border border-white/30 text-center">
+                    <p className="text-slate-800 font-medium">No blog posts found. Please check back later!</p>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-slate-700 drop-shadow-sm">
-                    <span>1.8K views</span>
-                    <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer drop-shadow-sm" />
-                  </div>
-                </div>
+                )}
               </div>
-
-              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">My Journey to NASA Space Apps Challenge Success</h3>
-                  <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full border border-white/40 drop-shadow-sm">Nov 2023</span>
-                </div>
-                <p className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 font-medium mb-3 drop-shadow-sm">
-                  Personal Blog • Competition Stories
-                </p>
-                <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
-                  A behind-the-scenes look at our 2nd place NASA Space Apps project, from ideation to implementation, 
-                  including the technical challenges we faced and lessons learned along the way.
-                </p>
-                <div className="flex items-center gap-4">
-                  <div className="flex gap-2">
-                    <span className="px-3 py-1 bg-purple-400/20 backdrop-blur-sm text-purple-800 rounded-lg text-sm border border-purple-300/30 drop-shadow-sm">Hackathon</span>
-                    <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">Space Tech</span>
-                    <span className="px-3 py-1 bg-amber-400/20 backdrop-blur-sm text-amber-800 rounded-lg text-sm border border-amber-300/30 drop-shadow-sm">6 min read</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-slate-700 drop-shadow-sm">
-                    <span>3.1K views</span>
-                    <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer drop-shadow-sm" />
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">The Future of AI in Turkey: Opportunities and Challenges</h3>
-                  <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full border border-white/40 drop-shadow-sm">Oct 2023</span>
-                </div>
-                <p className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-pink-600 font-medium mb-3 drop-shadow-sm">
-                  TechCrunch Turkey • Industry Analysis
-                </p>
-                <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
-                  Analyzing the current state and future prospects of artificial intelligence in Turkey, discussing government 
-                  initiatives, startup ecosystem, and the role of universities in AI research and development.
-                </p>
-                <div className="flex items-center gap-4">
-                  <div className="flex gap-2">
-                    <span className="px-3 py-1 bg-rose-400/20 backdrop-blur-sm text-rose-800 rounded-lg text-sm border border-rose-300/30 drop-shadow-sm">AI Industry</span>
-                    <span className="px-3 py-1 bg-cyan-400/20 backdrop-blur-sm text-cyan-800 rounded-lg text-sm border border-cyan-300/30 drop-shadow-sm">Turkey</span>
-                    <span className="px-3 py-1 bg-amber-400/20 backdrop-blur-sm text-amber-800 rounded-lg text-sm border border-amber-300/30 drop-shadow-sm">10 min read</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-slate-700 drop-shadow-sm">
-                    <span>4.2K views</span>
-                    <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer drop-shadow-sm" />
-                  </div>
-                </div>
-              </div>
-            </div>
+            )}
           </div>
         );
 
@@ -1119,106 +1138,61 @@ export default function Home() {
           <div className="space-y-8">
             <h2 className="text-sf-large font-sf-bold text-slate-900 mb-8 drop-shadow-sm">Academic Papers & Research</h2>
             
-            <div className="grid gap-6">
-              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">
-                    Privacy-Preserving Federated Learning for Healthcare Applications
+            <div className="grid gap-8">
+              {/* ICETI'24 Paper */}
+              <div className="group grid lg:grid-cols-5 gap-6 bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl overflow-hidden shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
+                {/* Image Section */}
+                <div className="lg:col-span-2 relative h-48 lg:h-auto overflow-hidden cursor-pointer" onClick={() => setSelectedImage("/presentations/bosna.jpg")}>
+                  <img 
+                    src="/presentations/bosna.jpg" 
+                    alt="ICETI'24 Conference Paper"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                    <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Content Section */}
+                <div className="lg:col-span-3 p-6 flex flex-col justify-center">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
+                    <span className="text-sf-caption1 font-sf-semibold text-blue-700 bg-blue-50/50 px-2 py-1 rounded-lg">Oct 2024</span>
+                  </div>
+                  
+                  <h3 className="text-xl font-sf-bold text-slate-900 mb-3 leading-tight">
+                    ENCRYPTED MESSAGING APPLICATION COMBINING AES AND RSA ALGORITHMS
                   </h3>
-                  <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full border border-white/40 drop-shadow-sm">Under Review</span>
-                </div>
-                <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 font-medium mb-3 drop-shadow-sm">
-                  IEEE Transactions on Medical Imaging • Co-Author
-                </p>
-                <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
-                  This paper presents a novel approach to federated learning in healthcare settings, addressing privacy concerns 
-                  while maintaining model accuracy. We propose differential privacy techniques specifically adapted for medical imaging data.
-                </p>
-                <div className="flex items-center gap-4">
-                  <div className="flex gap-2">
-                    <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">Federated Learning</span>
-                    <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">Healthcare</span>
-                    <span className="px-3 py-1 bg-rose-400/20 backdrop-blur-sm text-rose-800 rounded-lg text-sm border border-rose-300/30 drop-shadow-sm">Privacy</span>
+                  
+                  <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 font-sf-semibold mb-3">
+                    ICETI'24 - International Conference on Engineering and Technology Innovation • First Author
+                  </p>
+                  
+                  <p className="text-slate-800 mb-4 leading-relaxed text-sf-body">
+                    This paper presents a secure messaging application that combines AES and RSA encryption algorithms 
+                    to provide end-to-end encryption with optimal security and performance balance.
+                  </p>
+                  
+                  <div className="flex items-center gap-4">
+                    <div className="flex gap-2">
+                      <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30">Encryption</span>
+                      <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30">AES</span>
+                      <span className="px-3 py-1 bg-violet-400/20 backdrop-blur-sm text-violet-800 rounded-lg text-sm border border-violet-300/30">RSA</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-slate-700">
+                      <span>View in</span>
+                      <a href="https://www.iceti.org/sites/default/files/iceti_2024_book_of_proceedings.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 bg-indigo-500 hover:bg-indigo-600 text-white px-3 py-1.5 rounded-lg text-sm font-medium transition-colors">
+                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                        </svg>
+                        Journal
+                      </a>
+                    </div>
                   </div>
-                  <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer drop-shadow-sm" />
-                </div>
-              </div>
-
-              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">
-                    Efficient Space Debris Detection Using Deep Learning and Satellite Imagery
-                  </h3>
-                  <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full border border-white/40 drop-shadow-sm">2024</span>
-                </div>
-                <p className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 font-medium mb-3 drop-shadow-sm">
-                  Journal of Space Technology • First Author
-                </p>
-                <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
-                  Based on our NASA Space Apps Challenge project, this paper details the machine learning algorithms and computer vision 
-                  techniques used for real-time space debris detection and collision prediction.
-                </p>
-                <div className="flex items-center gap-4">
-                  <div className="flex gap-2">
-                    <span className="px-3 py-1 bg-purple-400/20 backdrop-blur-sm text-purple-800 rounded-lg text-sm border border-purple-300/30 drop-shadow-sm">Space Technology</span>
-                    <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">Deep Learning</span>
-                    <span className="px-3 py-1 bg-cyan-400/20 backdrop-blur-sm text-cyan-800 rounded-lg text-sm border border-cyan-300/30 drop-shadow-sm">Computer Vision</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-slate-700 drop-shadow-sm">
-                    <span>DOI: 10.1000/xyz123</span>
-                    <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer drop-shadow-sm" />
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">
-                    Cryptographic Protocols for Secure Multi-Party Computation in IoT Networks
-                  </h3>
-                  <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full border border-white/40 drop-shadow-sm">2023</span>
-                </div>
-                <p className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 font-medium mb-3 drop-shadow-sm">
-                  ACM Conference on Security & Privacy • Co-Author
-                </p>
-                <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
-                  This research explores novel cryptographic approaches for enabling secure computation across distributed IoT devices 
-                  without revealing sensitive data, with applications in smart city infrastructure.
-                </p>
-                <div className="flex items-center gap-4">
-                  <div className="flex gap-2">
-                    <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">Cryptography</span>
-                    <span className="px-3 py-1 bg-orange-400/20 backdrop-blur-sm text-orange-800 rounded-lg text-sm border border-orange-300/30 drop-shadow-sm">IoT</span>
-                    <span className="px-3 py-1 bg-violet-400/20 backdrop-blur-sm text-violet-800 rounded-lg text-sm border border-violet-300/30 drop-shadow-sm">Security</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-slate-700 drop-shadow-sm">
-                    <span>DOI: 10.1145/abc456</span>
-                    <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer drop-shadow-sm" />
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">
-                    Undergraduate Thesis: AI-Powered Bionic Prosthetics with EMG Signal Processing
-                  </h3>
-                  <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full border border-white/40 drop-shadow-sm">2024</span>
-                </div>
-                <p className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-pink-600 font-medium mb-3 drop-shadow-sm">
-                  Bursa Uludağ University • Thesis Project
-                </p>
-                <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
-                  Comprehensive research on developing intelligent prosthetic devices that use machine learning to interpret EMG signals 
-                  for natural limb control, including hardware design and signal processing algorithms.
-                </p>
-                <div className="flex items-center gap-4">
-                  <div className="flex gap-2">
-                    <span className="px-3 py-1 bg-rose-400/20 backdrop-blur-sm text-rose-800 rounded-lg text-sm border border-rose-300/30 drop-shadow-sm">Biomedical</span>
-                    <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">Signal Processing</span>
-                    <span className="px-3 py-1 bg-amber-400/20 backdrop-blur-sm text-amber-800 rounded-lg text-sm border border-amber-300/30 drop-shadow-sm">Graduated with Honors</span>
-                  </div>
-                  <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer drop-shadow-sm" />
                 </div>
               </div>
             </div>
