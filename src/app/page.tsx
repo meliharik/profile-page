@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { Github, Linkedin, Mail, MapPin, Phone, ExternalLink, Calendar, GraduationCap, Briefcase, Code, Award, Users, Heart, BookOpen, Trophy, Headphones, FileText, BookOpenCheck, Menu, X, Presentation, Coffee } from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin, Phone, ExternalLink, Calendar, GraduationCap, Briefcase, Code, Award, Users, Heart, BookOpen, Trophy, FileText, BookOpenCheck, Menu, X, Presentation, Coffee } from 'lucide-react';
 import { MovingBorderButton } from '../components/MovingBorder';
 import { StarBorder } from '../components/StarBorder';
 import { annotate, annotationGroup } from 'rough-notation';
@@ -21,7 +21,7 @@ export default function Home() {
     { id: 'experience', label: 'Experience', icon: Briefcase },
     { id: 'projects', label: 'Projects', icon: Code },
     { id: 'presentations', label: 'Presentations', icon: Presentation },
-    { id: 'podcasts', label: 'Podcasts', icon: Headphones },
+
     { id: 'blogs', label: 'Blog Posts', icon: FileText },
     { id: 'papers', label: 'Academic Papers', icon: BookOpenCheck },
     { id: 'contact', label: 'Contact', icon: Mail },
@@ -747,13 +747,13 @@ export default function Home() {
             <h2 className="text-sf-large font-sf-bold text-slate-900 mb-8 drop-shadow-sm">Conference Presentations</h2>
             
             <div className="grid gap-8">
-              {/* SwiftUI Presentation */}
+              {/* ICETI'24 - Oct 2024 */}
               <div className="group grid lg:grid-cols-5 gap-6 bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl overflow-hidden shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
                 {/* Image Section */}
                 <div className="lg:col-span-2 relative h-48 lg:h-auto overflow-hidden cursor-pointer" onClick={() => setSelectedImage("/presentations/bosna.jpg")}>
                   <img 
                     src="/presentations/bosna.jpg" 
-                    alt="SwiftUI Best Practices Presentation"
+                    alt="ICETI'24"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
@@ -769,72 +769,71 @@ export default function Home() {
                 <div className="lg:col-span-3 p-6 flex flex-col justify-center">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
-                    <span className="text-sf-caption1 font-sf-semibold text-blue-700 bg-blue-50/50 px-2 py-1 rounded-lg">Jan 2024</span>
+                    <span className="text-sf-caption1 font-sf-semibold text-blue-700 bg-blue-50/50 px-2 py-1 rounded-lg">Oct 2024</span>
                   </div>
                   
-                  <h3 className="text-xl font-sf-bold text-slate-900 mb-3 leading-tight">SwiftUI Best Practices for Modern iOS Apps</h3>
+                  <h3 className="text-xl font-sf-bold text-slate-900 mb-3 leading-tight">ENCRYPTED MESSAGING APPLICATION COMBINING AES AND RSA ALGORITHMS</h3>
                   
                   <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 font-sf-semibold mb-3">
-                    iOS Dev Turkey Conference 2024
+                    ICETI'24 - International Conference on Engineering and Technology Innovation
                   </p>
                   
                   <p className="text-slate-800 mb-4 leading-relaxed text-sf-body">
-                    Deep dive into advanced SwiftUI patterns, performance optimization techniques, and architectural best practices 
-                    for building scalable iOS applications with modern design principles.
+                    I presented my graduation project that was published in the journal.
                   </p>
                   
                   <div className="flex items-center gap-4">
                     <div className="flex gap-2">
-                      <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30">SwiftUI</span>
-                      <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30">iOS</span>
-                      <span className="px-3 py-1 bg-violet-400/20 backdrop-blur-sm text-violet-800 rounded-lg text-sm border border-violet-300/30">Architecture</span>
+                      <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30">Encryption</span>
+                      <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30">AES</span>
+                      <span className="px-3 py-1 bg-violet-400/20 backdrop-blur-sm text-violet-800 rounded-lg text-sm border border-violet-300/30">RSA</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-slate-700">
-                      <span>200+ attendees</span>
-                      <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer" />
+                      <span>150+ attendees</span>
+                      <a href="https://www.iceti.org/sites/default/files/iceti_2024_book_of_proceedings.pdf" target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer" />
+                      </a>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* React Native Presentation */}
+              {/* Level Up Your Flutter Skills - Dec 2023 */}
               <div className="group grid lg:grid-cols-5 gap-6 bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl overflow-hidden shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
                 {/* Content Section */}
                 <div className="lg:col-span-3 p-6 flex flex-col justify-center order-2 lg:order-1">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse"></div>
-                    <span className="text-sf-caption1 font-sf-semibold text-emerald-700 bg-emerald-50/50 px-2 py-1 rounded-lg">Oct 2023</span>
+                    <span className="text-sf-caption1 font-sf-semibold text-emerald-700 bg-emerald-50/50 px-2 py-1 rounded-lg">Dec 2023</span>
                   </div>
                   
-                  <h3 className="text-xl font-sf-bold text-slate-900 mb-3 leading-tight">Building Cross-Platform Apps with React Native</h3>
+                  <h3 className="text-xl font-sf-bold text-slate-900 mb-3 leading-tight">Level Up Your Flutter Skills with Shortcuts</h3>
                   
                   <p className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 font-sf-semibold mb-3">
-                    Mobile Developer Summit Istanbul
+                    GDG Bursa
                   </p>
                   
                   <p className="text-slate-800 mb-4 leading-relaxed text-sf-body">
-                    Comprehensive guide to React Native development, covering navigation, state management, native module integration, 
-                    and strategies for achieving 95%+ code sharing between iOS and Android.
+                    I gave a presentation about shortcuts that I've used in my Flutter projects.
+                    Those shortcuts are used in my Flutter projects to make my life easier.
                   </p>
                   
                   <div className="flex items-center gap-4">
                     <div className="flex gap-2">
-                      <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30">React Native</span>
-                      <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30">Cross-platform</span>
-                      <span className="px-3 py-1 bg-orange-400/20 backdrop-blur-sm text-orange-800 rounded-lg text-sm border border-orange-300/30">TypeScript</span>
+                      <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30">Flutter</span>
+                      <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30">Shortcuts</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-slate-700">
-                      <span>150+ attendees</span>
-                      <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer" />
+                      <span>4.000+ attendees</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Image Section */}
-                <div className="lg:col-span-2 relative h-48 lg:h-auto overflow-hidden order-1 lg:order-2 cursor-pointer" onClick={() => setSelectedImage("/presentations/react-native-cross-platform.jpg")}>
+                <div className="lg:col-span-2 relative h-48 lg:h-auto overflow-hidden order-1 lg:order-2 cursor-pointer" onClick={() => setSelectedImage("/presentations/gdg.jpg")}>
                   <img 
-                    src="/presentations/react-native-cross-platform.jpg" 
-                    alt="React Native Cross-Platform Development"
+                    src="/presentations/gdg.jpg" 
+                    alt="Level Up Your Flutter Skills with Shortcuts"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
@@ -847,12 +846,12 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Jetpack Compose Presentation */}
+              {/* First Step to Flutter - Jul 2023 */}
               <div className="group grid lg:grid-cols-5 gap-6 bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl overflow-hidden shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
                 {/* Image Section */}
-                <div className="lg:col-span-2 relative h-48 lg:h-auto overflow-hidden cursor-pointer" onClick={() => setSelectedImage("/presentations/jetpack-compose-android.jpg")}>
+                <div className="lg:col-span-2 relative h-48 lg:h-auto overflow-hidden cursor-pointer" onClick={() => setSelectedImage("/presentations/btu.jpeg")}>
                   <img 
-                    src="/presentations/jetpack-compose-android.jpg" 
+                    src="/presentations/btu.jpeg" 
                     alt="Jetpack Compose Modern Android Development"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
@@ -872,22 +871,19 @@ export default function Home() {
                     <span className="text-sf-caption1 font-sf-semibold text-purple-700 bg-purple-50/50 px-2 py-1 rounded-lg">Jul 2023</span>
                   </div>
                   
-                  <h3 className="text-xl font-sf-bold text-slate-900 mb-3 leading-tight">Modern Android Development with Jetpack Compose</h3>
+                  <h3 className="text-xl font-sf-bold text-slate-900 mb-3 leading-tight">First Step to Flutter</h3>
                   
                   <p className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 font-sf-semibold mb-3">
-                    Android Developers Meetup Ankara
+                    Bursa Technical University Google Developer Student Clubs
                   </p>
                   
                   <p className="text-slate-800 mb-4 leading-relaxed text-sf-body">
-                    Introduction to declarative UI development with Jetpack Compose, covering state management, custom components, 
-                    animations, and migration strategies from traditional View-based Android development.
+                    I gave a presentation about Flutter and how to get started with it. I also shared my experience and how to find a job as a Flutter developer.
                   </p>
                   
                   <div className="flex items-center gap-4">
                     <div className="flex gap-2">
-                      <span className="px-3 py-1 bg-purple-400/20 backdrop-blur-sm text-purple-800 rounded-lg text-sm border border-purple-300/30">Jetpack Compose</span>
-                      <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30">Android</span>
-                      <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30">Kotlin</span>
+                      <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30">Flutter</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-slate-700">
                       <span>80+ attendees</span>
@@ -897,44 +893,48 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Flutter vs React Native Presentation */}
+              {/* AstroTarot Podcast - May 2023 */}
               <div className="group grid lg:grid-cols-5 gap-6 bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl overflow-hidden shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
                 {/* Content Section */}
                 <div className="lg:col-span-3 p-6 flex flex-col justify-center order-2 lg:order-1">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-3 h-3 bg-cyan-500 rounded-full animate-pulse"></div>
-                    <span className="text-sf-caption1 font-sf-semibold text-cyan-700 bg-cyan-50/50 px-2 py-1 rounded-lg">Mar 2023</span>
+                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-sf-caption1 font-sf-semibold text-green-700 bg-green-50/50 px-2 py-1 rounded-lg">May 2023</span>
                   </div>
                   
-                  <h3 className="text-xl font-sf-bold text-slate-900 mb-3 leading-tight">Flutter vs React Native: A Developer's Perspective</h3>
+                  <h3 className="text-xl font-sf-bold text-slate-900 mb-3 leading-tight">AstroTarot: Building a Spiritual Mobile App</h3>
                   
-                  <p className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600 font-sf-semibold mb-3">
-                    Mobile Tech Conference Bursa
+                  <p className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600 font-sf-semibold mb-3">
+                    Side Projects Stories
                   </p>
                   
                   <p className="text-slate-800 mb-4 leading-relaxed text-sf-body">
-                    Comprehensive comparison of Flutter and React Native frameworks, discussing performance, development experience, 
-                    ecosystem maturity, and decision criteria for choosing the right cross-platform solution.
+                    I discussed my side project AstroTarot, a spiritual mobile application that combines astrology and tarot readings. 
+                    Shared insights about building niche apps, monetization strategies, and balancing side projects with full-time work.
                   </p>
                   
                   <div className="flex items-center gap-4">
                     <div className="flex gap-2">
-                      <span className="px-3 py-1 bg-cyan-400/20 backdrop-blur-sm text-cyan-800 rounded-lg text-sm border border-cyan-300/30">Flutter</span>
-                      <span className="px-3 py-1 bg-rose-400/20 backdrop-blur-sm text-rose-800 rounded-lg text-sm border border-rose-300/30">React Native</span>
-                      <span className="px-3 py-1 bg-amber-400/20 backdrop-blur-sm text-amber-800 rounded-lg text-sm border border-amber-300/30">Comparison</span>
+                      <span className="px-3 py-1 bg-green-400/20 backdrop-blur-sm text-green-800 rounded-lg text-sm border border-green-300/30">Side Project</span>
+                      <span className="px-3 py-1 bg-amber-400/20 backdrop-blur-sm text-amber-800 rounded-lg text-sm border border-amber-300/30">Podcast</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-slate-700">
-                      <span>120+ attendees</span>
-                      <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer" />
+                      <span>Listen on</span>
+                      <a href="https://open.spotify.com/episode/44gHYM3QdeWiS1Rmpq6zbm?si=33b4122045444dff" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 bg-green-500 hover:bg-green-600 text-white px-3 py-1.5 rounded-lg text-sm font-medium transition-colors">
+                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm5.568 17.568c-.24.36-.72.48-1.08.24-2.88-1.8-6.48-2.208-10.728-1.2-.36.096-.72-.144-.816-.48-.096-.36.144-.72.48-.816 4.608-1.104 8.64-.624 11.784 1.368.36.24.48.72.24 1.08l.12-.192zm1.44-3.216c-.288.432-.864.576-1.296.288-3.312-2.04-8.352-2.64-12.24-1.44-.432.144-.864-.144-1.008-.576-.144-.432.144-.864.576-1.008 4.464-1.368 10.08-.72 13.92 1.632.432.288.576.864.288 1.296l-.24-.192zm.144-3.36c-3.936-2.352-10.44-2.568-14.208-1.416-.504.144-1.032-.216-1.176-.72-.144-.504.216-1.032.72-1.176C8.64 6.24 15.84 6.528 20.448 9.216c.504.288.672.936.384 1.44-.288.504-.936.672-1.44.384l-.24-.048z"/>
+                        </svg>
+                        Spotify
+                      </a>
                     </div>
                   </div>
                 </div>
 
                 {/* Image Section */}
-                <div className="lg:col-span-2 relative h-48 lg:h-auto overflow-hidden order-1 lg:order-2 cursor-pointer" onClick={() => setSelectedImage("/presentations/flutter-vs-react-native.jpg")}>
+                <div className="lg:col-span-2 relative h-48 lg:h-auto overflow-hidden order-1 lg:order-2 cursor-pointer" onClick={() => setSelectedImage("/presentations/podcast.jpg")}>
                   <img 
-                    src="/presentations/flutter-vs-react-native.jpg" 
-                    alt="Flutter vs React Native Comparison"
+                    src="/presentations/podcast.jpg" 
+                    alt="AstroTarot Podcast"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
@@ -946,98 +946,55 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        );
 
-      case 'podcasts':
-        return (
-          <div className="space-y-8">
-            <h2 className="text-sf-large font-sf-bold text-slate-900 mb-8 drop-shadow-sm">Podcast Appearances</h2>
-            
-            <div className="grid gap-6">
-              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
-                <div className="flex items-start gap-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Headphones className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-start justify-between mb-3">
-                      <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">AI Ethics in Practice</h3>
-                      <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full border border-white/40 drop-shadow-sm">Dec 2023</span>
-                    </div>
-                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 font-medium mb-3 drop-shadow-sm">
-                      Tech Talks Turkey Podcast
-                    </p>
-                    <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
-                      Deep dive into ethical considerations in AI development, privacy-preserving technologies, 
-                      and the future of responsible AI implementation in enterprise environments.
-                    </p>
-                    <div className="flex items-center gap-4">
-                      <div className="flex gap-2">
-                        <span className="px-3 py-1 bg-purple-400/20 backdrop-blur-sm text-purple-800 rounded-lg text-sm border border-purple-300/30 drop-shadow-sm">AI Ethics</span>
-                        <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">Privacy Tech</span>
-                        <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">45 min</span>
-                      </div>
-                      <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer drop-shadow-sm" />
+              {/* Firebase Auth - Mar 2023 */}
+              <div className="group grid lg:grid-cols-5 gap-6 bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl overflow-hidden shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
+                {/* Image Section */}
+                <div className="lg:col-span-2 relative h-48 lg:h-auto overflow-hidden cursor-pointer" onClick={() => setSelectedImage("/presentations/fsc.jpg")}>
+                  <img 
+                    src="/presentations/fsc.jpg" 
+                    alt="Flutter Festival Turquoise"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                    <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                      </svg>
                     </div>
                   </div>
                 </div>
-              </div>
-
-              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
-                <div className="flex items-start gap-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Headphones className="w-8 h-8 text-white" />
+                
+                {/* Content Section */}
+                <div className="lg:col-span-3 p-6 flex flex-col justify-center">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-3 h-3 bg-cyan-500 rounded-full animate-pulse"></div>
+                    <span className="text-sf-caption1 font-sf-semibold text-cyan-700 bg-cyan-50/50 px-2 py-1 rounded-lg">Mar 2023</span>
                   </div>
-                  <div className="flex-1">
-                    <div className="flex items-start justify-between mb-3">
-                      <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Building Privacy-First Systems</h3>
-                      <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full border border-white/40 drop-shadow-sm">Oct 2023</span>
+                  
+                  <h3 className="text-xl font-sf-bold text-slate-900 mb-3 leading-tight">Manage users with Firebase Auth</h3>
+                  
+                  <p className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600 font-sf-semibold mb-3">
+                    Flutter Festival Turquoise
+                  </p>
+                  
+                  <p className="text-slate-800 mb-4 leading-relaxed text-sf-body">
+                    We talked about how to manage users with Firebase Auth and how to use it in a Flutter project. You can find the presentation youtube link below.
+                  </p>
+                  
+                  <div className="flex items-center gap-4">
+                    <div className="flex gap-2">
+                        <span className="px-3 py-1 bg-cyan-400/20 backdrop-blur-sm text-cyan-800 rounded-lg text-sm border border-cyan-300/30">Flutter</span>
+                        <span className="px-3 py-1 bg-rose-400/20 backdrop-blur-sm text-rose-800 rounded-lg text-sm border border-rose-300/30">Firebase Auth</span>
                     </div>
-                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600 font-medium mb-3 drop-shadow-sm">
-                      Developer Stories Podcast
-                    </p>
-                    <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
-                      Discussion on building secure, privacy-focused applications and the technical challenges 
-                      of implementing zero-knowledge architectures in real-world systems.
-                    </p>
-                    <div className="flex items-center gap-4">
-                      <div className="flex gap-2">
-                        <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">Privacy</span>
-                        <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">Security</span>
-                        <span className="px-3 py-1 bg-violet-400/20 backdrop-blur-sm text-violet-800 rounded-lg text-sm border border-violet-300/30 drop-shadow-sm">30 min</span>
-                      </div>
-                      <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer drop-shadow-sm" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
-                <div className="flex items-start gap-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Headphones className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-start justify-between mb-3">
-                      <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Young Innovators in AI</h3>
-                      <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full border border-white/40 drop-shadow-sm">Aug 2023</span>
-                    </div>
-                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 font-medium mb-3 drop-shadow-sm">
-                      Future Tech Podcast
-                    </p>
-                    <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
-                      Sharing insights on breaking into the AI field as a young developer, discussing the NASA Space Apps 
-                      experience, and advice for students interested in AI and privacy technology.
-                    </p>
-                    <div className="flex items-center gap-4">
-                      <div className="flex gap-2">
-                        <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">Career</span>
-                        <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">Innovation</span>
-                        <span className="px-3 py-1 bg-amber-400/20 backdrop-blur-sm text-amber-800 rounded-lg text-sm border border-amber-300/30 drop-shadow-sm">25 min</span>
-                      </div>
-                      <ExternalLink className="w-4 h-4 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer drop-shadow-sm" />
+                    <div className="flex items-center gap-2 text-sm text-slate-700">
+                      <span>Watch on</span>
+                      <a href="https://youtu.be/H2OykY1FPb8?t=8306" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded-lg text-sm font-medium transition-colors">
+                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                        YouTube
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -1045,6 +1002,8 @@ export default function Home() {
             </div>
           </div>
         );
+
+
 
       case 'blogs':
         return (
