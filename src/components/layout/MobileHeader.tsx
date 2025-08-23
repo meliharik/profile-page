@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 interface MobileHeaderProps {
   activeSection: string;
   showHeaderProfile: boolean;
@@ -12,10 +14,12 @@ export const MobileHeader = ({ activeSection, showHeaderProfile }: MobileHeaderP
     }`}>
       <div className="flex items-center justify-start p-4">
         <div className="flex items-center gap-3">
-          <img 
+          <Image 
             src="/profile.jpg" 
             alt="Melih Arık" 
             className="w-10 h-10 rounded-xl object-cover shadow-lg"
+            width={40}
+            height={40}
           />
           <div>
             <h1 className="text-sf-headline font-sf-semibold text-slate-900">Melih Arık</h1>

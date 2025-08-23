@@ -1,4 +1,5 @@
 import { educationData } from '@/lib/data/education';
+import Image from 'next/image';
 
 export const EducationSection = () => {
   return (
@@ -10,10 +11,12 @@ export const EducationSection = () => {
           <div key={index} className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 lg:p-8 shadow-xl border border-white/30">
             <div className="flex flex-col lg:flex-row lg:items-start gap-4 lg:gap-6">
               <div className="flex-shrink-0 hidden lg:block">
-                <img 
+                <Image 
                   src={education.logo} 
                   alt={education.institution} 
                   className="w-20 h-20 rounded-2xl object-contain bg-white/50 p-2 shadow-lg"
+                  width={80}
+                  height={80}
                 />
               </div>
               <div className="flex-1">

@@ -7,8 +7,8 @@ export const ContactSection = () => {
       <div className="text-center mb-12">
         <h2 className="text-sf-large font-sf-bold text-slate-900 mb-4 drop-shadow-sm">Get In Touch</h2>
         <p className="text-sf-body font-sf-regular text-slate-700 max-w-2xl mx-auto leading-relaxed">
-          I'm always excited to discuss new mobile app opportunities, innovative projects, 
-          and collaborations in iOS/Android development. Let's build something amazing together!
+                  I&apos;m always excited to discuss new mobile app opportunities, innovative projects,
+        and collaborations in iOS/Android development. Let&apos;s build something amazing together!
         </p>
       </div>
 

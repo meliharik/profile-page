@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 interface PapersSectionProps {
   setSelectedImage: (image: string | null) => void;
 }
@@ -12,10 +14,12 @@ export const PapersSection = ({ setSelectedImage }: PapersSectionProps) => {
         <div className="group grid lg:grid-cols-5 gap-6 bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl overflow-hidden shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
           {/* Image Section */}
           <div className="lg:col-span-2 relative h-48 lg:h-auto overflow-hidden cursor-pointer" onClick={() => setSelectedImage("/presentations/bosna.jpg")}>
-            <img 
+            <Image 
               src="/presentations/bosna.jpg" 
-              alt="ICETI'24 Conference Paper"
+              alt="ICETI&apos;24 Conference Paper"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              fill
+              sizes="(max-width: 768px) 100vw, 40vw"
             />
             <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
               <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -38,7 +42,7 @@ export const PapersSection = ({ setSelectedImage }: PapersSectionProps) => {
             </h3>
             
             <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 font-sf-semibold text-sf-title2 mb-3">
-              ICETI'24 - International Conference on Engineering and Technology Innovation • First Author
+              ICETI&apos;24 - International Conference on Engineering and Technology Innovation • First Author
             </p>
             
             <p className="text-sf-body font-sf-regular text-slate-800 mb-4 leading-relaxed">

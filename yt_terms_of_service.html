@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - SumTube</title>
+    <style>
+        :root {
+            --background: #000000;
+            --text: #FFFFFF;
+            --text-secondary: #8E8E93;
+            --accent: #FF3B30;
+            --card-bg: rgba(30, 30, 30, 0.7);
+        }
+
+        body {
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 20px;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        .floating-circles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+        }
+
+        .circle-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle at center, #FF3B3022, transparent 70%);
+            top: -100px;
+            right: -100px;
+            animation: float1 25s infinite ease-in-out;
+        }
+
+        .circle-2 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle at center, #FF3B3015, transparent 70%);
+            bottom: -50px;
+            left: -50px;
+            animation: float2 20s infinite ease-in-out;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(50px, 50px) rotate(120deg); }
+            66% { transform: translate(-30px, 70px) rotate(240deg); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(-50px, -30px) rotate(-120deg); }
+            66% { transform: translate(30px, -50px) rotate(-240deg); }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 30px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 59, 48, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: var(--accent);
+            margin-bottom: 0.5em;
+            text-align: center;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.5em;
+            margin-top: 1.5em;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5em;
+            display: inline-block;
+        }
+
+        p {
+            color: var(--text-secondary);
+            font-size: 1.1em;
+        }
+
+        ul {
+            color: var(--text-secondary);
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        .date {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .premium-features li ul {
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .premium-features li ul li {
+            font-size: 0.95em;
+            color: var(--text-secondary);
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-circles">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+    </div>
+    <div class="container">
+        <div class="card">
+            <h1>Terms of Service</h1>
+            <p class="date">Last updated: January 2025</p>
+
+            <h2>1. Acceptance of Terms</h2>
+            <p>By downloading, installing, or using SumTube ("the App"), you agree to be bound by these Terms of Service and our Privacy Policy. If you disagree with any part of these terms, you may not access or use our services.</p>
+
+            <h2>2. Service Description</h2>
+            <p>SumTube is an AI-powered video summarization service that processes YouTube content to create concise summaries. Our service:</p>
+            <ul>
+                <li>Generates intelligent summaries of YouTube videos</li>
+                <li>Provides translations in multiple languages</li>
+                <li>Offers different summary formats (detailed, concise, bullet points)</li>
+                <li>Maintains video context and key information</li>
+            </ul>
+
+            <h2>3. User Accounts & Limitations</h2>
+            <p>Account usage is subject to the following terms:</p>
+            <ul>
+                <li>Free Account Limitations:
+                    <ul>
+                        <li>Maximum of 1 video summary</li>
+                        <li>Basic language support</li>
+                        <li>Standard summary formats</li>
+                    </ul>
+                </li>
+                <li>Premium Account Benefits:
+                    <ul>
+                        <li>Unlimited video summaries</li>
+                        <li>Access to all languages and translation features</li>
+                        <li>Priority customer support</li>
+                        <li>Advanced summary formats and customization</li>
+                    </ul>
+                </li>
+                <li>Account Security:
+                    <ul>
+                        <li>You are responsible for maintaining the confidentiality of your account</li>
+                        <li>Notify us immediately of any unauthorized access</li>
+                        <li>One account per user; sharing accounts is prohibited</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>4. Premium Subscription</h2>
+            <p>Premium features are available through in-app purchases with the following options:</p>
+            <ul class="premium-features">
+                <li>Weekly Premium Plan: $4.99/week
+                    <ul>
+                        <li>Unlimited video summaries with no restrictions</li>
+                        <li>Full access to all supported languages</li>
+                        <li>Priority customer support with 24-hour response time</li>
+                        <li>Access to all summary formats and styles</li>
+                        <li>Flexible weekly billing for short-term use</li>
+                    </ul>
+                </li>
+                <li>Quarterly Premium Plan: $19.99/3 months
+                    <ul>
+                        <li>All features included in Weekly Premium</li>
+                        <li>Save over 65% compared to weekly billing</li>
+                        <li>Best value for regular users</li>
+                        <li>Extended billing cycle for convenience</li>
+                        <li>Premium customer support with dedicated assistance</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>Important Subscription Terms:</p>
+            <ul>
+                <li>Billing and Renewal:
+                    <ul>
+                        <li>Subscriptions automatically renew unless cancelled at least 24 hours before the renewal date</li>
+                        <li>Your account will be charged for renewal within 24 hours prior to the end of the current period</li>
+                        <li>The renewal cost will be the same as your initial subscription unless otherwise notified</li>
+                    </ul>
+                </li>
+                <li>Subscription Management:
+                    <ul>
+                        <li>You can manage and cancel your subscription through your App Store account settings</li>
+                        <li>Removal of the app does not automatically cancel your subscription</li>
+                        <li>Price changes will be notified in advance via email</li>
+                    </ul>
+                </li>
+                <li>Refund Policy:
+                    <ul>
+                        <li>All refunds are handled by Apple according to App Store policies</li>
+                        <li>Refund requests must be submitted through the App Store</li>
+                        <li>We cannot directly process refunds for App Store purchases</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>5. Acceptable Use</h2>
+            <p>Users agree to use the service responsibly and in compliance with all applicable laws. The following activities are strictly prohibited:</p>
+            <ul>
+                <li>Legal and Regulatory:
+                    <ul>
+                        <li>Violating any applicable laws or regulations</li>
+                        <li>Infringing on intellectual property rights</li>
+                        <li>Using the service for any illegal purposes</li>
+                    </ul>
+                </li>
+                <li>Service Usage:
+                    <ul>
+                        <li>Attempting to bypass usage limits or restrictions</li>
+                        <li>Sharing accounts or access credentials</li>
+                        <li>Reverse engineering or modifying the app</li>
+                        <li>Using automated systems to access the service</li>
+                    </ul>
+                </li>
+                <li>Content Guidelines:
+                    <ul>
+                        <li>Submitting inappropriate or offensive content</li>
+                        <li>Using the service to spread misinformation</li>
+                        <li>Attempting to abuse or exploit the service</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>6. Content Rights and Usage</h2>
+            <p>Understanding content rights and usage is essential:</p>
+            <ul>
+                <li>User Content:
+                    <ul>
+                        <li>You retain all rights to your submitted content</li>
+                        <li>Summaries are generated for personal use only</li>
+                        <li>Commercial use of summaries requires appropriate licenses</li>
+                    </ul>
+                </li>
+                <li>Service Rights:
+                    <ul>
+                        <li>We maintain rights to the summarization technology</li>
+                        <li>Generated summaries may not be redistributed commercially</li>
+                        <li>App content and features are protected by copyright</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>7. Termination</h2>
+            <p>We reserve the right to terminate or suspend access to our services under the following conditions:</p>
+            <ul>
+                <li>Violation of these terms of service</li>
+                <li>Suspicious or fraudulent activity</li>
+                <li>Extended period of account inactivity</li>
+                <li>Non-payment of subscription fees</li>
+            </ul>
+            <p>Upon termination:</p>
+            <ul>
+                <li>Access to premium features will be immediately revoked</li>
+                <li>Existing summaries may become inaccessible</li>
+                <li>No refunds will be provided for unused subscription periods</li>
+            </ul>
+
+            <h2>8. Changes to Terms</h2>
+            <p>Our terms may be updated periodically:</p>
+            <ul>
+                <li>We will notify users of significant changes via email</li>
+                <li>Continued use after changes constitutes acceptance</li>
+                <li>Users are encouraged to review terms regularly</li>
+                <li>Previous versions of terms will be archived and available upon request</li>
+            </ul>
+
+            <h2>9. Limitation of Liability</h2>
+            <p>Our liability is limited in the following ways:</p>
+            <ul>
+                <li>Service Availability:
+                    <ul>
+                        <li>We strive for but cannot guarantee 100% uptime</li>
+                        <li>Service may be interrupted for maintenance</li>
+                        <li>Technical issues may affect service availability</li>
+                    </ul>
+                </li>
+                <li>Summary Accuracy:
+                    <ul>
+                        <li>Summaries are AI-generated and may contain errors</li>
+                        <li>Users should verify important information</li>
+                        <li>We are not liable for decisions based on summaries</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Contact</h2>
+            <p>For any questions or concerns about these terms:</p>
+            <ul>
+                <li>Email us at: <a href="mailto:apps@meliharik.dev">apps@meliharik.dev</a></li>
+                <li>Response time: Within 48 hours</li>
+                <li>Business hours: Monday to Friday, 9:00 AM - 6:00 PM (UTC+3)</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

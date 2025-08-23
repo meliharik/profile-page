@@ -1,7 +1,7 @@
 export interface MenuItem {
   id: string;
   label: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string }>;
 }
 
 export interface MediumPost {

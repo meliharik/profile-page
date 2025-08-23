@@ -1,6 +1,7 @@
 import { MapPin, Heart, Coffee, Github, Linkedin, Mail } from 'lucide-react';
 import { MovingBorderButton } from '../MovingBorder';
 import { menuItems } from '@/lib/data/menu-items';
+import Image from 'next/image';
 
 interface SidebarProps {
   activeSection: string;
@@ -20,10 +21,12 @@ export const Sidebar = ({ activeSection, handleMenuItemClick }: SidebarProps) =>
       <div className="relative z-10">
         {/* Profile Header */}
         <div className="p-8 border-b border-white/20">
-          <img 
+          <Image 
             src="/profile.jpg" 
             alt="Melih Arık" 
             className="w-20 h-20 rounded-2xl object-cover shadow-lg mb-4"
+            width={80}
+            height={80}
           />
           <h1 className="text-sf-title1 font-sf-bold text-slate-900 mb-1 drop-shadow-sm">Melih Arık</h1>
           <p className="text-sf-headline font-sf-medium text-slate-800 mb-3 drop-shadow-sm">Mobile Application Developer</p>

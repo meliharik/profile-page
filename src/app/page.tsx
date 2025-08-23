@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { X } from 'lucide-react';
+import Image from 'next/image';
 import { useHeaderVisibility } from '@/hooks/useHeaderVisibility';
 
 // Layout Components
@@ -109,11 +110,13 @@ export default function Home() {
             </button>
             
             {/* Image */}
-            <img 
+            <Image 
               src={selectedImage}
               alt="Presentation Image"
               className="w-full h-full object-contain rounded-2xl shadow-2xl"
               onClick={(e) => e.stopPropagation()}
+              fill
+              sizes="(max-width: 768px) 100vw, 90vw"
             />
           </div>
         </div>

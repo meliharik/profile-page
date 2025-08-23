@@ -1,4 +1,5 @@
 import { useMediumPosts } from '@/hooks/useMediumPosts';
+import Image from 'next/image';
 
 interface BlogsSectionProps {
   activeSection: string;
@@ -39,13 +40,12 @@ export const BlogsSection = ({ activeSection }: BlogsSectionProps) => {
                 <div key={index} className="group grid lg:grid-cols-5 gap-6 bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl overflow-hidden shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
                   {/* Image Section */}
                   <div className={`lg:col-span-2 relative h-48 lg:h-auto overflow-hidden ${index % 2 === 0 ? 'order-1' : 'order-2 lg:order-2'}`}>
-                    <img 
+                    <Image 
                       src={post.description?.match(/<img[^>]+src="([^">]+)"/)?.[1] || 'https://via.placeholder.com/400x200/00ab6b/ffffff?text=Medium+Article'} 
                       alt={post.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = 'https://via.placeholder.com/400x200/00ab6b/ffffff?text=Medium+Article';
-                      }}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 40vw"
                     />
                     <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
                       <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">

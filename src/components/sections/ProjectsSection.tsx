@@ -2,7 +2,7 @@ import { Trophy, ExternalLink, Github } from 'lucide-react';
 import { projectsData } from '@/lib/data/projects';
 
 export const ProjectsSection = () => {
-  const renderBadge = (badge: any) => {
+  const renderBadge = (badge: { type: 'award' | 'date'; text: string }) => {
     if (badge.type === 'award') {
       return (
         <div className="flex items-center gap-2 bg-gradient-to-r from-amber-400/20 to-orange-400/20 backdrop-blur-sm px-2 py-1 rounded-full border border-amber-300/30 w-fit">

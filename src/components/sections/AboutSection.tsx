@@ -1,4 +1,5 @@
 import { Calendar, MapPin } from 'lucide-react';
+import Image from 'next/image';
 import { useAboutAnimations } from '@/hooks/useAboutAnimations';
 import { useHeaderVisibility } from '@/hooks/useHeaderVisibility';
 
@@ -21,10 +22,12 @@ export const AboutSection = ({ activeSection }: AboutSectionProps) => {
       <div className="lg:hidden" ref={heroSectionRef}>
         <div className="flex flex-col items-center text-center mb-8 py-8">
           <div className="mb-6">
-            <img 
+            <Image 
               src="/profile.jpg" 
               alt="Melih Arık" 
               className="w-32 h-32 rounded-3xl object-cover shadow-2xl border-4 border-white/30 backdrop-blur-sm"
+              width={128}
+              height={128}
             />
           </div>
           <div>
@@ -43,7 +46,7 @@ export const AboutSection = ({ activeSection }: AboutSectionProps) => {
         <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-8 shadow-xl border border-white/30">
           <div className="prose prose-slate max-w-none" ref={aboutTextRef}>
             <p className="text-sf-body font-sf-regular text-slate-800 leading-relaxed mb-6 drop-shadow-sm">
-              I'm a Mobile Application Developer passionate about creating exceptional user experiences 
+              I&apos;m a Mobile Application Developer passionate about creating exceptional user experiences 
               on iOS and Android platforms. I specialize in building native and cross-platform mobile 
               applications that are performant, intuitive, and scalable.
             </p>
@@ -53,12 +56,12 @@ export const AboutSection = ({ activeSection }: AboutSectionProps) => {
               functionality that delights users.
             </p>
             <p className="text-slate-800 leading-relaxed mb-6 drop-shadow-sm">
-              When I'm not coding, you'll find me exploring the latest mobile development trends, 
+              When I&apos;m not coding, you&apos;ll find me exploring the latest mobile development trends, 
               contributing to open source mobile projects, or prototyping innovative app concepts 
               that push the boundaries of mobile user experience. 
             </p>
             <p className="text-slate-800 leading-relaxed mb-6 drop-shadow-sm">
-              I'm currently
+              I&apos;m currently
               <span className="availability-highlight font-sf-semibold"> open for freelance and job opportunities </span> 
               and excited to bring your mobile app ideas to life!
             </p>
@@ -78,7 +81,7 @@ export const AboutSection = ({ activeSection }: AboutSectionProps) => {
               </div>
               
               <h3 className="text-sf-title2 font-sf-bold text-slate-900 mb-3 drop-shadow-sm">
-                Let's Schedule a Meeting
+                Let&apos;s Schedule a Meeting
               </h3>
               <p className="text-sf-body font-sf-regular text-slate-700 mb-6 drop-shadow-sm max-w-md mx-auto">
                 Ready to bring your mobile app vision to life? Book a free consultation to discuss your project requirements and explore possibilities.

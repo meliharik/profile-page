@@ -1,5 +1,6 @@
 import { ExternalLink } from 'lucide-react';
 import { presentationsData } from '@/lib/data/presentations';
+import Image from 'next/image';
 
 interface PresentationsSectionProps {
   setSelectedImage: (image: string | null) => void;
@@ -63,10 +64,12 @@ export const PresentationsSection = ({ setSelectedImage }: PresentationsSectionP
           <div key={index} className="group grid lg:grid-cols-5 gap-6 bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl overflow-hidden shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
             {/* Image Section */}
             <div className={`lg:col-span-2 relative h-48 lg:h-auto overflow-hidden cursor-pointer ${index % 2 === 0 ? 'order-1' : 'order-2 lg:order-2'}`} onClick={() => setSelectedImage(presentation.image)}>
-              <img 
+              <Image 
                 src={presentation.image} 
                 alt={presentation.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                fill
+                sizes="(max-width: 768px) 100vw, 40vw"
               />
               <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
                 <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">

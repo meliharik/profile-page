@@ -1,0 +1,548 @@
+{
+  "subscriptions": [
+    {
+      "name": "Netflix",
+      "type": "Entertainment",
+      "description": "Streaming movies and TV shows",
+      "website": "https://www.netflix.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/netflix.com"
+    },
+    {
+      "name": "Spotify",
+      "type": "Music",
+      "description": "Music streaming service",
+      "website": "https://www.spotify.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/spotify.com"
+    },
+    {
+      "name": "HBO Max",
+      "type": "Entertainment",
+      "description": "Movies and TV streaming",
+      "website": "https://www.hbomax.com",
+      "country": "Global",
+      "imageURL": "https://pyxis.nymag.com/v1/imgs/ac6/f76/976b9f4bca5bf5dcc8afd2a206af60ea09-max-logo.rsquare.w330.jpg"
+    },
+    {
+      "name": "Disney+",
+      "type": "Entertainment",
+      "description": "Family-friendly streaming service",
+      "website": "https://www.disneyplus.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/disneyplus.com"
+    },
+    {
+      "name": "BluTV",
+      "type": "Entertainment",
+      "description": "Streaming movies, TV shows, and documentaries",
+      "website": "https://www.blutv.com",
+      "country": "Turkey",
+      "imageURL": "https://logo.clearbit.com/blutv.com"
+    },
+    {
+      "name": "Exxen",
+      "type": "Entertainment",
+      "description": "Turkish streaming platform with exclusive content",
+      "website": "https://www.exxen.com",
+      "country": "Turkey",
+      "imageURL": "https://logo.clearbit.com/exxen.com"
+    },
+    {
+      "name": "YouTube Premium",
+      "type": "Entertainment",
+      "description": "Ad-free YouTube and music",
+      "website": "https://www.youtube.com/premium",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/youtube.com"
+    },
+    {
+      "name": "Canva",
+      "type": "Productivity",
+      "description": "Graphic design and templates",
+      "website": "https://www.canva.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/canva.com"
+    },
+    {
+      "name": "Adobe Creative Cloud",
+      "type": "Productivity",
+      "description": "Suite of design and development tools",
+      "website": "https://www.adobe.com/creativecloud.html",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/adobe.com"
+    },
+    {
+      "name": "Google Workspace",
+      "type": "Productivity",
+      "description": "Business tools and cloud storage",
+      "website": "https://workspace.google.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/google.com"
+    },
+    {
+      "name": "Notion",
+      "type": "Productivity",
+      "description": "Workspace for notes and projects",
+      "website": "https://www.notion.so",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/notion.so"
+    },
+    {
+      "name": "Tidal",
+      "type": "Music",
+      "description": "High-fidelity music streaming",
+      "website": "https://www.tidal.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/tidal.com"
+    },
+    {
+      "name": "Patreon",
+      "type": "Other",
+      "description": "Support creators and access exclusive content",
+      "website": "https://www.patreon.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/patreon.com"
+    },
+    {
+      "name": "Udemy",
+      "type": "Education",
+      "description": "Online learning platform",
+      "website": "https://www.udemy.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/udemy.com"
+    },
+    {
+      "name": "Skillshare",
+      "type": "Education",
+      "description": "Creative and business skills learning",
+      "website": "https://www.skillshare.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/skillshare.com"
+    },
+    {
+      "name": "GitHub Copilot",
+      "type": "Productivity",
+      "description": "AI-powered code assistant",
+      "website": "https://github.com/features/copilot",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/github.com"
+    },
+    {
+      "name": "ChatGPT Plus",
+      "type": "Productivity",
+      "description": "Advanced AI chatbot subscription",
+      "website": "https://openai.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/openai.com"
+    },
+    {
+      "name": "Cursor Pro",
+      "type": "Productivity",
+      "description": "Coding editor with AI assistance",
+      "website": "https://cursor.so",
+      "country": "Global",
+      "imageURL": "https://miro.medium.com/v2/resize:fit:800/format:webp/0*zWCTHFNFdGAgSw2d"
+    },
+    {
+      "name": "Copilot",
+      "type": "Productivity",
+      "description": "AI-powered code suggestions",
+      "website": "https://github.com/features/copilot",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/github.com"
+    },
+    {
+      "name": "Twitter Premium",
+      "type": "Social",
+      "description": "Premium subscription for Twitter",
+      "website": "https://twitter.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/twitter.com"
+    },
+    {
+      "name": "Instagram Verified",
+      "type": "Social",
+      "description": "Paid verification and premium features for Instagram",
+      "website": "https://www.instagram.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/instagram.com"
+    },
+    {
+      "name": "LinkedIn Premium",
+      "type": "Social",
+      "description": "Enhanced professional networking features",
+      "website": "https://www.linkedin.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/linkedin.com"
+    },
+    {
+      "name": "Amazon Prime",
+      "type": "Shopping",
+      "description": "Premium subscription for shopping and streaming",
+      "website": "https://www.amazon.com/prime",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/amazon.com"
+    },
+    {
+      "name": "Hepsiburada Premium",
+      "type": "Shopping",
+      "description": "Premium membership for Hepsiburada benefits",
+      "website": "https://www.hepsiburada.com",
+      "country": "Turkey",
+      "imageURL": "https://logo.clearbit.com/hepsiburada.com"
+    },
+    {
+      "name": "Game Pass",
+      "type": "Gaming",
+      "description": "Subscription service for access to a wide library of games",
+      "website": "https://www.xbox.com/en-US/xbox-game-pass",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/xbox.com"
+    },
+    {
+      "name": "Medium",
+      "type": "News",
+      "description": "Subscription for premium reading and writing experience",
+      "website": "https://medium.com",
+      "country": "Global",
+      "imageURL": "https://findingtom.com/images/uploads/medium-logo/article-image-00.jpeg"
+    },
+    {
+      "name": "PlayStation Plus",
+      "type": "Gaming",
+      "description": "Subscription service for online multiplayer, free games, and exclusive discounts",
+      "website": "https://www.playstation.com/plus",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/playstation.com"
+    },
+    {
+      "name": "Telegram Premium",
+      "type": "Social",
+      "description": "Enhanced features for the Telegram messaging app",
+      "website": "https://telegram.org",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/telegram.org"
+    },
+    {
+      "name": "1Password",
+      "type": "Productivity",
+      "description": "Password manager and secure vault",
+      "website": "https://1password.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/1password.com"
+    },
+    {
+      "name": "Apple TV+",
+      "type": "Entertainment",
+      "description": "Streaming movies and TV shows",
+      "website": "https://www.apple.com/tv-plus",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/apple.com"
+    },
+    {
+      "name": "Apple Cloud",
+      "type": "Productivity",
+      "description": "Cloud storage for Apple devices",
+      "website": "https://www.apple.com/cloud",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/apple.com"
+    },
+    {
+      "name": "Claude",
+      "type": "Productivity",
+      "description": "AI-powered writing assistant",
+      "website": "https://www.anthropic.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/anthropic.com"
+    },
+    {
+      "name": "Duolingo",
+      "type": "Education",
+      "description": "Language learning platform",
+      "website": "https://www.duolingo.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/duolingo.com"
+    },
+    {
+      "name": "Facebook Premium",
+      "type": "Social",
+      "description": "Premium features for Facebook",
+      "website": "https://www.facebook.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/facebook.com"
+    },
+    {
+      "name": "Figma",
+      "type": "Productivity",
+      "description": "Collaborative design tool",
+      "website": "https://www.figma.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/figma.com"
+    },
+    {
+      "name": "GeForce Now",
+      "type": "Gaming",
+      "description": "Cloud gaming service",
+      "website": "https://www.geforce.com/now",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/geforce.com"
+    },
+    {
+      "name": "Framer",
+      "type": "Productivity",
+      "description": "UI design tool",
+      "website": "https://www.framer.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/framer.com"
+    },
+    {
+      "name": "Hulu",
+      "type": "Entertainment",
+      "description": "Streaming movies and TV shows",
+      "website": "https://www.hulu.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/hulu.com"
+    },
+    {
+      "name": "Line",
+      "type": "Social",
+      "description": "Messaging and social platform",
+      "website": "https://line.me",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/line.me"
+    },
+    {
+      "name": "Midjourney",
+      "type": "Entertainment",
+      "description": "AI image generation",
+      "website": "https://www.midjourney.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/midjourney.com"
+    },
+    {
+      "name": "Obsidian",
+      "type": "Productivity",
+      "description": "Markdown-based note-taking app",
+      "website": "https://www.obsidian.md",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/obsidian.md"
+    },
+    {
+      "name": "Perplexity",
+      "type": "Productivity",
+      "description": "AI-powered search engine",
+      "website": "https://www.perplexity.ai",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/perplexity.ai"
+    },
+    {
+      "name": "Behance",
+      "type": "Design",
+      "description": "Portfolio platform for designers",
+      "website": "https://www.behance.net",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/behance.net"
+    },
+    {
+      "name": "Pinterest",
+      "type": "Social",
+      "description": "Social media platform for sharing images",
+      "website": "https://www.pinterest.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/pinterest.com"
+    },
+    {
+      "name": "Dribbble",
+      "type": "Design",
+      "description": "Portfolio platform for designers",
+      "website": "https://www.dribbble.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/dribbble.com"
+    },
+    {
+      "name": "Raycast",
+      "type": "Productivity",
+      "description": "Productivity tool",
+      "website": "https://www.raycast.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/raycast.com"
+    },
+    {
+      "name": "Snapchat",
+      "type": "Social",
+      "description": "Messaging and social platform",
+      "website": "https://www.snapchat.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/snapchat.com"
+    },
+    {
+      "name": "Tencent",
+      "type": "Social",
+      "description": "Messaging and social platform",
+      "website": "https://www.tencent.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/tencent.com"
+    },
+    {
+      "name": "Tinder",
+      "type": "Social",
+      "description": "Dating app",
+      "website": "https://www.tinder.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/tinder.com"
+    },
+    {
+      "name": "TikTok",
+      "type": "Social",
+      "description": "Social media platform for sharing videos",
+      "website": "https://www.tiktok.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/tiktok.com"
+    },
+    {
+      "name": "Kick",
+      "type": "Gaming",
+      "description": "Subscription service for access to a wide library of games",
+      "website": "https://www.kick.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/kick.com"
+    },
+    {
+      "name": "Twitch",
+      "type": "Gaming",
+      "description": "Streaming platform for video games",
+      "website": "https://www.twitch.tv",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/twitch.tv"
+    },
+    {
+      "name": "Canal+",
+      "type": "Entertainment",
+      "description": "Streaming movies and TV shows",
+      "website": "https://www.canalplus.com",
+      "country": "Turkey",
+      "imageURL": "https://logo.clearbit.com/canalplus.com"
+    },
+    {
+      "name": "Paramount+",
+      "type": "Entertainment",
+      "description": "Streaming movies and TV shows",
+      "website": "https://www.paramountplus.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/paramountplus.com"
+    },
+    {
+      "name": "Crunchyroll",
+      "type": "Entertainment",
+      "description": "Streaming anime",
+      "website": "https://www.crunchyroll.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/crunchyroll.com"
+    },
+    {
+      "name": "Audible",
+      "type": "Entertainment",
+      "description": "Audiobook subscription service",
+      "website": "https://www.audible.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/audible.com"
+    },
+    {
+      "name": "Discord Nitro",
+      "type": "Social",
+      "description": "Premium subscription for Discord",
+      "website": "https://www.discord.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/discord.com"
+    },
+    {
+      "name": "OnlyFans",
+      "type": "Social",
+      "description": "Subscription service for access to exclusive content",
+      "website": "https://www.onlyfans.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/onlyfans.com"
+    },
+    {
+      "name": "Nintendo Switch Online",
+      "type": "Gaming",
+      "description": "Subscription service for access to exclusive content",
+      "website": "https://www.nintendo.com/switch/online",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/nintendo.com"
+    },
+    {
+      "name": "Slack",
+      "type": "Productivity",
+      "description": "Team communication platform",
+      "website": "https://www.slack.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/slack.com"
+    },
+    {
+      "name": "AWS",
+      "type": "Cloud",
+      "description": "Cloud computing platform",
+      "website": "https://aws.amazon.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/aws.amazon.com"
+    },
+    {
+      "name": "Dropbox",
+      "type": "Productivity",
+      "description": "Cloud storage and file sharing",
+      "website": "https://www.dropbox.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/dropbox.com"
+    },
+    {
+      "name": "Coursera",
+      "type": "Education",
+      "description": "Online learning platform",
+      "website": "https://www.coursera.org",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/coursera.org"
+    },
+    {
+      "name": "Brainly",
+      "type": "Education",
+      "description": "Online learning platform",
+      "website": "https://www.brainly.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/brainly.com"
+    },
+    {
+      "name": "Costco",
+      "type": "Shopping",
+      "description": "Discount shopping club",
+      "website": "https://www.costco.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/costco.com"
+    },
+    {
+      "name": "Walmart",
+      "type": "Shopping",
+      "description": "Discount shopping club",
+      "website": "https://www.walmart.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/walmart.com"
+    },
+    {
+      "name": "Capcut",
+      "type": "Entertainment",
+      "description": "Video editing app",
+      "website": "https://www.capcut.com",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/capcut.com"
+    },
+    {
+      "name": "Apple Music",
+      "type": "Music",
+      "description": "Music streaming service",
+      "website": "https://www.apple.com/apple-music",
+      "country": "Global",
+      "imageURL": "https://logo.clearbit.com/apple.com"
+    }
+  ]
+}

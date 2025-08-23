@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { Play, Pause, ChevronDown, ChevronUp } from 'lucide-react';
+import Image from 'next/image';
 
 interface Track {
   title: string;
@@ -130,10 +131,12 @@ export const MusicPlayer = () => {
 
             {/* Track Info */}
             <div className="flex items-center gap-3 mb-4">
-              <img
+              <Image
                 src={track.cover || '/profile.jpg'}
                 alt={track.title}
                 className="w-12 h-12 rounded-xl object-cover shadow-lg"
+                width={48}
+                height={48}
               />
               <div className="flex-1 min-w-0">
                 <h4 className="text-sf-subhead font-sf-semibold text-slate-900 truncate">{track.title}</h4>
