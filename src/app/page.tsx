@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { Github, Linkedin, Mail, MapPin, Phone, ExternalLink, Calendar, GraduationCap, Briefcase, Code, Award, Users, Heart, BookOpen, Trophy, FileText, BookOpenCheck, Menu, X, Presentation, Coffee } from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin, ExternalLink, Calendar, GraduationCap, Briefcase, Code, Award, Users, Heart, BookOpen, Trophy, FileText, BookOpenCheck, Menu, X, Presentation, Coffee } from 'lucide-react';
 import { MovingBorderButton } from '../components/MovingBorder';
 import { StarBorder } from '../components/StarBorder';
 import { annotate, annotationGroup } from 'rough-notation';
@@ -401,72 +401,72 @@ export default function Home() {
             <h2 className="text-sf-large font-sf-bold text-slate-900 mb-8 drop-shadow-sm">Featured Projects</h2>
             
             <div className="grid gap-6">
-              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Beatzy Music Maker iOS App</h3>
-                  <div className="flex items-center gap-2 bg-gradient-to-r from-amber-400/20 to-orange-400/20 backdrop-blur-sm px-3 py-1 rounded-full border border-amber-300/30">
-                    <Trophy className="w-4 h-4 text-amber-700" />
-                    <span className="text-sm font-medium text-amber-800 drop-shadow-sm">Top 250 on App Store</span>
+              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-4 lg:p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
+                <div className="space-y-3 mb-4">
+                  <h3 className="text-lg lg:text-xl font-semibold text-slate-900 drop-shadow-sm leading-tight">Beatzy Music Maker iOS App</h3>
+                  <div className="flex items-center gap-2 bg-gradient-to-r from-amber-400/20 to-orange-400/20 backdrop-blur-sm px-2 py-1 rounded-full border border-amber-300/30 w-fit">
+                    <Trophy className="w-3 h-3 lg:w-4 lg:h-4 text-amber-700" />
+                    <span className="text-xs lg:text-sm font-medium text-amber-800 drop-shadow-sm">Top 250 on App Store</span>
                   </div>
                 </div>
-                <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
+                <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm text-sm lg:text-base">
                   A highly advanced application built with SwiftUI for the frontend and Node.js for the backend, featuring a completely modern UI.
                 </p>
-                <div className="flex items-center gap-4">
-                  <div className="flex gap-2">
+                <div className="space-y-3">
+                  <div className="flex flex-wrap gap-2">
                     <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">SwiftUI</span>
                     <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">Node.js</span>
                     <span className="px-3 py-1 bg-violet-400/20 backdrop-blur-sm text-violet-800 rounded-lg text-sm border border-violet-300/30 drop-shadow-sm">Rest API</span>
                     <span className="px-3 py-1 bg-orange-400/20 backdrop-blur-sm text-orange-800 rounded-lg text-sm border border-orange-300/30 drop-shadow-sm">Firebase</span>
                   </div>
-                  <a href="#" className="inline-flex items-center gap-2 px-4 py-2 bg-black text-white rounded-lg text-sm font-medium hover:bg-black/90 transition-colors">
-                    <svg viewBox="0 0 384 512" className="w-4 h-4" fill="currentColor">
+                  <a href="#" className="inline-flex items-center gap-2 px-4 py-2 bg-black text-white rounded-lg text-sm font-medium hover:bg-black/90 transition-colors w-fit">
+                    <svg viewBox="0 0 384 512" className="w-3 h-3 lg:w-4 lg:h-4" fill="currentColor">
                       <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
                     </svg>
-                    <span>View on App Store</span>
-                    <ExternalLink className="w-4 h-4" />
+                    <span className="hidden sm:inline">View on App Store</span>
+                    <span className="sm:hidden">App Store</span>
+                    <ExternalLink className="w-3 h-3 lg:w-4 lg:h-4" />
                   </a>
                 </div>
               </div>
 
-              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Nasa Space Apps Hackathon</h3>
-                  <div className="flex items-center gap-2 bg-gradient-to-r from-amber-400/20 to-orange-400/20 backdrop-blur-sm px-3 py-1 rounded-full border border-amber-300/30">
-                    <Trophy className="w-4 h-4 text-amber-700" />
-                    <span className="text-sm font-medium text-amber-800 drop-shadow-sm">4th Place</span>
+              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-4 lg:p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
+                <div className="space-y-3 mb-4">
+                  <h3 className="text-lg lg:text-xl font-semibold text-slate-900 drop-shadow-sm leading-tight">Nasa Space Apps Hackathon</h3>
+                  <div className="flex items-center gap-2 bg-gradient-to-r from-amber-400/20 to-orange-400/20 backdrop-blur-sm px-2 py-1 rounded-full border border-amber-300/30 w-fit">
+                    <Trophy className="w-3 h-3 lg:w-4 lg:h-4 text-amber-700" />
+                    <span className="text-xs lg:text-sm font-medium text-amber-800 drop-shadow-sm">4th Place</span>
                   </div>
                 </div>
-                <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
+                <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm text-sm lg:text-base">
                   Feature-rich food delivery app with real-time order tracking, seamless payment integration, and smooth animations using Jetpack Compose.
                 </p>
-                <div className="flex items-center gap-4">
-                  <div className="flex gap-2">
-                    <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">Kotlin</span>
-                    <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">Jetpack Compose</span>
-                    <span className="px-3 py-1 bg-orange-400/20 backdrop-blur-sm text-orange-800 rounded-lg text-sm border border-orange-300/30 drop-shadow-sm">Firebase</span>
-                  </div>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">Kotlin</span>
+                  <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">Jetpack Compose</span>
+                  <span className="px-3 py-1 bg-orange-400/20 backdrop-blur-sm text-orange-800 rounded-lg text-sm border border-orange-300/30 drop-shadow-sm">Firebase</span>
                 </div>
               </div>
 
-              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">End to End Message Encryption App</h3>
-                  <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full border border-white/40 drop-shadow-sm">2023</span>
+              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-4 lg:p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
+                <div className="space-y-3 mb-4">
+                  <h3 className="text-lg lg:text-xl font-semibold text-slate-900 drop-shadow-sm leading-tight">End to End Message Encryption App</h3>
+                  <span className="text-xs lg:text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-2 py-1 rounded-full border border-white/40 drop-shadow-sm w-fit">2023</span>
                 </div>
-                <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
+                <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm text-sm lg:text-base">
                   Cross-platform messaging app with real-time chat, push notifications, and beautiful animations. Supports both iOS and Android with native performance.
                 </p>
-                <div className="flex items-center gap-4">
-                  <div className="flex gap-2">
-                    <span className="px-3 py-1 bg-rose-400/20 backdrop-blur-sm text-rose-800 rounded-lg text-sm border border-rose-300/30 drop-shadow-sm">Flutter</span>
-                    <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">AES, RSA, Diffie-Hellman</span>
-                    <span className="px-3 py-1 bg-violet-400/20 backdrop-blur-sm text-violet-800 rounded-lg text-sm border border-violet-300/30 drop-shadow-sm">Socket.io</span>
-                  </div>
-                  <a href="https://github.com/meliharik/end2end_messaging" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-[#24292e] text-white rounded-lg text-sm font-medium hover:bg-[#24292e]/90 transition-colors">
-                    <Github className="w-4 h-4" />
-                    <span>View on GitHub</span>
-                    <ExternalLink className="w-4 h-4" />
+                                  <div className="space-y-3">
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1 bg-rose-400/20 backdrop-blur-sm text-rose-800 rounded-lg text-sm border border-rose-300/30 drop-shadow-sm">Flutter</span>
+                      <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">AES, RSA, Diffie-Hellman</span>
+                      <span className="px-3 py-1 bg-violet-400/20 backdrop-blur-sm text-violet-800 rounded-lg text-sm border border-violet-300/30 drop-shadow-sm">Socket.io</span>
+                    </div>
+                    <a href="https://github.com/meliharik/end2end_messaging" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-[#24292e] text-white rounded-lg text-sm font-medium hover:bg-[#24292e]/90 transition-colors w-fit">
+                    <Github className="w-3 h-3 lg:w-4 lg:h-4" />
+                    <span className="hidden sm:inline">View on GitHub</span>
+                    <span className="sm:hidden">GitHub</span>
+                    <ExternalLink className="w-3 h-3 lg:w-4 lg:h-4" />
                   </a>
                 </div>
               </div>
@@ -502,35 +502,34 @@ export default function Home() {
                   custom-designed to fit the user's attachment point and is controlled through EMG sensors and a mobile application,
                   providing nerve-based control.
                 </p>
-                <div className="flex items-center gap-4">
-                  <div className="flex gap-2">
-                    <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">Raspberry Pi</span>
-                    <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">EMG Sensors</span>
-                    <span className="px-3 py-1 bg-orange-400/20 backdrop-blur-sm text-orange-800 rounded-lg text-sm border border-orange-300/30 drop-shadow-sm">Arduino</span>
-                  </div>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">Raspberry Pi</span>
+                  <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30 drop-shadow-sm">EMG Sensors</span>
+                  <span className="px-3 py-1 bg-orange-400/20 backdrop-blur-sm text-orange-800 rounded-lg text-sm border border-orange-300/30 drop-shadow-sm">Arduino</span>
                 </div>
               </div>
 
-              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-slate-900 drop-shadow-sm">Chrome Extension with Flutter</h3>
-                  <span className="text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full border border-white/40 drop-shadow-sm">2022</span>
+              <div className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-4 lg:p-6 shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
+                <div className="space-y-3 mb-4">
+                  <h3 className="text-lg lg:text-xl font-semibold text-slate-900 drop-shadow-sm leading-tight">Chrome Extension with Flutter</h3>
+                  <span className="text-xs lg:text-sm text-slate-700 bg-white/30 backdrop-blur-sm px-2 py-1 rounded-full border border-white/40 drop-shadow-sm w-fit">2022</span>
                 </div>
-                <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm">
+                <p className="text-slate-800 mb-4 leading-relaxed drop-shadow-sm text-sm lg:text-base">
                   I built a chrome extension with Flutter that allows you to see current prices of crypto currencies and wrote a blog post about it.
                 </p>
-                <div className="flex items-center gap-4">
-                  <div className="flex gap-2">
-                    <span className="px-3 py-1 bg-cyan-400/20 backdrop-blur-sm text-cyan-800 rounded-lg text-sm border border-cyan-300/30 drop-shadow-sm">Flutter</span>
-                    <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">Chrome Extension</span>
-                    <span className="px-3 py-1 bg-red-400/20 backdrop-blur-sm text-red-800 rounded-lg text-sm border border-red-300/30 drop-shadow-sm">Crypto APIs</span>
-                  </div>
-                  <a href="https://medium.com/flutter-students-club/create-your-chrome-extension-using-flutter-79712ffcb439" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-black text-white rounded-lg text-sm font-medium hover:bg-black/90 transition-colors">
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                                  <div className="space-y-3">
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1 bg-cyan-400/20 backdrop-blur-sm text-cyan-800 rounded-lg text-sm border border-cyan-300/30 drop-shadow-sm">Flutter</span>
+                      <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30 drop-shadow-sm">Chrome Extension</span>
+                      <span className="px-3 py-1 bg-red-400/20 backdrop-blur-sm text-red-800 rounded-lg text-sm border border-red-300/30 drop-shadow-sm">Crypto APIs</span>
+                    </div>
+                    <a href="https://medium.com/flutter-students-club/create-your-chrome-extension-using-flutter-79712ffcb439" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-black text-white rounded-lg text-sm font-medium hover:bg-black/90 transition-colors w-fit">
+                    <svg className="w-3 h-3 lg:w-4 lg:h-4" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
                     </svg>
-                    <span>View on Medium</span>
-                    <ExternalLink className="w-4 h-4" />
+                    <span className="hidden sm:inline">View on Medium</span>
+                    <span className="sm:hidden">Medium</span>
+                    <ExternalLink className="w-3 h-3 lg:w-4 lg:h-4" />
                   </a>
                 </div>
               </div>
@@ -939,13 +938,13 @@ export default function Home() {
                     Shared insights about building niche apps, monetization strategies, and balancing side projects with full-time work.
                   </p>
                   
-                  <div className="flex items-center gap-4">
-                    <div className="flex gap-2">
+                  <div className="space-y-3">
+                    <div className="flex flex-wrap gap-2">
                       <span className="px-3 py-1 bg-green-400/20 backdrop-blur-sm text-green-800 rounded-lg text-sm border border-green-300/30">Side Project</span>
                       <span className="px-3 py-1 bg-amber-400/20 backdrop-blur-sm text-amber-800 rounded-lg text-sm border border-amber-300/30">Podcast</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-slate-700">
-                      <span>Listen on</span>
+                    <div className="flex items-center gap-3">
+                      <span className="text-sm text-slate-700">Listen on</span>
                       <a href="https://open.spotify.com/episode/44gHYM3QdeWiS1Rmpq6zbm?si=33b4122045444dff" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 bg-green-500 hover:bg-green-600 text-white px-3 py-1.5 rounded-lg text-sm font-medium transition-colors">
                         <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                           <path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm5.568 17.568c-.24.36-.72.48-1.08.24-2.88-1.8-6.48-2.208-10.728-1.2-.36.096-.72-.144-.816-.48-.096-.36.144-.72.48-.816 4.608-1.104 8.64-.624 11.784 1.368.36.24.48.72.24 1.08l.12-.192zm1.44-3.216c-.288.432-.864.576-1.296.288-3.312-2.04-8.352-2.64-12.24-1.44-.432.144-.864-.144-1.008-.576-.144-.432.144-.864.576-1.008 4.464-1.368 10.08-.72 13.92 1.632.432.288.576.864.288 1.296l-.24-.192zm.144-3.36c-3.936-2.352-10.44-2.568-14.208-1.416-.504.144-1.032-.216-1.176-.72-.144-.504.216-1.032.72-1.176C8.64 6.24 15.84 6.528 20.448 9.216c.504.288.672.936.384 1.44-.288.504-.936.672-1.44.384l-.24-.048z"/>
@@ -1008,13 +1007,13 @@ export default function Home() {
                     We talked about how to manage users with Firebase Auth and how to use it in a Flutter project. You can find the presentation youtube link below.
                   </p>
                   
-                  <div className="flex items-center gap-4">
-                    <div className="flex gap-2">
+                  <div className="space-y-3">
+                    <div className="flex flex-wrap gap-2">
                         <span className="px-3 py-1 bg-cyan-400/20 backdrop-blur-sm text-cyan-800 rounded-lg text-sm border border-cyan-300/30">Flutter</span>
                         <span className="px-3 py-1 bg-rose-400/20 backdrop-blur-sm text-rose-800 rounded-lg text-sm border border-rose-300/30">Firebase Auth</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-slate-700">
-                      <span>Watch on</span>
+                    <div className="flex items-center gap-3">
+                      <span className="text-sm text-slate-700">Watch on</span>
                       <a href="https://youtu.be/H2OykY1FPb8?t=8306" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded-lg text-sm font-medium transition-colors">
                         <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                           <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
@@ -1158,38 +1157,39 @@ export default function Home() {
                 </div>
                 
                 {/* Content Section */}
-                <div className="lg:col-span-3 p-6 flex flex-col justify-center">
+                <div className="lg:col-span-3 p-4 lg:p-6 flex flex-col justify-center">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
                     <span className="text-sf-caption1 font-sf-semibold text-blue-700 bg-blue-50/50 px-2 py-1 rounded-lg">Oct 2024</span>
                   </div>
                   
-                  <h3 className="text-xl font-sf-bold text-slate-900 mb-3 leading-tight">
+                  <h3 className="text-lg lg:text-xl font-sf-bold text-slate-900 mb-3 leading-tight">
                     ENCRYPTED MESSAGING APPLICATION COMBINING AES AND RSA ALGORITHMS
                   </h3>
                   
-                  <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 font-sf-semibold mb-3">
+                  <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 font-sf-semibold mb-3 text-sm lg:text-base">
                     ICETI'24 - International Conference on Engineering and Technology Innovation • First Author
                   </p>
                   
-                  <p className="text-slate-800 mb-4 leading-relaxed text-sf-body">
+                  <p className="text-slate-800 mb-4 leading-relaxed text-sf-body text-sm lg:text-base">
                     This paper presents a secure messaging application that combines AES and RSA encryption algorithms 
                     to provide end-to-end encryption with optimal security and performance balance.
                   </p>
                   
-                  <div className="flex items-center gap-4">
-                    <div className="flex gap-2">
-                      <span className="px-3 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-lg text-sm border border-blue-300/30">Encryption</span>
-                      <span className="px-3 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-lg text-sm border border-emerald-300/30">AES</span>
-                      <span className="px-3 py-1 bg-violet-400/20 backdrop-blur-sm text-violet-800 rounded-lg text-sm border border-violet-300/30">RSA</span>
+                  <div className="space-y-3">
+                    <div className="flex flex-wrap gap-1.5">
+                      <span className="px-2 py-1 bg-blue-400/20 backdrop-blur-sm text-blue-800 rounded-md text-xs border border-blue-300/30">Encryption</span>
+                      <span className="px-2 py-1 bg-emerald-400/20 backdrop-blur-sm text-emerald-800 rounded-md text-xs border border-emerald-300/30">AES</span>
+                      <span className="px-2 py-1 bg-violet-400/20 backdrop-blur-sm text-violet-800 rounded-md text-xs border border-violet-300/30">RSA</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-slate-700">
-                      <span>View in</span>
-                      <a href="https://www.iceti.org/sites/default/files/iceti_2024_book_of_proceedings.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 bg-indigo-500 hover:bg-indigo-600 text-white px-3 py-1.5 rounded-lg text-sm font-medium transition-colors">
-                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <div className="flex items-center gap-3">
+                      <span className="text-sm text-slate-700">View in</span>
+                      <a href="https://www.iceti.org/sites/default/files/iceti_2024_book_of_proceedings.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-indigo-500 hover:bg-indigo-600 text-white px-3 py-1.5 rounded-lg text-xs lg:text-sm font-medium transition-colors w-fit">
+                        <svg className="w-3 h-3 lg:w-4 lg:h-4" viewBox="0 0 24 24" fill="currentColor">
                           <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
                         </svg>
-                        Journal
+                        <span className="hidden sm:inline">Journal</span>
+                        <span className="sm:hidden">Journal</span>
                       </a>
                     </div>
                   </div>
@@ -1217,22 +1217,13 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="text-sm text-slate-700 mb-1 drop-shadow-sm">Email</p>
-                    <a href="mailto:melih@example.com" className="text-slate-900 hover:text-indigo-600 font-medium transition-colors drop-shadow-sm">
-                      melih@example.com
+                    <a href="mailto:hi@meliharik.dev" className="text-slate-900 hover:text-indigo-600 font-medium transition-colors drop-shadow-sm">
+                      hi@meliharik.dev
                     </a>
                   </div>
                 </div>
                 
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center shadow-lg">
-                    <Phone className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-slate-700 mb-1 drop-shadow-sm">Phone</p>
-                    <span className="text-slate-900 font-medium drop-shadow-sm">+90 (555) 123-4567</span>
-                  </div>
-                </div>
-                
+
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-gradient-to-r from-violet-500 to-purple-500 rounded-xl flex items-center justify-center shadow-lg">
                     <MapPin className="w-5 h-5 text-white" />
@@ -1240,6 +1231,24 @@ export default function Home() {
                   <div>
                     <p className="text-sm text-slate-700 mb-1 drop-shadow-sm">Location</p>
                     <span className="text-slate-900 font-medium drop-shadow-sm">Tartu, Estonia</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg">
+                    <Calendar className="w-5 h-5 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-sm text-slate-700 mb-2 drop-shadow-sm">Schedule a Meeting</p>
+                    <a 
+                      href="https://cal.com/meliharik" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-emerald-500 hover:from-blue-600 hover:to-emerald-600 text-white font-medium px-4 py-2 rounded-lg text-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                    >
+                      <span>Book a Call</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
                   </div>
                 </div>
                 
@@ -1254,7 +1263,7 @@ export default function Home() {
                   </a>
                   
                   <a 
-                    href="https://linkedin.com/in/meliharik" 
+                    href="https://linkedin.com/in/melihify" 
                     target="_blank" 
                     className="flex items-center gap-2 bg-gradient-to-r from-blue-500/80 to-indigo-500/80 backdrop-blur-sm text-white px-6 py-3 rounded-xl hover:from-blue-600/90 hover:to-indigo-600/90 transition-all font-medium shadow-lg"
                   >
@@ -1351,14 +1360,14 @@ export default function Home() {
                   <Github className="w-4 h-4" />
           </a>
           <a
-                  href="https://linkedin.com/in/meliharik" 
+                  href="https://linkedin.com/in/melihify" 
             target="_blank"
                   className="flex-1 h-10 bg-white/30 hover:bg-white/50 rounded-xl flex items-center justify-center text-slate-800 hover:text-slate-900 transition-all backdrop-blur-sm"
           >
                   <Linkedin className="w-4 h-4" />
                 </a>
                 <a 
-                  href="mailto:melih@example.com" 
+                  href="mailto:hi@meliharik.dev" 
                   className="flex-1 h-10 bg-white/30 hover:bg-white/50 rounded-xl flex items-center justify-center text-slate-800 hover:text-slate-900 transition-all backdrop-blur-sm"
                 >
                   <Mail className="w-4 h-4" />
@@ -1453,14 +1462,14 @@ export default function Home() {
                   <Github className="w-5 h-5" />
         </a>
         <a
-                  href="https://linkedin.com/in/meliharik" 
+                  href="https://linkedin.com/in/melihify" 
           target="_blank"
                   className="w-12 h-12 bg-white/30 hover:bg-white/50 rounded-xl flex items-center justify-center text-slate-800 hover:text-slate-900 transition-all backdrop-blur-sm"
         >
                   <Linkedin className="w-5 h-5" />
         </a>
         <a
-                  href="mailto:melih@example.com" 
+                  href="mailto:hi@meliharik.dev" 
                   className="w-12 h-12 bg-white/30 hover:bg-white/50 rounded-xl flex items-center justify-center text-slate-800 hover:text-slate-900 transition-all backdrop-blur-sm"
                 >
                   <Mail className="w-5 h-5" />
@@ -1506,7 +1515,7 @@ export default function Home() {
                     <Github className="w-4 h-4" />
                   </a>
                   <a 
-                    href="https://linkedin.com/in/meliharik" 
+                    href="https://linkedin.com/in/melihify" 
           target="_blank"
           rel="noopener noreferrer"
                     className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center text-slate-700 hover:bg-white/30 hover:text-slate-900 transition-all"
@@ -1514,7 +1523,7 @@ export default function Home() {
                     <Linkedin className="w-4 h-4" />
                   </a>
                   <a 
-                    href="mailto:melih@example.com" 
+                    href="mailto:hi@meliharik.dev" 
                     className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center text-slate-700 hover:bg-white/30 hover:text-slate-900 transition-all"
                   >
                     <Mail className="w-4 h-4" />
