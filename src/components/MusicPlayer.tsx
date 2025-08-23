@@ -16,7 +16,7 @@ const track: Track = {
   title: "Around The World",
   artist: "Daft Punk", 
   url: "/music/daftpunk.mp3", // Local dosya public/music/ klasöründe
-  cover: "https://media.pitchfork.com/photos/63f641d801dbe796fab80055/1:1/w_320,c_limit/Daft-Punk-Random-Access-Memories.jpg" // Daft Punk album cover
+  cover: "/dp.jpg" // Daft Punk album cover
 };
 
 export const MusicPlayer = () => {

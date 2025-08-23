@@ -1,5 +1,6 @@
 import { useMediumPosts } from '@/hooks/useMediumPosts';
 import Image from 'next/image';
+import { useState } from 'react';
 
 interface BlogsSectionProps {
   activeSection: string;
@@ -7,6 +8,7 @@ interface BlogsSectionProps {
 
 export const BlogsSection = ({ activeSection }: BlogsSectionProps) => {
   const { mediumPosts, loadingPosts } = useMediumPosts(activeSection);
+  const [imageErrors, setImageErrors] = useState<{[key: number]: boolean}>({});
 
   return (
     <div className="space-y-8">
@@ -40,13 +42,26 @@ export const BlogsSection = ({ activeSection }: BlogsSectionProps) => {
                 <div key={index} className="group grid lg:grid-cols-5 gap-6 bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl overflow-hidden shadow-xl border border-white/30 hover:bg-white/25 transition-all duration-300">
                   {/* Image Section */}
                   <div className={`lg:col-span-2 relative h-48 lg:h-auto overflow-hidden ${index % 2 === 0 ? 'order-1' : 'order-2 lg:order-2'}`}>
-                    <Image 
-                      src={post.description?.match(/<img[^>]+src="([^">]+)"/)?.[1] || 'https://via.placeholder.com/400x200/00ab6b/ffffff?text=Medium+Article'} 
-                      alt={post.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      fill
-                      sizes="(max-width: 768px) 100vw, 40vw"
-                    />
+                    {imageErrors[index] ? (
+                      // Fallback placeholder
+                      <div className="w-full h-full bg-slate-900 flex items-center justify-center">
+                        <div className="text-white text-center p-4">
+                          <div className="text-3xl font-bold mb-2">M</div>
+                          <div className="text-sm font-medium opacity-80">Medium Article</div>
+                        </div>
+                      </div>
+                    ) : (
+                      // Try to load image
+                      <Image 
+                        src={post.description?.match(/<img[^>]+src="([^">]+)"/)?.[1] || '/placeholder-medium.svg'} 
+                        alt={post.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 40vw"
+                        onError={() => setImageErrors(prev => ({ ...prev, [index]: true }))}
+                        unoptimized
+                      />
+                    )}
                     <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
                       <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
