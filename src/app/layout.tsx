@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Melih Arık - Platform Developer & AI Specialist",
-  description: "Portfolio of Melih Arık, a Platform Developer & AI Specialist focused on privacy-preserving technologies, artificial intelligence, and secure data systems.",
-  keywords: ["Melih Arık", "AI Developer", "Platform Developer", "Artificial Intelligence", "Machine Learning", "Software Engineer", "Turkey", "Bursa"],
+  title: "Melih Arık",
+  description: "Portfolio of Melih Arık, a Developer & AI Specialist focused on privacy-preserving technologies, artificial intelligence, and secure data systems.",
+  keywords: ["Melih Arık", "AI Developer", "Mobile Developer", "Artificial Intelligence", "Machine Learning", "Software Engineer", "Turkey", "Bursa"],
   authors: [{ name: "Melih Arık", url: "https://meliharik.dev" }],
   creator: "Melih Arık",
   publisher: "Melih Arık",
@@ -23,22 +23,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://meliharik.dev",
-    title: "Melih Arık - Platform Developer & AI Specialist",
-    description: "Portfolio of Melih Arık, a Platform Developer & AI Specialist focused on privacy-preserving technologies, artificial intelligence, and secure data systems.",
+    title: "Melih Arık",
+    description: "Portfolio of Melih Arık, a Developer & AI Specialist focused on privacy-preserving technologies, artificial intelligence, and secure data systems.",
     siteName: "Melih Arık Portfolio",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Melih Arık - Platform Developer & AI Specialist",
+        alt: "Melih Arık",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Melih Arık - Platform Developer & AI Specialist",
-    description: "Portfolio of Melih Arık, a Platform Developer & AI Specialist focused on privacy-preserving technologies, artificial intelligence, and secure data systems.",
+    title: "Melih Arık",
+    description: "Portfolio of Melih Arık, a Developer & AI Specialist focused on privacy-preserving technologies, artificial intelligence, and secure data systems.",
     images: ["/og-image.jpg"],
   },
   robots: {
