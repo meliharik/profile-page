@@ -11,7 +11,7 @@ export const projectsData: ProjectItem[] = [
     },
     links: [{
       type: 'appstore',
-      url: '#',
+      url: 'https://apps.apple.com/us/app/beatzy-ai-music-generator/id6742488919',
       label: 'View on App Store'
     }]
   },
