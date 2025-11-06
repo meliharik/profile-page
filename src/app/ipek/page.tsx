@@ -48,7 +48,7 @@ export default function IpekPage() {
         {!showConfetti ? (
           <div className="bg-white/80 backdrop-blur-xl p-12 rounded-3xl shadow-2xl border border-white/50">
             <h1 className="text-5xl font-bold mb-12 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
-              Melih İpek'i seviyor mu?
+              Melih İpek&apos;i seviyor mu?
             </h1>
 
             <div className="flex gap-8 justify-center items-center relative">
