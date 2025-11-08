@@ -23,7 +23,7 @@ export const AboutSection = ({ activeSection }: AboutSectionProps) => {
         <div className="flex flex-col items-center text-center mb-8 py-8">
           <div className="mb-6">
             <Image 
-              src="/profile.jpg" 
+              src="/profile.jpeg" 
               alt="Melih Arık" 
               className="w-32 h-32 rounded-3xl object-cover shadow-2xl border-4 border-white/30 backdrop-blur-sm"
               width={128}

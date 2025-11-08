@@ -132,7 +132,7 @@ export const MusicPlayer = () => {
             {/* Track Info */}
             <div className="flex items-center gap-3 mb-4">
               <Image
-                src={track.cover || '/profile.jpg'}
+                src={track.cover || '/profile.jpeg'}
                 alt={track.title}
                 className="w-12 h-12 rounded-xl object-cover shadow-lg"
                 width={48}

@@ -22,7 +22,7 @@ export const Sidebar = ({ activeSection, handleMenuItemClick }: SidebarProps) =>
         {/* Profile Header */}
         <div className="p-8 border-b border-white/20">
           <Image 
-            src="/profile.jpg" 
+            src="/profile.jpeg" 
             alt="Melih Arık" 
             className="w-20 h-20 rounded-2xl object-cover shadow-lg mb-4"
             width={80}
