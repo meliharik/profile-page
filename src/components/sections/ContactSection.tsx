@@ -36,7 +36,7 @@ export const ContactSection = () => {
             </div>
             <div>
               <p className="text-sf-caption1 font-sf-medium text-slate-700 mb-1">Location</p>
-              <span className="text-sf-subhead font-sf-semibold text-slate-900">Tartu, Estonia</span>
+              <span className="text-sf-subhead font-sf-semibold text-slate-900">Tallinn, Estonia</span>
             </div>
           </div>
 

@@ -32,7 +32,7 @@ export const Sidebar = ({ activeSection, handleMenuItemClick }: SidebarProps) =>
           <p className="text-sf-headline font-sf-medium text-slate-800 mb-3 drop-shadow-sm">Mobile Application Developer</p>
           <p className="text-sf-subhead font-sf-regular text-slate-700 flex items-center gap-2 drop-shadow-sm">
             <MapPin className="w-4 h-4" />
-            Tartu, Estonia
+            Tallinn, Estonia
           </p>
         </div>
         

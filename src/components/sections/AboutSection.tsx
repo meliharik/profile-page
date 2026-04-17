@@ -35,7 +35,7 @@ export const AboutSection = ({ activeSection }: AboutSectionProps) => {
             <p className="text-sf-title2 font-sf-semibold text-slate-800 mb-3 drop-shadow-sm">Mobile Application Developer</p>
             <p className="text-sf-body font-sf-regular text-slate-700 flex items-center justify-center gap-2 drop-shadow-sm">
               <MapPin className="w-4 h-4" />
-              Tartu, Estonia
+              Tallinn, Estonia
             </p>
           </div>
         </div>
