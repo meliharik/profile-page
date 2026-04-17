@@ -11,7 +11,8 @@ const getGradientColors = (gradientClass: string) => {
     'from-red-600 to-red-600': '#dc2626, #dc2626',
     'from-indigo-600 to-blue-600': '#4f46e5, #2563eb',
     'from-pink-600 to-rose-600': '#db2777, #e11d48',
-    'from-cyan-600 to-sky-600': '#0891b2, #0284c7'
+    'from-cyan-600 to-sky-600': '#0891b2, #0284c7',
+    'from-orange-500 to-red-500': '#f97316, #ef4444'
   };
   
   return colorMap[gradientClass] || '#475569, #475569';
