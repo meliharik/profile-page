@@ -4,7 +4,7 @@ export const experienceData: ExperienceItem[] = [
   {
     title: 'Mobile Engineer',
     company: 'Omniva',
-    location: 'Remote',
+    location: 'Tallinn, Estonia',
     period: 'Feb 2026 - Present',
     description: 'Working as a Mobile Engineer in the Baltic-Logistics team, developing the Crowd App and Omnihub projects.',
     companyColor: 'from-orange-500 to-red-500'
