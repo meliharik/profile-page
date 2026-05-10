@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fitness App — Privacy Policy</title>
-<meta name="description" content="How Fitness App collects, uses, and protects your personal data, including signup geolocation, workout data, and health metrics.">
+<title>Lift — Privacy Policy</title>
+<meta name="description" content="How Lift collects, uses, and protects your personal data, including signup geolocation, workout data, and health metrics.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://fitness-app.example/privacy.html">
+<link rel="canonical" href="https://lift.example/fitness_privacy_policy.html">
 <style>
   :root {
     --bg: #fafafa;
@@ -159,19 +159,19 @@
 
 <header class="site">
   <div class="inner">
-    <a href="/" class="brand">Fitness App</a>
+    <a href="/" class="brand">Lift</a>
     <nav>
-      <a href="privacy.html" aria-current="page">Privacy</a>
-      <a href="terms.html">Terms</a>
+      <a href="fitness_privacy_policy.html" aria-current="page">Privacy</a>
+      <a href="fitness_terms_of_use.html">Terms</a>
     </nav>
   </div>
 </header>
 
 <main>
   <h1>Privacy Policy</h1>
-  <p class="subtitle">Last updated: 5 May 2026</p>
+  <p class="subtitle">Last updated: 10 May 2026</p>
 
-  <p>This Privacy Policy describes how Fitness App ("we", "our", or "us") collects, uses, and shares your personal data when you use our mobile application and related services (the "Service"). It also explains your rights regarding that data and how to exercise them.</p>
+  <p>This Privacy Policy describes how Lift ("we", "our", or "us") collects, uses, and shares your personal data when you use our mobile application and related services (the "Service"). It also explains your rights regarding that data and how to exercise them.</p>
   <p>By using the Service, you agree to the practices described here. If you do not agree, please do not use the Service.</p>
 
   <nav class="toc" aria-label="Contents">
@@ -182,6 +182,7 @@
       <li><a href="#how-we-use">How We Use Your Data</a></li>
       <li><a href="#sharing">Sharing &amp; Third Parties</a></li>
       <li><a href="#health">Health Data &amp; Apple HealthKit</a></li>
+      <li><a href="#subscriptions">Subscriptions &amp; Payments</a></li>
       <li><a href="#retention">Data Retention</a></li>
       <li><a href="#rights">Your Rights (GDPR / CCPA)</a></li>
       <li><a href="#security">Security</a></li>
@@ -217,6 +218,9 @@
   <h3>Health data (heart rate)</h3>
   <p>If you grant the relevant permission, we read heart-rate samples written to Apple Health by your Apple Watch (or a paired Bluetooth heart-rate monitor) during workouts you record in the Service. We summarise these into average / minimum / peak BPM and a downsampled time series, which we store alongside the corresponding workout session.</p>
 
+  <h3>Subscription &amp; purchase data</h3>
+  <p>If you start a subscription, our subscription provider (RevenueCat) records your purchase events, the in-app product purchased, the platform store transaction identifier, the entitlement status (active / expired / refunded), the trial status, and a pseudonymous user identifier we associate with your account. We do not receive or store your payment card or bank details &mdash; those remain with the platform store (Apple).</p>
+
   <h3>Device and usage data</h3>
   <p>Like most apps, we automatically collect device model, operating-system version, app version, language, and crash / diagnostic data. We use a third-party crash reporter for stability monitoring.</p>
 
@@ -228,6 +232,7 @@
     <li><strong>Provide the Service:</strong> personalising your workout plan, generating recommended programs, displaying workout history and progress charts.</li>
     <li><strong>Notifications:</strong> sending the morning workout reminder and post-workout follow-ups using your stored timezone.</li>
     <li><strong>Health insights:</strong> showing live heart rate during workouts and historical heart-rate summaries on the workout-detail screen.</li>
+    <li><strong>Subscription management:</strong> verifying your entitlement, granting access to paid features, processing renewals and refunds, and supporting subscription restore.</li>
     <li><strong>Service improvement:</strong> diagnosing crashes, measuring feature usage in aggregate, and prioritising fixes.</li>
     <li><strong>Security &amp; fraud prevention:</strong> using signup geo and account metadata to detect abuse.</li>
     <li><strong>Legal compliance:</strong> meeting our obligations under applicable laws and regulations.</li>
@@ -238,13 +243,18 @@
   <ul>
     <li><strong>Cloud infrastructure:</strong> Google Firebase (Authentication, Cloud Firestore, Realtime Database, Cloud Storage, Cloud Messaging) and Railway for backend hosting.</li>
     <li><strong>Authentication providers:</strong> Apple and Google when you sign in via those providers.</li>
+    <li><strong>Subscription management:</strong> RevenueCat receives a pseudonymous user identifier (your Firebase user id) and the in-app purchase events generated by Apple StoreKit, so we can grant or revoke entitlements correctly across devices and over time.</li>
+    <li><strong>Product analytics:</strong> PostHog receives a pseudonymous distinct identifier and event-level usage data (which screens you view, which features you tap, paywall outcomes). We do not send personally identifying fields such as your name, email, or precise location to PostHog.</li>
     <li><strong>Analytics &amp; crash reporting:</strong> Firebase Analytics and Firebase Crashlytics. Identifiers used are app-scoped and not joined with third-party advertising profiles.</li>
     <li><strong>IP geolocation:</strong> a third-party lookup service receives your IP address once during signup to return country/city information.</li>
     <li><strong>Legal:</strong> we may disclose data when required by law, court order, or to protect the rights, property, or safety of users or the public.</li>
   </ul>
 
   <h2 id="health">Health Data &amp; Apple HealthKit</h2>
-  <p>The Service integrates with Apple HealthKit. Data we read from HealthKit (such as heart-rate samples) is used solely to provide features inside the app and to compute the heart-rate summary stored with the corresponding workout. <strong>We never use HealthKit data for advertising, marketing, or to share with data brokers,</strong> and we never disclose HealthKit data to third parties for their own purposes. You can revoke HealthKit access at any time in <em>Settings → Privacy &amp; Security → Health → Fitness App</em>.</p>
+  <p>The Service integrates with Apple HealthKit. Data we read from HealthKit (such as heart-rate samples) is used solely to provide features inside the app and to compute the heart-rate summary stored with the corresponding workout. <strong>We never use HealthKit data for advertising, marketing, or to share with data brokers,</strong> and we never disclose HealthKit data to third parties for their own purposes. You can revoke HealthKit access at any time in <em>Settings &rarr; Privacy &amp; Security &rarr; Health &rarr; Lift</em>.</p>
+
+  <h2 id="subscriptions">Subscriptions &amp; Payments</h2>
+  <p>Subscription billing is handled entirely by Apple through the App Store. We never see your card number, billing address, or any other payment instrument. After a purchase, the platform store sends a signed transaction to our subscription provider (RevenueCat), which then notifies our backend so we can flag your account as premium and grant access to paid features. If a renewal fails, you cancel, or your purchase is refunded, the same flow runs in reverse and your premium access is removed. You can manage or cancel your subscription at any time from <em>Settings &rarr; [Your Apple ID] &rarr; Subscriptions</em> on your device.</p>
 
   <h2 id="retention">Data Retention</h2>
   <p>We retain your data for as long as your account is active. If you delete your account, we delete or anonymise your personal data within 30 days, except where we are required to retain certain records for legal, accounting, or fraud-prevention purposes. Aggregated, non-identifying analytics may be retained indefinitely.</p>
@@ -276,13 +286,13 @@
 
   <h2 id="contact">Contact Us</h2>
   <p>For questions about this policy or to exercise your privacy rights, contact:</p>
-  <p>Melih Arık &mdash; <a href="mailto:meliharik.est@gmail.com">meliharik.est@gmail.com</a></p>
+  <p>Lift app &mdash; <a href="mailto:apps@meliharik.dev">apps@meliharik.dev</a></p>
 </main>
 
 <footer class="site">
   <div class="inner">
-    <span>&copy; 2026 Fitness App. All rights reserved.</span>
-    <span><a href="terms.html">Terms of Use</a></span>
+    <span>&copy; 2026 Lift. All rights reserved.</span>
+    <span><a href="fitness_terms_of_use.html">Terms of Use</a></span>
   </div>
 </footer>
 
