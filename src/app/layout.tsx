@@ -14,27 +14,54 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://meliharik.dev"),
-  title: "Melih Arık",
+  title: {
+    default: "Melih Arık — Software Engineer",
+    template: "%s — Melih Arık",
+  },
   description:
-    "Software engineer in Tallinn, Estonia. Building mobile apps with SwiftUI, Flutter and React Native.",
+    "Software engineer in Tallinn, Estonia. Mobile engineer at Omniva, building iOS and Android apps with SwiftUI, Flutter and React Native. 30+ apps shipped to the App Store and Google Play.",
+  keywords: [
+    "Melih Arık",
+    "Software Engineer",
+    "Mobile Developer",
+    "iOS Developer",
+    "SwiftUI",
+    "Flutter",
+    "React Native",
+    "Tallinn",
+    "Estonia",
+  ],
   authors: [{ name: "Melih Arık", url: "https://meliharik.dev" }],
+  creator: "Melih Arık",
+  alternates: {
+    canonical: "https://meliharik.dev",
+  },
   openGraph: {
-    type: "website",
+    type: "profile",
+    firstName: "Melih",
+    lastName: "Arık",
     locale: "en_US",
     url: "https://meliharik.dev",
-    title: "Melih Arık",
+    title: "Melih Arık — Software Engineer",
     description:
-      "Software engineer in Tallinn, Estonia. Building mobile apps with SwiftUI, Flutter and React Native.",
+      "Software engineer in Tallinn, Estonia. Building iOS and Android apps with SwiftUI, Flutter and React Native.",
     siteName: "Melih Arık",
   },
   twitter: {
-    card: "summary",
-    title: "Melih Arık",
+    card: "summary_large_image",
+    title: "Melih Arık — Software Engineer",
     description: "Software engineer in Tallinn, Estonia.",
+    creator: "@melihify",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

@@ -92,11 +92,63 @@ const Section = ({
   </section>
 );
 
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Melih Arık',
+  url: 'https://meliharik.dev',
+  image: 'https://meliharik.dev/profile.jpeg',
+  jobTitle: 'Software Engineer',
+  email: 'mailto:hi@meliharik.dev',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Omniva',
+    url: 'https://www.omniva.ee',
+  },
+  alumniOf: [
+    {
+      '@type': 'CollegeOrUniversity',
+      name: 'University of Tartu',
+      url: 'https://ut.ee',
+    },
+    {
+      '@type': 'CollegeOrUniversity',
+      name: 'Bursa Uludağ University',
+      url: 'https://uludag.edu.tr',
+    },
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Tallinn',
+    addressCountry: 'EE',
+  },
+  knowsAbout: [
+    'iOS development',
+    'Android development',
+    'SwiftUI',
+    'Flutter',
+    'React Native',
+    'Kotlin',
+    'Mobile application development',
+  ],
+  sameAs: [
+    'https://github.com/meliharik',
+    'https://linkedin.com/in/melihify',
+    'https://twitter.com/melihify',
+    'https://instagram.com/melihifyy',
+    'https://medium.com/@melihify',
+  ],
+};
+
 export default async function Home() {
   const posts = await getMediumPosts();
 
   return (
     <main className="mx-auto max-w-xl px-6 py-24 sm:py-32">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       <header
         className="animate-enter flex items-center gap-4"
         style={stagger(0)}
