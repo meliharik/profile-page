@@ -95,9 +95,7 @@ export default function RootLayout({
           })(window, document, "clarity", "script", "xotpotrxzc");`}
         </Script>
       </body>
-      {process.env.NEXT_PUBLIC_GA_ID && (
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
-      )}
+      <GoogleAnalytics gaId="G-SC65WNQD9C" />
     </html>
   );
 }
