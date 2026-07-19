@@ -185,7 +185,7 @@ export default async function Home() {
         </p>
         <p>
           Studying for a master&apos;s in software engineering at the University
-          of Tartu. Open to freelance work —{' '}
+          of Tartu. Open to freelance work, feel free to{' '}
           <A href="https://cal.com/meliharik">book a call</A>.
         </p>
       </section>

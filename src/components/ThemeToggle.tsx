@@ -15,7 +15,7 @@ export const ThemeToggle = () => {
       aria-label="Toggle theme"
       className="rounded-full p-2 text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-neutral-700 dark:text-neutral-500 dark:hover:bg-neutral-900 dark:hover:text-neutral-300"
     >
-      {/* Moon — shown in light mode */}
+      {/* Moon, shown in light mode */}
       <svg
         className="block h-4 w-4 dark:hidden"
         viewBox="0 0 24 24"
@@ -28,7 +28,7 @@ export const ThemeToggle = () => {
       >
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
       </svg>
-      {/* Sun — shown in dark mode */}
+      {/* Sun, shown in dark mode */}
       <svg
         className="hidden h-4 w-4 dark:block"
         viewBox="0 0 24 24"

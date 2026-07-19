@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://meliharik.dev"),
   title: {
-    default: "Melih Arık — Software Engineer",
-    template: "%s — Melih Arık",
+    default: "Melih Arık - Software Engineer",
+    template: "%s - Melih Arık",
   },
   description:
     "Software engineer in Tallinn, Estonia. Mobile engineer at Omniva, building iOS and Android apps with SwiftUI, Flutter and React Native. 30+ apps shipped to the App Store and Google Play.",
@@ -44,14 +44,14 @@ export const metadata: Metadata = {
     lastName: "Arık",
     locale: "en_US",
     url: "https://meliharik.dev",
-    title: "Melih Arık — Software Engineer",
+    title: "Melih Arık - Software Engineer",
     description:
       "Software engineer in Tallinn, Estonia. Building iOS and Android apps with SwiftUI, Flutter and React Native.",
     siteName: "Melih Arık",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Melih Arık — Software Engineer",
+    title: "Melih Arık - Software Engineer",
     description: "Software engineer in Tallinn, Estonia.",
     creator: "@melihify",
   },

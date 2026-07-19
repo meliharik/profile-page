@@ -5,21 +5,21 @@
 ## About
 
 - Role: Software Engineer (mobile focus: iOS, Android, cross-platform)
-- Company: Omniva (Baltic logistics), Tallinn, Estonia — since Feb 2026
+- Company: Omniva (Baltic logistics), Tallinn, Estonia, since Feb 2026
 - Education: MSc Software Engineering, University of Tartu (2025–present); BSc Computer Engineering, Bursa Uludağ University (2019–2024)
 - Skills: Swift, SwiftUI, Kotlin, Java, Flutter, Dart, React Native, Firebase, Spring Boot
 - Open to freelance work: https://cal.com/meliharik
 
 ## Selected projects
 
-- [Beatzy — AI music maker iOS app](https://apps.apple.com/us/app/beatzy-ai-music-generator/id6742488919): SwiftUI + Node.js, reached Top 100 on the App Store
+- [Beatzy, AI music maker iOS app](https://apps.apple.com/us/app/beatzy-ai-music-generator/id6742488919): SwiftUI + Node.js, reached Top 100 on the App Store
 - [Portman](https://github.com/meliharik/portman): native macOS menu bar app to inspect and kill processes listening on ports, distributed via Homebrew
 - [Tartu Smart Bike Mobility Analysis](https://github.com/meliharik/tartu-bike-analysis): data analysis of 19,500 bike-sharing trips and 1.5M GPS points
 - [Real-Time Geo-Fencing Engine](https://github.com/meliharik/realtime_geo_fencing_service): Spring Boot + PostGIS + Redis service processing scooter GPS streams in real time
 
 ## Research
 
-- "Encrypted Messaging Application Combining AES and RSA Algorithms" — ICETI'24, first author
+- "Encrypted Messaging Application Combining AES and RSA Algorithms" (ICETI'24, first author)
 
 ## Links
 

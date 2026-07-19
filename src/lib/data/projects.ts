@@ -27,7 +27,7 @@ export const projectsData: ProjectItem[] = [
   },
   {
     title: 'Tartu Smart Bike Mobility Analysis',
-    description: 'Data analysis of 19,500 bike-sharing trips and 1.5M GPS points from Tartu — mobility patterns, popular routes and user segments, with a published visualization gallery.',
+    description: 'Data analysis of 19,500 bike-sharing trips and 1.5M GPS points from Tartu: mobility patterns, popular routes and user segments, with a published visualization gallery.',
     technologies: ['Python', 'Pandas', 'Data Visualization'],
     links: [{
       type: 'github',
