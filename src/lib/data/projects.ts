@@ -6,7 +6,7 @@ export const projectsData: ProjectItem[] = [
     description: 'A highly advanced application built with SwiftUI for the frontend and Node.js for the backend, featuring a completely modern UI.',
     technologies: ['SwiftUI', 'Node.js', 'Rest API', 'Firebase'],
     badge: {
-      text: 'Top 250 on App Store',
+      text: 'Top 100 on App Store',
       type: 'award'
     },
     links: [{
@@ -16,27 +16,43 @@ export const projectsData: ProjectItem[] = [
     }]
   },
   {
+    title: 'Portman',
+    description: 'Native macOS menu bar app that shows which processes are listening on which ports and kills them with one click. Distributed via Homebrew.',
+    technologies: ['Swift', 'SwiftUI', 'macOS'],
+    links: [{
+      type: 'github',
+      url: 'https://github.com/meliharik/portman',
+      label: 'View on GitHub'
+    }]
+  },
+  {
+    title: 'Tartu Smart Bike Mobility Analysis',
+    description: 'Data analysis of 19,500 bike-sharing trips and 1.5M GPS points from Tartu — mobility patterns, popular routes and user segments, with a published visualization gallery.',
+    technologies: ['Python', 'Pandas', 'Data Visualization'],
+    links: [{
+      type: 'github',
+      url: 'https://github.com/meliharik/tartu-bike-analysis',
+      label: 'View on GitHub'
+    }]
+  },
+  {
+    title: 'Real-Time Geo-Fencing Engine',
+    description: 'Event-driven service processing GPS streams from scooter fleets in real time, detecting restricted-zone violations with spatial indexing and caching.',
+    technologies: ['Java', 'Spring Boot', 'PostGIS', 'Redis'],
+    links: [{
+      type: 'github',
+      url: 'https://github.com/meliharik/realtime_geo_fencing_service',
+      label: 'View on GitHub'
+    }]
+  },
+  {
     title: 'Nasa Space Apps Hackathon',
-    description: 'Feature-rich food delivery app with real-time order tracking, seamless payment integration, and smooth animations using Jetpack Compose.',
+    description: 'Hackathon project built with Kotlin, Jetpack Compose and Firebase.',
     technologies: ['Kotlin', 'Jetpack Compose', 'Firebase'],
     badge: {
       text: '4th Place',
       type: 'award'
     }
-  },
-  {
-    title: 'End to End Message Encryption App',
-    description: 'Cross-platform messaging app with real-time chat, push notifications, and beautiful animations. Supports both iOS and Android with native performance.',
-    technologies: ['Flutter', 'AES, RSA, Diffie-Hellman', 'Socket.io'],
-    badge: {
-      text: '2023',
-      type: 'date'
-    },
-    links: [{
-      type: 'github',
-      url: 'https://github.com/meliharik/end2end_messaging',
-      label: 'View on GitHub'
-    }]
   },
   {
     title: 'Robot Arm for TEKNOFEST Competition',
@@ -61,4 +77,4 @@ export const projectsData: ProjectItem[] = [
       label: 'View on Medium'
     }]
   }
-]; 
+];

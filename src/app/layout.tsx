@@ -13,47 +13,28 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://meliharik.dev"),
   title: "Melih Arık",
-  description: "Portfolio of Melih Arık, a Developer & AI Specialist focused on privacy-preserving technologies, artificial intelligence, and secure data systems.",
-  keywords: ["Melih Arık", "AI Developer", "Mobile Developer", "Artificial Intelligence", "Machine Learning", "Software Engineer", "Turkey", "Bursa"],
+  description:
+    "Software engineer in Tallinn, Estonia. Building mobile apps with SwiftUI, Flutter and React Native.",
   authors: [{ name: "Melih Arık", url: "https://meliharik.dev" }],
-  creator: "Melih Arık",
-  publisher: "Melih Arık",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://meliharik.dev",
     title: "Melih Arık",
-    description: "Portfolio of Melih Arık, a Developer & AI Specialist focused on privacy-preserving technologies, artificial intelligence, and secure data systems.",
-    siteName: "Melih Arık Portfolio",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Melih Arık",
-      },
-    ],
+    description:
+      "Software engineer in Tallinn, Estonia. Building mobile apps with SwiftUI, Flutter and React Native.",
+    siteName: "Melih Arık",
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Melih Arık",
-    description: "Portfolio of Melih Arık, a Developer & AI Specialist focused on privacy-preserving technologies, artificial intelligence, and secure data systems.",
-    images: ["/og-image.jpg"],
+    description: "Software engineer in Tallinn, Estonia.",
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  verification: {
-    google: "your-google-verification-code",
   },
 };
 
@@ -63,16 +44,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${geist.variable} ${geistMono.variable}`}
+      suppressHydrationWarning
+    >
       <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#3b82f6" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(localStorage.theme==='dark'||(!('theme' in localStorage)&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}`,
+          }}
+        />
       </head>
-      <body className={`${geist.variable} ${geistMono.variable} antialiased`}>
+      <body className="bg-white font-sans text-neutral-800 antialiased transition-colors dark:bg-neutral-950 dark:text-neutral-300">
         {children}
       </body>
     </html>

@@ -1,18 +1,3 @@
-export interface MenuItem {
-  id: string;
-  label: string;
-  icon: React.ComponentType<{ className?: string }>;
-}
-
-export interface MediumPost {
-  title: string;
-  description: string;
-  link: string;
-  pubDate: string;
-  content: string;
-  categories: string[];
-}
-
 export interface ExperienceItem {
   title: string;
   company: string;
@@ -62,4 +47,4 @@ export interface PresentationItem {
     url: string;
     label: string;
   };
-} 
+}

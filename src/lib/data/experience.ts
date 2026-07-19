@@ -27,14 +27,14 @@ export const experienceData: ExperienceItem[] = [
   },
   {
     title: 'Software Developer',
-    company: 'Bursa Uludag University Department of Information Technologies',
+    company: 'Bursa Uludağ University',
     location: 'Bursa, Turkey',
     period: 'Mar 2022 - Mar 2023',
     description: 'We developed the university app with Flutter that is used by almost 100,000 users.',
     companyColor: 'from-violet-600 to-purple-600'
   },
   {
-    title: 'Server (Carrer Break)',
+    title: 'Server (Career Break)',
     company: 'Work and Travel Program',
     location: 'Michigan, USA',
     period: 'Jun 2022 - Oct 2022',

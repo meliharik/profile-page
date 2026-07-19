@@ -2,7 +2,7 @@ import { PresentationItem } from '@/types';
 
 export const presentationsData: PresentationItem[] = [
   {
-    title: 'ENCRYPTED MESSAGING APPLICATION COMBINING AES AND RSA ALGORITHMS',
+    title: 'Encrypted Messaging Application Combining AES and RSA Algorithms',
     event: 'ICETI\'24 - International Conference on Engineering and Technology Innovation',
     date: 'Oct 2024',
     description: 'I presented my graduation project that was published in the journal.',
