@@ -4,7 +4,6 @@ export interface ExperienceItem {
   location: string;
   period: string;
   description: string;
-  companyColor?: string;
 }
 
 export interface ProjectItem {
@@ -30,8 +29,6 @@ export interface EducationItem {
   period: string;
   description?: string;
   gpa?: string;
-  logo: string;
-  institutionColor: string;
 }
 
 export interface PresentationItem {
@@ -39,8 +36,6 @@ export interface PresentationItem {
   event: string;
   date: string;
   description: string;
-  image: string;
-  technologies: string[];
   attendees?: string;
   link?: {
     type: 'youtube' | 'spotify' | 'external';

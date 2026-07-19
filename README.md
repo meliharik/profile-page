@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# meliharik.dev
 
-## Getting Started
+Personal website of [Melih Arık](https://meliharik.dev) — a minimal, typography-first portfolio built with Next.js.
 
-First, run the development server:
+## Features
+
+- **Minimal, content-first design** — single narrow column, quiet link underlines, subtle staggered entrance animation
+- **Light / dark theme** — manual toggle persisted in `localStorage`, defaults to system preference, no flash on load
+- **Server-side Medium feed** — latest posts fetched at build time with daily ISR revalidation, no third-party RSS proxy
+- **SEO-ready** — Person JSON-LD structured data, Open Graph image generated with `next/og`, sitemap, robots, `llms.txt` for AI crawlers
+- **Fully static** — every page prerendered; ~100 kB first-load JS
+- **Analytics-optional** — Google Analytics and Microsoft Clarity load only when their env vars are set
+
+## Tech stack
+
+- [Next.js 15](https://nextjs.org) (App Router) + React 19
+- [Tailwind CSS](https://tailwindcss.com)
+- TypeScript
+- Deployed on [Netlify](https://netlify.com)
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+All content lives in typed data files under [`src/lib/data`](src/lib/data) — edit those to make the site yours.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment variables
 
-## Learn More
+Optional; copy `.env.example` to `.env.local`:
 
-To learn more about Next.js, take a look at the following resources:
+| Variable | Description |
+|----------|-------------|
+| `NEXT_PUBLIC_GA_ID` | Google Analytics 4 measurement ID (`G-…`) |
+| `NEXT_PUBLIC_CLARITY_ID` | Microsoft Clarity project ID |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The site builds and runs fine without them — analytics scripts are simply omitted.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project structure
 
-## Deploy on Vercel
+```
+src/
+├── app/            # App Router pages, metadata, OG image, sitemap, robots
+├── components/     # LocalTime, ThemeToggle
+├── lib/data/       # Content: experience, projects, education, talks
+└── types/          # Shared TypeScript interfaces
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[MIT](LICENSE) — feel free to use this as a starting point for your own site. A link back is appreciated but not required.
