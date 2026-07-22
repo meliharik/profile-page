@@ -12,7 +12,7 @@ export const experienceData: ExperienceItem[] = [
     title: 'Indie Developer',
     company: 'Freelance',
     location: 'Denizli, Turkey',
-    period: 'Oct 2023 - Present',
+    period: 'Oct 2023 - Dec 2025',
     description: 'Deployed more than 30 apps on the App Store and Google Play Store. Built with SwiftUI, Flutter, React Native and Kotlin.'
   },
   {
