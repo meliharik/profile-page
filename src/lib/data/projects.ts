@@ -2,6 +2,20 @@ import { ProjectItem } from '@/types';
 
 export const projectsData: ProjectItem[] = [
   {
+    title: 'Ripstop',
+    description: 'Remote config for shipped apps. Push values, force update walls and flip maintenance mode without waiting for a store review. Open-source SDKs for Swift, Kotlin, Flutter, React Native and the web.',
+    technologies: ['Swift', 'Kotlin', 'Flutter', 'React Native', 'TypeScript'],
+    badge: {
+      text: 'Join the waitlist',
+      type: 'waitlist'
+    },
+    links: [{
+      type: 'external',
+      url: 'https://ripstop.dev',
+      label: 'ripstop.dev'
+    }]
+  },
+  {
     title: 'Beatzy Music Maker iOS App',
     description: 'A highly advanced application built with SwiftUI for the frontend and Node.js for the backend, featuring a completely modern UI.',
     technologies: ['SwiftUI', 'Node.js', 'Rest API', 'Firebase'],

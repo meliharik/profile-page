@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { experienceData } from '@/lib/data/experience';
 import { projectsData } from '@/lib/data/projects';
 import { educationData } from '@/lib/data/education';
+import { contributionsData } from '@/lib/data/contributions';
 import { presentationsData } from '@/lib/data/presentations';
 import { LocalTime } from '@/components/LocalTime';
 import { ThemeToggle } from '@/components/ThemeToggle';
@@ -232,6 +233,16 @@ export default async function Home() {
                       {project.badge.text}
                     </span>
                   )}
+                  {project.badge?.type === 'waitlist' && href && (
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="ml-2 rounded-full border border-emerald-600/30 px-2 py-0.5 text-xs text-emerald-700 transition-colors hover:border-emerald-600/60 hover:text-emerald-600 dark:border-emerald-500/30 dark:text-emerald-500 dark:hover:border-emerald-500/60 dark:hover:text-emerald-400"
+                    >
+                      {project.badge.text}
+                    </a>
+                  )}
                 </p>
                 <p className="mt-1 text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">
                   {project.description}
@@ -242,7 +253,34 @@ export default async function Home() {
         </div>
       </Section>
 
-      <Section title="Speaking" index={4}>
+      <Section title="Open Source" index={4}>
+        <div className="space-y-4">
+          <div className="flex items-baseline justify-between gap-6">
+            <p>
+              <A href={contributionsData.highlight.url}>
+                {contributionsData.highlight.project}
+              </A>{' '}
+              <span className="text-neutral-400 dark:text-neutral-500">
+                · {contributionsData.highlight.description}
+              </span>
+            </p>
+            <p className="shrink-0 text-sm tabular-nums text-neutral-400 dark:text-neutral-500">
+              {contributionsData.highlight.meta}
+            </p>
+          </div>
+          <p className="text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">
+            Documentation and code sample fixes merged into{' '}
+            {contributionsData.others.map((repo, i, all) => (
+              <span key={repo.project}>
+                <A href={repo.url}>{repo.project}</A>
+                {i < all.length - 2 ? ', ' : i === all.length - 2 ? ' and ' : '.'}
+              </span>
+            ))}
+          </p>
+        </div>
+      </Section>
+
+      <Section title="Speaking" index={5}>
         <div className="space-y-3">
           {presentationsData.map((talk) => (
             <div
@@ -270,7 +308,7 @@ export default async function Home() {
       </Section>
 
       {posts.length > 0 && (
-        <Section title="Writing" index={5}>
+        <Section title="Writing" index={6}>
           <div className="space-y-3">
             {posts.map((post) => (
               <div
@@ -299,7 +337,7 @@ export default async function Home() {
         </Section>
       )}
 
-      <Section title="Research" index={6}>
+      <Section title="Research" index={7}>
         <div className="flex items-baseline justify-between gap-6">
           <p>
             <A href="https://www.iceti.org/sites/default/files/iceti_2024_book_of_proceedings.pdf">
@@ -315,7 +353,7 @@ export default async function Home() {
         </div>
       </Section>
 
-      <Section title="Education" index={7}>
+      <Section title="Education" index={8}>
         <div className="space-y-3">
           {educationData.map((edu) => {
             const isLanguageSchool = edu.degree === 'Language School';
@@ -349,7 +387,7 @@ export default async function Home() {
 
       <footer
         className="animate-enter mt-20 border-t border-neutral-200/70 pt-8 dark:border-neutral-800"
-        style={stagger(8)}
+        style={stagger(9)}
       >
         <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
           {[

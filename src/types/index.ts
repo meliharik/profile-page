@@ -17,7 +17,7 @@ export interface ProjectItem {
   }[];
   badge?: {
     text: string;
-    type: 'award' | 'date';
+    type: 'award' | 'date' | 'waitlist';
   };
 }
 
