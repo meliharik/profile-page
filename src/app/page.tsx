@@ -131,7 +131,18 @@ const personJsonLd = {
     'React Native',
     'Kotlin',
     'Mobile application development',
+    'Remote configuration',
+    'Developer tools',
   ],
+  nationality: { '@type': 'Country', name: 'Turkey' },
+  workLocation: {
+    '@type': 'Place',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Tallinn',
+      addressCountry: 'EE',
+    },
+  },
   sameAs: [
     'https://github.com/meliharik',
     'https://linkedin.com/in/melihify',
