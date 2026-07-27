@@ -180,7 +180,7 @@ export default async function Home() {
       >
         <p>
           Building logistics apps at <A href="https://www.omniva.ee">Omniva</A> in
-          Tallinn. Previously shipped 30+ indie apps to the App Store and Google
+          Tallinn. Previously shipped 30+ apps to the App Store and Google
           Play with SwiftUI, Flutter and React Native.
         </p>
         <p>
