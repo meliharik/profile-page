@@ -1,6 +1,11 @@
 import Image from 'next/image';
 import { experienceData } from '@/lib/data/experience';
-import { projectsData } from '@/lib/data/projects';
+import {
+  heroProject,
+  featuredProjects,
+  earlierProjects,
+  type Project,
+} from '@/lib/data/projects';
 import { educationData } from '@/lib/data/education';
 import { contributionsData } from '@/lib/data/contributions';
 import { presentationsData } from '@/lib/data/presentations';
@@ -75,6 +80,62 @@ const A = ({
     )}
   </a>
 );
+
+const Shot = ({
+  project,
+  sizes,
+  priority = false,
+}: {
+  project: Project;
+  sizes: string;
+  priority?: boolean;
+}) => (
+  <a
+    href={project.url}
+    target="_blank"
+    rel="noreferrer"
+    className="group block overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-800"
+    tabIndex={-1}
+    aria-hidden
+  >
+    <Image
+      src={project.image}
+      alt=""
+      width={1000}
+      height={625}
+      sizes={sizes}
+      priority={priority}
+      className="w-full transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+    />
+  </a>
+);
+
+const Badge = ({
+  badge,
+  href,
+}: {
+  badge?: Project['badge'];
+  href: string;
+}) => {
+  if (!badge) return null;
+  if (badge.type === 'waitlist') {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noreferrer"
+        className="ml-2 whitespace-nowrap rounded-full border border-emerald-600/30 px-2 py-0.5 text-xs text-emerald-700 transition-colors hover:border-emerald-600/60 hover:text-emerald-600 dark:border-emerald-500/30 dark:text-emerald-500 dark:hover:border-emerald-500/60 dark:hover:text-emerald-400"
+      >
+        {badge.text}
+      </a>
+    );
+  }
+  return (
+    <span className="ml-2 text-xs text-amber-600/90 dark:text-amber-500/90">
+      {badge.text}
+    </span>
+  );
+};
 
 const Section = ({
   title,
@@ -224,44 +285,45 @@ export default async function Home() {
       </Section>
 
       <Section title="Projects" index={3}>
-        <div className="space-y-6">
-          {projectsData.map((project) => {
-            const href = project.links?.[0]?.url;
-            return (
-              <div key={project.title}>
-                <p>
-                  {href ? (
-                    <A href={href} arrow>
-                      {project.title}
-                    </A>
-                  ) : (
-                    <span className="text-neutral-800 dark:text-neutral-200">
-                      {project.title}
-                    </span>
-                  )}
-                  {project.badge?.type === 'award' && (
-                    <span className="ml-2 text-xs text-amber-600/90 dark:text-amber-500/90">
-                      {project.badge.text}
-                    </span>
-                  )}
-                  {project.badge?.type === 'waitlist' && href && (
-                    <a
-                      href={href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="ml-2 rounded-full border border-emerald-600/30 px-2 py-0.5 text-xs text-emerald-700 transition-colors hover:border-emerald-600/60 hover:text-emerald-600 dark:border-emerald-500/30 dark:text-emerald-500 dark:hover:border-emerald-500/60 dark:hover:text-emerald-400"
-                    >
-                      {project.badge.text}
-                    </a>
-                  )}
-                </p>
-                <p className="mt-1 text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">
-                  {project.description}
-                </p>
-              </div>
-            );
-          })}
+        <div>
+          <Shot project={heroProject} priority sizes="(max-width: 640px) 100vw, 576px" />
+          <p className="mt-3">
+            <A href={heroProject.url} arrow>
+              {heroProject.title}
+            </A>
+            <Badge badge={heroProject.badge} href={heroProject.url} />
+          </p>
+          <p className="mt-1 text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">
+            {heroProject.description}
+          </p>
         </div>
+
+        <div className="mt-9 grid gap-x-5 gap-y-8 sm:grid-cols-2">
+          {featuredProjects.map((project) => (
+            <div key={project.title}>
+              <Shot project={project} sizes="(max-width: 640px) 100vw, 280px" />
+              <p className="mt-2.5">
+                <A href={project.url} arrow>
+                  {project.title}
+                </A>
+                <Badge badge={project.badge} href={project.url} />
+              </p>
+              <p className="mt-1 text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">
+                {project.description}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-9 text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">
+          Earlier work:{' '}
+          {earlierProjects.map((project, i, all) => (
+            <span key={project.title}>
+              <A href={project.url}>{project.title}</A>
+              {i < all.length - 2 ? ', ' : i === all.length - 2 ? ' and ' : '.'}
+            </span>
+          ))}
+        </p>
       </Section>
 
       <Section title="Open Source" index={4}>

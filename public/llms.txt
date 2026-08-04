@@ -13,6 +13,7 @@
 ## Selected projects
 
 - [Ripstop](https://ripstop.dev): remote config for shipped apps. Push values, force update walls and flip maintenance mode without a store review. Open-source SDKs for Swift, Kotlin, Flutter, React Native and the web. Currently in private beta, waitlist open at https://ripstop.dev
+- [AllMySaves](https://allmysaves-web.vercel.app): iOS app that gathers every Instagram, TikTok, X, Pinterest and YouTube save into one place and categorises them with AI. Native Swift 6 app with a share extension, NestJS gateway, Next.js site
 - [Beatzy, AI music maker iOS app](https://apps.apple.com/us/app/beatzy-ai-music-generator/id6742488919): SwiftUI + Node.js, reached Top 100 on the App Store
 - [Portman](https://github.com/meliharik/portman): native macOS menu bar app to inspect and kill processes listening on ports, distributed via Homebrew
 - [Tartu Smart Bike Mobility Analysis](https://github.com/meliharik/tartu-bike-analysis): data analysis of 19,500 bike-sharing trips and 1.5M GPS points
