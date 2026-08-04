@@ -17,11 +17,11 @@ export const heroProject: Project = {
 
 export const featuredProjects: Project[] = [
   {
-    title: 'AllMySaves',
+    title: 'SaveMyPosts',
     description:
       'Every Instagram, TikTok and Pinterest save in one place, sorted by AI. Native iOS app with a share extension and a NestJS gateway.',
-    url: 'https://allmysaves-web.vercel.app',
-    image: '/projects/allmysaves.png',
+    url: 'https://savemyposts.com',
+    image: '/projects/savemyposts.png',
   },
   {
     title: 'Beatzy',
