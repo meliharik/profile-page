@@ -1,6 +1,6 @@
 # Melih Arık
 
-> Melih Arık is a software engineer based in Tallinn, Estonia. He works as a Mobile Engineer at Omniva on logistics apps (Crowd App, Omnihub) and has shipped 30+ indie apps to the App Store and Google Play using SwiftUI, Flutter, React Native and Kotlin. He is pursuing an MSc in Software Engineering at the University of Tartu.
+> Melih Arık is a software engineer based in Tallinn, Estonia. He works as a Software Engineer at Omniva on logistics apps (Crowd App, Omnihub) and has shipped 30+ indie apps to the App Store and Google Play using SwiftUI, Flutter, React Native and Kotlin. He is pursuing an MSc in Software Engineering at the University of Tartu.
 
 ## About
 
@@ -22,7 +22,8 @@
 ## Open source
 
 - Riverpod: translated the documentation into Turkish, 7 merged pull requests
-- Documentation and code sample fixes merged into Flutter, FlutterFire, Flame, Astro, Hono, Drift and Coil
+- Documentation and code sample fixes merged into Zod, TanStack Query, Flutter, FlutterFire, Kingfisher, Astro, Hono, Dart http, Drift, Flame and Coil
+- 18 merged pull requests across 12 open-source projects
 
 ## Research
 
