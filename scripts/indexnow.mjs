@@ -2,7 +2,7 @@
 // Runs after every production build; never fails the build.
 const KEY = '618c88d2543f4aec975837bdb9cae508';
 const HOST = 'meliharik.dev';
-const URLS = [`https://${HOST}`];
+const URLS = [`https://${HOST}`, `https://${HOST}/uses`];
 
 if (process.env.CONTEXT && process.env.CONTEXT !== 'production') {
   console.log(`IndexNow skipped (${process.env.CONTEXT})`);
