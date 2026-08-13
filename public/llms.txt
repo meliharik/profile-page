@@ -32,6 +32,7 @@
 ## Links
 
 - Website: https://meliharik.dev
+- Blog: https://blog.meliharik.dev
 - GitHub: https://github.com/meliharik
 - LinkedIn: https://linkedin.com/in/melihify
 - X/Twitter: https://twitter.com/melihify

@@ -469,6 +469,7 @@ export default async function Home() {
             { label: 'X', href: 'https://twitter.com/melihify' },
             { label: 'Instagram', href: 'https://instagram.com/melihifyy' },
             { label: 'Email', href: 'mailto:hi@meliharik.dev' },
+            { label: 'Blog', href: 'https://blog.meliharik.dev' },
             { label: 'Uses', href: '/uses' },
           ].map((social) => (
             <a
