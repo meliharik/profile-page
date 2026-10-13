@@ -1,0 +1,10 @@
+# App pages moved to <app>.meliharik.dev (repo meliharik/app-sites). The old
+# URLs are still linked from App Store listings and from inside the apps.
+/dress_privacy_policy.html        https://dressy.meliharik.dev/privacy   301!
+/dress_terms_and_conditions.html  https://dressy.meliharik.dev/terms     301!
+/cv_privacy_policy.html           https://smartcv.meliharik.dev/privacy  301!
+/cv_terms_and_conditions.html     https://smartcv.meliharik.dev/terms    301!
+/smart_cv.html                    https://smartcv.meliharik.dev/         301!
+/yt_privacy_policy.html           https://sumtube.meliharik.dev/privacy  301!
+/yt_terms_of_service.html         https://sumtube.meliharik.dev/terms    301!
+/yt_support.html                  https://sumtube.meliharik.dev/support  301!
