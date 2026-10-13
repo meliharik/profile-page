@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="robots" content="noindex, follow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - SumTube</title>
+    <style>
+        :root {
+            --background: #000000;
+            --text: #FFFFFF;
+            --text-secondary: #8E8E93;
+            --accent: #FF3B30;
+            --card-bg: rgba(30, 30, 30, 0.7);
+        }
+
+        body {
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 20px;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        .floating-circles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+        }
+
+        .circle-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle at center, #FF3B3022, transparent 70%);
+            top: -100px;
+            right: -100px;
+            animation: float1 25s infinite ease-in-out;
+        }
+
+        .circle-2 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle at center, #FF3B3015, transparent 70%);
+            bottom: -50px;
+            left: -50px;
+            animation: float2 20s infinite ease-in-out;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(50px, 50px) rotate(120deg); }
+            66% { transform: translate(-30px, 70px) rotate(240deg); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(-50px, -30px) rotate(-120deg); }
+            66% { transform: translate(30px, -50px) rotate(-240deg); }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 30px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 59, 48, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: var(--accent);
+            margin-bottom: 0.5em;
+            text-align: center;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.5em;
+            margin-top: 1.5em;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5em;
+            display: inline-block;
+        }
+
+        p {
+            color: var(--text-secondary);
+            font-size: 1.1em;
+        }
+
+        ul {
+            color: var(--text-secondary);
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        .date {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .premium-features li ul {
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .premium-features li ul li {
+            font-size: 0.95em;
+            color: var(--text-secondary);
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-circles">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+    </div>
+    <div class="container">
+        <div class="card">
+            <h1>SumTube Support</h1>
+            <p class="date">SumTube: AI YouTube Summarizer</p>
+
+            <h2>About SumTube</h2>
+            <p>SumTube turns a YouTube link into a written summary. Paste a link to a video that has captions, pick a language and a length (short, medium or detailed), and read the summary in the App. Your summaries are kept in a history list. SumTube is an independent app and is not affiliated with YouTube or Google.</p>
+
+            <h2>Frequently asked questions</h2>
+
+            <h2>How do I summarize a video?</h2>
+            <p>Open SumTube, start a new summary, paste a YouTube link (watch, youtu.be or Shorts links work), choose the language and summary length, and start. The App reads the video's captions and writes the summary.</p>
+
+            <h2>Why can't a video be summarized?</h2>
+            <p>SumTube works from a video's captions. It cannot summarize videos without captions, private, members-only, paid, age-restricted videos, or live streams and upcoming premieres. If YouTube is limiting requests, or the summary service is busy, wait a few minutes and try again.</p>
+
+            <h2>Which languages are supported?</h2>
+            <p>Summaries can be written in English, Turkish, Spanish, French, German, Italian, Japanese, Korean and Chinese, whatever the language of the video. The App's menus are in English.</p>
+
+            <h2>How many summaries are free?</h2>
+            <p>Free users can create 1 summary. Premium gives unlimited summaries.</p>
+
+            <h2>How do I manage or cancel my subscription?</h2>
+            <p>Subscriptions are handled by Apple. On your iPhone open Settings, tap your name, then Subscriptions, and choose SumTube. Deleting the App does not cancel a subscription. Refunds are handled by Apple at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
+
+            <h2>My premium access is missing.</h2>
+            <p>Make sure you are signed in with the Apple ID that bought the subscription and that you are online, then reopen the App. If premium still does not appear, email us from Settings &gt; Send Email so the message includes your user ID.</p>
+
+            <h2>How do I delete my data?</h2>
+            <p>Email <a href="mailto:apps@meliharik.dev">apps@meliharik.dev</a> (best from Settings &gt; Send Email in the App, which adds your anonymous user ID) and ask us to delete your data. We will remove your summaries and app record. See the <a href="yt_privacy_policy.html">Privacy Policy</a> for details.</p>
+
+            <h2>Contact us</h2>
+            <ul>
+                <li>Email: <a href="mailto:apps@meliharik.dev">apps@meliharik.dev</a></li>
+                <li>In the App: Settings &gt; Send Email</li>
+                <li><a href="yt_privacy_policy.html">Privacy Policy</a> &middot; <a href="yt_terms_of_service.html">Terms of Service</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
