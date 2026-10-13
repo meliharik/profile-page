@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="robots" content="noindex, follow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - SumTube</title>
+    <style>
+        :root {
+            --background: #000000;
+            --text: #FFFFFF;
+            --text-secondary: #8E8E93;
+            --accent: #FF3B30;
+            --card-bg: rgba(30, 30, 30, 0.7);
+        }
+
+        body {
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 20px;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        .floating-circles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+        }
+
+        .circle-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle at center, #FF3B3022, transparent 70%);
+            top: -100px;
+            right: -100px;
+            animation: float1 25s infinite ease-in-out;
+        }
+
+        .circle-2 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle at center, #FF3B3015, transparent 70%);
+            bottom: -50px;
+            left: -50px;
+            animation: float2 20s infinite ease-in-out;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(50px, 50px) rotate(120deg); }
+            66% { transform: translate(-30px, 70px) rotate(240deg); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(-50px, -30px) rotate(-120deg); }
+            66% { transform: translate(30px, -50px) rotate(-240deg); }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 30px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 59, 48, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: var(--accent);
+            margin-bottom: 0.5em;
+            text-align: center;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.5em;
+            margin-top: 1.5em;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5em;
+            display: inline-block;
+        }
+
+        p {
+            color: var(--text-secondary);
+            font-size: 1.1em;
+        }
+
+        ul {
+            color: var(--text-secondary);
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        .date {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .premium-features li ul {
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .premium-features li ul li {
+            font-size: 0.95em;
+            color: var(--text-secondary);
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-circles">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+    </div>
+    <div class="container">
+        <div class="card">
+            <h1>Privacy Policy</h1>
+            <p class="date">Last updated: 2026-10-13</p>
+
+            <h2>1. Who we are</h2>
+            <p>SumTube: AI YouTube Summarizer ("SumTube", "the App") is an iOS app developed by Melih Ar&#305;k, an individual developer based in T&uuml;rkiye ("we", "us"). Contact: <a href="mailto:apps@meliharik.dev">apps@meliharik.dev</a>. SumTube is an independent app. It is not affiliated with, endorsed by, or sponsored by YouTube or Google.</p>
+
+            <h2>2. What SumTube does with your data</h2>
+            <p>When you paste a YouTube link, the App itself (on your device) loads that video's public details and captions from YouTube, sends them to Google's Gemini API to write a summary, shows you the result, and saves it to your history. We do not run our own summarization server.</p>
+
+            <h2>3. Information we collect and process</h2>
+            <ul>
+                <li>YouTube links and video information: the link you paste, and the video's title, channel name, description, duration, view and like counts, publish date and thumbnail address, which the App reads from YouTube.</li>
+                <li>Captions (transcript): the App downloads the video's captions from YouTube and sends them, together with the title, channel, duration, link and the first 1,500 characters of the description, to the Google Gemini API, along with the output language and summary length you chose. Very long transcripts are shortened before sending (above 400,000 characters). The transcript itself is not saved by us.</li>
+                <li>Summaries: the generated summary, the video ID, title, channel, description, other video details, thumbnail address, language and summary type are saved to our database (Google Cloud Firestore) under your anonymous user ID so that your history can be shown.</li>
+                <li>Anonymous account and app record: the App signs you in anonymously with Firebase Authentication (no name, email or password). We store a record for that anonymous user ID in Firestore: the user ID, when it was created, last-open time, whether you have premium, the time of the last premium check, the list of your summary IDs, your approximate country (country code only), and your push notification token.</li>
+                <li>Approximate location: the App asks the service ipwho.is for the country code that matches your IP address and keeps only the country code. We do not collect precise location.</li>
+                <li>Purchase information: subscriptions are sold by Apple. The App uses RevenueCat to check and manage your premium status. RevenueCat receives an anonymous app user ID, your purchase and subscription status and receipt information from Apple, and technical information such as device type, OS version and IP address. We never receive your payment card or Apple ID details.</li>
+                <li>Push notifications: if you allow notifications, Firebase Cloud Messaging and Apple's push service are used and your notification token is stored with your app record. You can turn notifications off in iOS Settings.</li>
+                <li>Support emails: if you use "Send Email" in Settings, the pre-filled message contains your anonymous user ID, your device's vendor identifier (identifierForVendor) and the app version, so we can find your records. You may delete these lines before sending. We use your email only to answer you.</li>
+                <li>On your device only: a flag that records whether you finished the onboarding screens (stored with iOS user defaults),.</li>
+            </ul>
+            <p>We do not ask for your name, email address, phone number, contacts, photos or precise location. SumTube contains no advertising, no ad network, no crash-reporting SDK and no analytics SDK such as Firebase Analytics, and it does not track you across other companies' apps or websites. It does not show the App Tracking Transparency prompt.</p>
+
+            <h2>4. Third parties that receive data</h2>
+            <ul>
+                <li>YouTube / Google (youtube.com, img.youtube.com): the App contacts YouTube directly from your device to read the video page and captions and to show thumbnails. YouTube receives your device's IP address and the video requested, as with any request to YouTube. YouTube's own privacy policy applies to that.</li>
+                <li>Google Gemini API (generativelanguage.googleapis.com): receives the captions and video details described above, plus the instructions to write the summary. Google processes this to return the summary. Google's terms and privacy notices for the Gemini API apply; we cannot control how Google handles the data beyond those terms.</li>
+                <li>Google Firebase (Authentication, Cloud Firestore, Remote Config, Cloud Messaging): stores the anonymous account, app record and summaries described above, delivers push notifications and delivers app configuration. Firebase also receives technical data such as your IP address and device information when the App connects.</li>
+                <li>RevenueCat: manages subscription status, as described above.</li>
+                <li>Apple: processes App Store purchases and push notifications.</li>
+                <li>ipwho.is: receives your IP address to return your country code.</li>
+                <li>Google Fonts (fonts.gstatic.com): the App may download its text fonts from Google when it first needs them, which discloses your IP address to Google.</li>
+                <li>Our app-list service (a Google Cloud Run endpoint): the App downloads the list of our other apps shown in Settings. This request carries your IP address like any network request.</li>
+            </ul>
+            <p>We do not sell your data and we do not share it for advertising.</p>
+
+            <h2>5. Retention</h2>
+            <p>The code of the App does not delete summaries or app records automatically. Summaries and your app record stay in our database until you ask us to delete them (see section 7) or we remove them. Data held by Google, RevenueCat and Apple is kept under their own policies. The App has no sign-up, so deleting the App from your device does not by itself delete the data stored under your anonymous user ID.</p>
+
+            <h2>6. Security</h2>
+            <p>Communication with the services above uses HTTPS. Data stored in Firebase is protected by Google's infrastructure. No method of transmission or storage is completely secure, so we cannot guarantee absolute security.</p>
+
+            <h2>7. Your rights and data deletion</h2>
+            <p>You can ask us to give you a copy of, correct, or delete the data we hold about you. Email <a href="mailto:apps@meliharik.dev">apps@meliharik.dev</a> from the Settings &gt; Send Email button (so the message includes your anonymous user ID) or include your user ID in the message. We will delete your summaries and app record. If you are in the EU/EEA, the UK or T&uuml;rkiye you may also have rights under the GDPR, UK GDPR or KVKK, including to object to or restrict processing and to complain to your data protection authority. Subscription records kept by Apple and RevenueCat are handled under their own policies.</p>
+
+            <h2>8. Purchases and subscriptions</h2>
+            <p>Premium subscriptions are purchased through your Apple ID and managed by Apple. You can cancel or change a subscription any time in iOS Settings &gt; your name &gt; Subscriptions. Deleting the App does not cancel a subscription.</p>
+
+            <h2>9. Children</h2>
+            <p>SumTube is not directed at children under 13 and we do not knowingly collect personal information from them. If you believe a child has used the App, contact us and we will delete the related data.</p>
+
+            <h2>10. International transfers</h2>
+            <p>Our service providers (Google, RevenueCat and others) may process data in countries other than your own, including the United States.</p>
+
+            <h2>11. Changes to this policy</h2>
+            <p>If this policy changes we will publish the new version on this page and update the date above.</p>
+
+            <h2>12. Contact</h2>
+            <ul>
+                <li>Email: <a href="mailto:apps@meliharik.dev">apps@meliharik.dev</a></li>
+                <li>Support: <a href="yt_support.html">SumTube Support</a></li>
+                <li>Terms of Service: <a href="yt_terms_of_service.html">Terms</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
