@@ -249,9 +249,8 @@ export default async function Home() {
         style={stagger(1)}
       >
         <p>
-          Building logistics apps at <A href="https://www.omniva.ee">Omniva</A> in
-          Tallinn, Estonia. Previously shipped 30+ apps to the App Store and Google
-          Play with SwiftUI, Flutter and React Native.
+          Building apps in Tallinn, Estonia. Previously shipped 30+ apps to the
+          App Store and Google Play with SwiftUI, Kotlin, Flutter and React Native.
         </p>
         <p>
           Studying for a master&apos;s in software engineering at the University
