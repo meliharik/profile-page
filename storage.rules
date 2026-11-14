@@ -1,0 +1,19 @@
+rules_version = '2';
+
+// Firebase Storage for meliharik.dev (project meliharik-dev).
+// Pitch media is public to read; nothing can be written from clients.
+// scripts/import-pitch.ts uploads with the Admin SDK, which bypasses these rules.
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Videos, posters and screenshots: public.
+    match /pitches/{allPaths=**} {
+      allow read;
+      allow write: if false;
+    }
+    // Page copy for each pitch: never public. Read at build time with a
+    // read-only service account (scripts/fetch-pitches.mjs).
+    match /pitch-data/{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

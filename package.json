@@ -4,10 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "prebuild": "node scripts/fetch-pitches.mjs",
     "build": "next build",
     "postbuild": "node scripts/indexnow.mjs",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pitch:import": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/import-pitch.ts",
+    "pitch:fetch": "node scripts/fetch-pitches.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^16.2.10",
@@ -25,6 +28,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "^15.5.7",
+    "firebase-admin": "^13.10.0",
     "typescript": "^5"
   }
 }
