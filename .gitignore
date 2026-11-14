@@ -42,3 +42,9 @@ next-env.d.ts
 
 # Local Netlify folder
 .netlify
+
+# pitch import: page data (from Firebase, never committed), media cache, service account keys
+.pitches/
+.pitch-cache/
+*service-account*.json
+*firebase-adminsdk*.json

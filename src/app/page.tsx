@@ -4,7 +4,7 @@ import { projects, moreProjects, type Project } from '@/lib/data/projects';
 import { educationData } from '@/lib/data/education';
 import { contributionsData } from '@/lib/data/contributions';
 import { presentationsData } from '@/lib/data/presentations';
-import { LocalTime } from '@/components/LocalTime';
+import { A, Section, SiteFooter, stagger } from '@/components/site';
 import { ThemeToggle } from '@/components/ThemeToggle';
 
 interface MediumPost {
@@ -36,8 +36,6 @@ async function getMediumPosts(): Promise<MediumPost[]> {
   }
 }
 
-const stagger = (n: number) => ({ '--stagger': n } as React.CSSProperties);
-
 // "Feb 2026 - Present" → "2026–now", "05.2017 - 08.2017" → "2017"
 const years = (period: string) => {
   const [start, end] = period.split(/\s*-\s*/);
@@ -49,32 +47,6 @@ const years = (period: string) => {
 
 const formatDate = (date: string) =>
   new Date(date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
-
-const A = ({
-  href,
-  children,
-  arrow = false,
-}: {
-  href: string;
-  children: React.ReactNode;
-  arrow?: boolean;
-}) => (
-  <a
-    href={href}
-    {...(href.startsWith('http') ? { target: '_blank', rel: 'noreferrer' } : {})}
-    className="link group/link text-neutral-800 dark:text-neutral-200"
-  >
-    {children}
-    {arrow && (
-      <span
-        aria-hidden
-        className="ml-0.5 inline-block text-neutral-400 transition-transform duration-200 group-hover/link:-translate-y-px group-hover/link:translate-x-px dark:text-neutral-500"
-      >
-        ↗
-      </span>
-    )}
-  </a>
-);
 
 const Shot = ({
   project,
@@ -133,23 +105,6 @@ const Badge = ({
     </span>
   );
 };
-
-const Section = ({
-  title,
-  index,
-  children,
-}: {
-  title: string;
-  index: number;
-  children: React.ReactNode;
-}) => (
-  <section className="animate-enter mt-16" style={stagger(index)}>
-    <h2 className="text-xs font-medium uppercase tracking-widest text-neutral-400 dark:text-neutral-500">
-      {title}
-    </h2>
-    <div className="mt-5">{children}</div>
-  </section>
-);
 
 const personJsonLd = {
   '@context': 'https://schema.org',
@@ -451,36 +406,7 @@ export default async function Home() {
         </div>
       </Section>
 
-      <footer
-        className="animate-enter mt-20 border-t border-neutral-200/70 pt-8 dark:border-neutral-800"
-        style={stagger(9)}
-      >
-        <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
-          {[
-            { label: 'GitHub', href: 'https://github.com/meliharik' },
-            { label: 'LinkedIn', href: 'https://linkedin.com/in/melihify' },
-            { label: 'X', href: 'https://twitter.com/melihify' },
-            { label: 'Instagram', href: 'https://instagram.com/melihifyy' },
-            { label: 'Email', href: 'mailto:hi@meliharik.dev' },
-            { label: 'Blog', href: 'https://blog.meliharik.dev' },
-            { label: 'Uses', href: '/uses' },
-          ].map((social) => (
-            <a
-              key={social.label}
-              href={social.href}
-              {...(social.href.startsWith('http')
-                ? { target: '_blank', rel: 'noreferrer' }
-                : {})}
-              className="text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
-            >
-              {social.label}
-            </a>
-          ))}
-        </div>
-        <p className="mt-6 text-sm text-neutral-400 dark:text-neutral-500">
-          Tallinn, Estonia · <LocalTime /> local
-        </p>
-      </footer>
+      <SiteFooter index={9} />
     </main>
   );
 }
