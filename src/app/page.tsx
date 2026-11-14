@@ -249,13 +249,15 @@ export default async function Home() {
         style={stagger(1)}
       >
         <p>
-          Building apps in Tallinn, Estonia. Previously shipped 30+ apps to the
-          App Store and Google Play with SwiftUI, Kotlin, Flutter and React Native.
+          Building apps in Tallinn, Estonia. 30+ shipped to the App Store and
+          Google Play, most recently{' '}
+          <A href="https://transport.meliharik.dev">Hetku</A>, a live transit map
+          for the Baltics.
         </p>
         <p>
-          Studying for a master&apos;s in software engineering at the University
-          of Tartu. Open to freelance work, feel free to{' '}
-          <A href="https://cal.com/meliharik">book a call</A>.
+          Off screen I play drums and guitar. I write on{' '}
+          <A href="https://blog.meliharik.dev">my blog</A>, and I&apos;m open to
+          freelance work: <A href="https://cal.com/meliharik">book a call</A>.
         </p>
       </section>
 
