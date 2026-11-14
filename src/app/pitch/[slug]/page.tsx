@@ -71,8 +71,6 @@ const button = {
     'inline-flex items-center rounded-full bg-neutral-900 px-4 py-2 text-sm text-white transition-colors hover:bg-neutral-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2 dark:bg-neutral-100 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:ring-neutral-100 dark:focus-visible:ring-offset-neutral-950',
   secondary:
     'inline-flex items-center rounded-full border border-neutral-200 px-4 py-2 text-sm text-neutral-800 transition-colors hover:border-neutral-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2 dark:border-neutral-800 dark:text-neutral-200 dark:hover:border-neutral-600 dark:focus-visible:ring-neutral-100 dark:focus-visible:ring-offset-neutral-950',
-  disabled:
-    'inline-flex cursor-default items-center rounded-full border border-dashed border-neutral-300 px-4 py-2 text-sm text-neutral-400 dark:border-neutral-700 dark:text-neutral-500',
 };
 
 const mailto = (email: string, subject: string, body?: string) =>
@@ -86,31 +84,29 @@ const formatDate = (iso: string) =>
     timeZone: 'UTC',
   });
 
-function BuildButton({ pitch, platform }: { pitch: Pitch; platform: Platform }) {
-  const p = pitch.platforms[platform];
-  const label = p.testBuildCta ?? `Request ${platformLabel[platform]} build`;
-  if (p.status !== 'ready') {
-    return (
-      <span aria-disabled="true" className={button.disabled}>
-        {label}
-        <span className="ml-1.5 text-xs">· Coming soon</span>
-      </span>
-    );
-  }
-  const store = platform === 'ios' ? 'TestFlight' : 'Android test';
+function ContactButtons({ pitch, from }: { pitch: Pitch; from: 'hero' | 'closing' }) {
+  const { calUrl, callMinutes, email } = pitch.contact;
   return (
-    <TrackedLink
-      pitch={pitch.slug}
-      cta={`request-${platform}-build`}
-      href={mailto(
-        pitch.contact.email,
-        `${store} build: ${pitch.company} prototype`,
-        `Hi Melih,\n\nPlease send a ${store} invite for the ${pitch.company} prototype to:\n\n`,
+    <div className="flex flex-wrap items-center gap-3">
+      {calUrl && (
+        <TrackedLink
+          pitch={pitch.slug}
+          cta={`book-call-${from}`}
+          href={calUrl}
+          className={button.primary}
+        >
+          {callMinutes ? `Book a ${callMinutes}-minute call` : 'Book a call'}
+        </TrackedLink>
       )}
-      className={platform === 'ios' ? button.primary : button.secondary}
-    >
-      {label}
-    </TrackedLink>
+      <TrackedLink
+        pitch={pitch.slug}
+        cta={`email-${from}`}
+        href={mailto(email, `${pitch.company} app`)}
+        className={calUrl ? button.secondary : button.primary}
+      >
+        {email}
+      </TrackedLink>
+    </div>
   );
 }
 
@@ -120,8 +116,6 @@ export default async function PitchPage({ params }: Params) {
   if (!pitch) notFound();
 
   const shotCount = pitch.categories.reduce((n, c) => n + c.shots.length, 0);
-  const ready = PLATFORMS.filter((p) => pitch.platforms[p].status === 'ready');
-  const pending = PLATFORMS.filter((p) => pitch.platforms[p].status !== 'ready');
 
   return (
     <main className="px-6 py-20 sm:py-28">
@@ -162,10 +156,14 @@ export default async function PitchPage({ params }: Params) {
             ))}
           </ul>
 
-          <div className="mt-7 flex flex-wrap items-center gap-3">
-            {PLATFORMS.map((p) => (
-              <BuildButton key={p} pitch={pitch} platform={p} />
-            ))}
+          <p className="mt-7 border-l-2 border-neutral-200 pl-4 text-sm leading-relaxed text-neutral-500 dark:border-neutral-800 dark:text-neutral-400">
+            This is a concept prototype I built on my own. It isn&apos;t made by or
+            for {pitch.company}, and it runs on mock data. If you want a fully
+            working app built to this standard, get in touch.
+          </p>
+
+          <div className="mt-6">
+            <ContactButtons pitch={pitch} from="hero" />
           </div>
 
           <div className="mt-8 flex items-center gap-3 text-sm text-neutral-500 dark:text-neutral-400">
@@ -249,36 +247,14 @@ export default async function PitchPage({ params }: Params) {
         {/* 6. Closing */}
         <Section title="Next step" index={5}>
           <p className="leading-relaxed text-neutral-600 dark:text-neutral-400">
-            I built this to show what a native {pitch.company} app could feel like.
-            {ready.length > 0 &&
-              ` The ${ready.map((p) => platformLabel[p]).join(' and ')} build can be on your phone today`}
-            {ready.length > 0 && pending.length > 0 &&
-              `, and ${pending.map((p) => platformLabel[p]).join(' and ')} follows with the same screens`}
-            {ready.length > 0 && '.'} If it looks interesting, give me{' '}
-            {pitch.contact.callMinutes ? `${pitch.contact.callMinutes} minutes` : 'a few minutes'} and
-            I&apos;ll walk you through it live.
+            I built this on my own to show what a native {pitch.company} app could
+            feel like. Turning it into a real product means your API, accounts,
+            payments and store releases. If that sounds interesting, give me{' '}
+            {pitch.contact.callMinutes ? `${pitch.contact.callMinutes} minutes` : 'a few minutes'}{' '}
+            and I&apos;ll walk you through the prototype and what it would take to ship.
           </p>
-          <div className="mt-6 flex flex-wrap items-center gap-3">
-            {pitch.contact.calUrl && (
-              <TrackedLink
-                pitch={pitch.slug}
-                cta="book-call"
-                href={pitch.contact.calUrl}
-                className={button.primary}
-              >
-                {pitch.contact.callMinutes
-                  ? `Book a ${pitch.contact.callMinutes}-minute call`
-                  : 'Book a call'}
-              </TrackedLink>
-            )}
-            <TrackedLink
-              pitch={pitch.slug}
-              cta="email"
-              href={mailto(pitch.contact.email, `${pitch.company} prototype`)}
-              className={pitch.contact.calUrl ? button.secondary : button.primary}
-            >
-              {pitch.contact.email}
-            </TrackedLink>
+          <div className="mt-6">
+            <ContactButtons pitch={pitch} from="closing" />
           </div>
         </Section>
 

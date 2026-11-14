@@ -41,7 +41,7 @@ interface Manifest {
   title: string;
   subtitle: string;
   date: string;
-  platforms: Record<Platform, { status: 'ready' | 'in-progress' | 'planned'; note?: string; testBuildCta?: string }>;
+  platforms: Record<Platform, { status: 'ready' | 'in-progress' | 'planned'; note?: string }>;
   highlights: Array<{ title: string; body: string }>;
   tech: Array<{ name: string; note?: string }>;
   contact: { email: string; calUrl?: string; callMinutes?: number };
