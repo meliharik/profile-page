@@ -51,7 +51,7 @@ export interface Pitch extends PitchMedia {
   date: string;
   platforms: Record<
     Platform,
-    { status: PlatformStatus; note?: string; testBuildCta?: string }
+    { status: PlatformStatus; note?: string }
   >;
   highlights: Array<{ title: string; body: string }>;
   tech: Array<{ name: string; note?: string }>;
