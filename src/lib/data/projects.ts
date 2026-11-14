@@ -6,16 +6,23 @@ export interface Project {
   badge?: { text: string; type: 'award' | 'waitlist' };
 }
 
-export const heroProject: Project = {
-  title: 'Ripstop',
-  description:
-    'Remote config for shipped apps. Push values, force update walls and flip maintenance mode without waiting for a store review. Open-source SDKs for Swift, Kotlin, Flutter, React Native and the web.',
-  url: 'https://ripstop.dev',
-  image: '/projects/ripstop.png',
-  badge: { text: 'Join the waitlist', type: 'waitlist' },
-};
-
-export const featuredProjects: Project[] = [
+// Shown with screenshots. Keep this to the four best; everything else goes to moreProjects.
+export const projects: Project[] = [
+  {
+    title: 'Hetku',
+    description:
+      'Every bus, tram and train in 49 Baltic cities, moving live on one map. Native Kotlin and SwiftUI apps, a SvelteKit web app and a Firebase backend.',
+    url: 'https://transport.meliharik.dev',
+    image: '/projects/hetku.png',
+  },
+  {
+    title: 'Ripstop',
+    description:
+      'Remote config for shipped apps. Force updates and maintenance mode without a store review, with SDKs for Swift, Kotlin, Flutter, React Native and the web.',
+    url: 'https://ripstop.dev',
+    image: '/projects/ripstop.png',
+    badge: { text: 'Join the waitlist', type: 'waitlist' },
+  },
   {
     title: 'SaveMyPosts',
     description:
@@ -31,33 +38,21 @@ export const featuredProjects: Project[] = [
     image: '/projects/beatzy.png',
     badge: { text: 'Top 100 on App Store', type: 'award' },
   },
-  {
-    title: 'Portman',
-    description:
-      'Native macOS menu bar app that shows which processes hold which ports, and kills them in one click. On Homebrew.',
-    url: 'https://github.com/meliharik/portman',
-    image: '/projects/portman.png',
-  },
-  {
-    title: 'Tartu Smart Bike Analysis',
-    description:
-      'Mobility patterns behind 19,500 bike-share trips and 1.5M GPS points, with a published visualization gallery.',
-    url: 'https://github.com/meliharik/tartu-bike-analysis',
-    image: '/projects/tartu-bike.png',
-  },
 ];
 
-export const earlierProjects = [
+// Text links only.
+export const moreProjects = [
+  { title: 'Portman', url: 'https://github.com/meliharik/portman' },
   {
-    title: 'Real-time geo-fencing engine',
+    title: 'Tartu bike-share analysis',
+    url: 'https://github.com/meliharik/tartu-bike-analysis',
+  },
+  {
+    title: 'a real-time geo-fencing engine',
     url: 'https://github.com/meliharik/realtime_geo_fencing_service',
   },
   {
-    title: 'Encrypted messaging app',
+    title: 'an encrypted messaging app',
     url: 'https://github.com/meliharik/end2end_messaging',
-  },
-  {
-    title: 'Chrome extension in Flutter',
-    url: 'https://medium.com/flutter-students-club/create-your-chrome-extension-using-flutter-79712ffcb439',
   },
 ];

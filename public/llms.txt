@@ -12,6 +12,7 @@
 
 ## Selected projects
 
+- [Hetku](https://transport.meliharik.dev): real-time public transport map for 49 Baltic cities (Tallinn, Riga, Vilnius and more). Every bus, tram and train moving live on one map, no account and no ads. Native Kotlin/Compose Android app, SwiftUI iOS app, SvelteKit PWA, Firebase backend
 - [Ripstop](https://ripstop.dev): remote config for shipped apps. Push values, force update walls and flip maintenance mode without a store review. Open-source SDKs for Swift, Kotlin, Flutter, React Native and the web. Currently in private beta, waitlist open at https://ripstop.dev
 - [SaveMyPosts](https://savemyposts.com): iOS app that gathers every Instagram, TikTok, X, Pinterest and YouTube save into one place and categorises them with AI. Native Swift 6 app with a share extension, NestJS gateway, Next.js site
 - [Beatzy, AI music maker iOS app](https://apps.apple.com/us/app/beatzy-ai-music-generator/id6742488919): SwiftUI + Node.js, reached Top 100 on the App Store
