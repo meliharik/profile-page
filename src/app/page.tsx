@@ -1,11 +1,6 @@
 import Image from 'next/image';
 import { experienceData } from '@/lib/data/experience';
-import {
-  heroProject,
-  featuredProjects,
-  earlierProjects,
-  type Project,
-} from '@/lib/data/projects';
+import { projects, moreProjects, type Project } from '@/lib/data/projects';
 import { educationData } from '@/lib/data/education';
 import { contributionsData } from '@/lib/data/contributions';
 import { presentationsData } from '@/lib/data/presentations';
@@ -85,16 +80,18 @@ const Shot = ({
   project,
   sizes,
   priority = false,
+  className = '',
 }: {
   project: Project;
   sizes: string;
   priority?: boolean;
+  className?: string;
 }) => (
   <a
     href={project.url}
     target="_blank"
     rel="noreferrer"
-    className="group block overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-800"
+    className={`group block overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-800 ${className}`}
     tabIndex={-1}
     aria-hidden
   >
@@ -285,39 +282,34 @@ export default async function Home() {
       </Section>
 
       <Section title="Projects" index={3}>
-        <div>
-          <Shot project={heroProject} priority sizes="(max-width: 640px) 100vw, 576px" />
-          <p className="mt-3">
-            <A href={heroProject.url} arrow>
-              {heroProject.title}
-            </A>
-            <Badge badge={heroProject.badge} href={heroProject.url} />
-          </p>
-          <p className="mt-1 text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">
-            {heroProject.description}
-          </p>
-        </div>
-
-        <div className="mt-9 grid gap-x-5 gap-y-8 sm:grid-cols-2">
-          {featuredProjects.map((project) => (
-            <div key={project.title}>
-              <Shot project={project} sizes="(max-width: 640px) 100vw, 280px" />
-              <p className="mt-2.5">
-                <A href={project.url} arrow>
-                  {project.title}
-                </A>
-                <Badge badge={project.badge} href={project.url} />
-              </p>
-              <p className="mt-1 text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">
-                {project.description}
-              </p>
+        {/* Phones: compact rows with a small thumbnail. sm and up: 2x2 grid of screenshots. */}
+        <div className="grid gap-y-6 sm:grid-cols-2 sm:gap-x-5 sm:gap-y-8">
+          {projects.map((project, i) => (
+            <div key={project.title} className="flex items-start gap-4 sm:block">
+              <Shot
+                project={project}
+                priority={i < 2}
+                sizes="(max-width: 640px) 96px, 280px"
+                className="w-24 shrink-0 rounded-lg sm:w-auto sm:rounded-xl"
+              />
+              <div className="min-w-0 sm:mt-2.5">
+                <p className="flex flex-wrap items-baseline gap-y-1">
+                  <A href={project.url} arrow>
+                    {project.title}
+                  </A>
+                  <Badge badge={project.badge} href={project.url} />
+                </p>
+                <p className="mt-1 text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">
+                  {project.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
 
-        <p className="mt-9 text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">
-          Earlier work:{' '}
-          {earlierProjects.map((project, i, all) => (
+        <p className="mt-8 text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">
+          Also built{' '}
+          {moreProjects.map((project, i, all) => (
             <span key={project.title}>
               <A href={project.url}>{project.title}</A>
               {i < all.length - 2 ? ', ' : i === all.length - 2 ? ' and ' : '.'}
