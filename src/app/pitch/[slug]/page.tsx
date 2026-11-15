@@ -244,8 +244,34 @@ export default async function PitchPage({ params }: Params) {
           </div>
         </Section>
 
-        {/* 6. Closing */}
-        <Section title="Next step" index={5}>
+        {/* 6. About */}
+        <Section title="A bit about me" index={5}>
+          <div className="flex items-start gap-4">
+            <Image
+              src="/profile.jpeg"
+              alt="Melih Arık"
+              width={48}
+              height={48}
+              className="h-12 w-12 shrink-0 rounded-full object-cover"
+            />
+            <div className="space-y-3 leading-relaxed text-neutral-600 dark:text-neutral-400">
+              <p>
+                I&apos;m Melih, a mobile developer in Tallinn, Estonia. I&apos;ve been
+                building mobile apps for 6 years and have shipped more than 30 to the
+                App Store and Google Play, most recently{' '}
+                <A href="https://transport.meliharik.dev">Hetku</A>, a live transit map
+                for the Baltics.
+              </p>
+              <p>
+                I work on both platforms natively, from design to store release. More
+                about me and my work on <A href="/">meliharik.dev</A>.
+              </p>
+            </div>
+          </div>
+        </Section>
+
+        {/* 7. Closing */}
+        <Section title="Next step" index={6}>
           <p className="leading-relaxed text-neutral-600 dark:text-neutral-400">
             I built this on my own to show what a native {pitch.company} app could
             feel like. Turning it into a real product means your API, accounts,
@@ -276,7 +302,7 @@ export default async function PitchPage({ params }: Params) {
           </details>
         )}
 
-        <SiteFooter index={6} />
+        <SiteFooter index={7} />
       </div>
     </main>
   );
