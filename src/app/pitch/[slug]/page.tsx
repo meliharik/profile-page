@@ -267,23 +267,6 @@ export default async function PitchPage({ params }: Params) {
               <p>
                 I work on both platforms natively, from design to store release.
               </p>
-              <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
-                <li>
-                  <A href="https://transport.meliharik.dev" arrow>
-                    Try Hetku
-                  </A>
-                </li>
-                <li>
-                  <A href="https://play.google.com/store/apps/details?id=dev.meliharik.transport" arrow>
-                    Hetku on Google Play
-                  </A>
-                </li>
-                <li>
-                  <A href="/" arrow>
-                    More of my work
-                  </A>
-                </li>
-              </ul>
             </div>
           </div>
         </Section>
