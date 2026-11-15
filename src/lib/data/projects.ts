@@ -12,7 +12,7 @@ export const projects: Project[] = [
     title: 'Hetku',
     description:
       'Every bus, tram and train in 49 Baltic cities, moving live on one map. Native Kotlin and SwiftUI apps, a SvelteKit web app and a Firebase backend.',
-    url: 'https://transport.meliharik.dev',
+    url: 'https://hetku.com',
     image: '/projects/hetku.png',
   },
   {

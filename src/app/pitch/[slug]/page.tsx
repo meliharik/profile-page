@@ -261,7 +261,7 @@ export default async function PitchPage({ params }: Params) {
                 I&apos;m Melih, a mobile developer in Tallinn, Estonia. I&apos;ve been
                 building mobile apps for 6 years and have shipped more than 30 to the
                 App Store and Google Play, most recently{' '}
-                <A href="https://transport.meliharik.dev">Hetku</A>, a live transit map
+                <A href="https://hetku.com">Hetku</A>, a live transit map
                 for the Baltics.
               </p>
               <p>

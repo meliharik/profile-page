@@ -216,7 +216,7 @@ export default async function Home() {
         <p>
           Building apps in Tallinn, Estonia. 30+ shipped to the App Store and
           Google Play, most recently{' '}
-          <A href="https://transport.meliharik.dev">Hetku</A>, a live transit map
+          <A href="https://hetku.com">Hetku</A>, a live transit map
           for the Baltics.
         </p>
         <p>
