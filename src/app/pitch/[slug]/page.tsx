@@ -5,6 +5,7 @@ import { A, Section, SectionTitle, SiteFooter, stagger } from '@/components/site
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { Gallery } from '@/components/pitch/Gallery';
 import { TrackedLink } from '@/components/pitch/TrackedLink';
+import { OpenBeacon } from '@/components/pitch/OpenBeacon';
 import { VideoStage } from '@/components/pitch/VideoStage';
 import {
   getPitch,
@@ -119,6 +120,7 @@ export default async function PitchPage({ params }: Params) {
 
   return (
     <main className="px-6 py-20 sm:py-28">
+      <OpenBeacon pitch={pitch.slug} company={pitch.company} />
       <div className="mx-auto max-w-xl">
         {/* 1. Hero */}
         <header className="animate-enter" style={stagger(0)}>
