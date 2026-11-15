@@ -157,9 +157,9 @@ export default async function PitchPage({ params }: Params) {
           </ul>
 
           <p className="mt-7 border-l-2 border-neutral-200 pl-4 text-sm leading-relaxed text-neutral-500 dark:border-neutral-800 dark:text-neutral-400">
-            This is a concept prototype I built on my own. It isn&apos;t made by or
-            for {pitch.company}, and it runs on mock data. If you want a fully
-            working app built to this standard, get in touch.
+            I built this concept on my own. It isn&apos;t affiliated with{' '}
+            {pitch.company}, and it runs on mock data. If you want a fully working
+            app built to this standard, get in touch.
           </p>
 
           <div className="mt-6">
@@ -263,9 +263,25 @@ export default async function PitchPage({ params }: Params) {
                 for the Baltics.
               </p>
               <p>
-                I work on both platforms natively, from design to store release. More
-                about me and my work on <A href="/">meliharik.dev</A>.
+                I work on both platforms natively, from design to store release.
               </p>
+              <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
+                <li>
+                  <A href="https://transport.meliharik.dev" arrow>
+                    Try Hetku
+                  </A>
+                </li>
+                <li>
+                  <A href="https://play.google.com/store/apps/details?id=dev.meliharik.transport" arrow>
+                    Hetku on Google Play
+                  </A>
+                </li>
+                <li>
+                  <A href="/" arrow>
+                    More of my work
+                  </A>
+                </li>
+              </ul>
             </div>
           </div>
         </Section>

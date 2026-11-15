@@ -13,6 +13,7 @@ const FILTERS: Array<{ id: Filter; label: string }> = [
   { id: 'android', label: 'Android' },
 ];
 const LABEL: Record<Platform, string> = { ios: 'iOS', android: 'Android' };
+const PLATFORM_ORDER: Platform[] = ['ios', 'android'];
 
 const sectionId = (id: string) => `screens-${id}`;
 const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -244,7 +245,7 @@ export function Gallery({ pitch, categories }: { pitch: string; categories: Pitc
 
         <div className="mt-8 space-y-16 lg:mt-0">
           {visible.map((c) => {
-            const platforms = [...new Set(c.shots.map((s) => s.platform))].sort() as Platform[];
+            const platforms = PLATFORM_ORDER.filter((p) => c.shots.some((s) => s.platform === p));
             const compare = filter === 'all' && platforms.length > 1;
             return (
               <section
