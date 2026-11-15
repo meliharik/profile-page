@@ -76,6 +76,11 @@ function Shot({ shot, onOpen }: { shot: PitchShot; onOpen: () => void }) {
 }
 
 export function Gallery({ pitch, categories }: { pitch: string; categories: PitchCategory[] }) {
+  // The platform filter only makes sense when both platforms have screens.
+  const multiPlatform = useMemo(
+    () => PLATFORM_ORDER.every((p) => categories.some((c) => c.shots.some((s) => s.platform === p))),
+    [categories],
+  );
   const [filter, setFilter] = useState<Filter>('all');
   const [active, setActive] = useState<string | undefined>(categories[0]?.id);
   const [open, setOpen] = useState<number | null>(null);
@@ -84,8 +89,8 @@ export function Gallery({ pitch, categories }: { pitch: string; categories: Pitc
   // ?platform=ios on first load
   useEffect(() => {
     const p = new URLSearchParams(window.location.search).get('platform');
-    if (p === 'ios' || p === 'android') setFilter(p);
-  }, []);
+    if (multiPlatform && (p === 'ios' || p === 'android')) setFilter(p);
+  }, [multiPlatform]);
 
   const changeFilter = (f: Filter) => {
     setFilter(f);
@@ -171,8 +176,8 @@ export function Gallery({ pitch, categories }: { pitch: string; categories: Pitc
       {/* Desktop: sticky category menu */}
       <nav aria-label="Screen categories" className="hidden lg:block">
         <div className="sticky top-24">
-          <PlatformFilter value={filter} onChange={changeFilter} />
-          <ul className="mt-6 space-y-2 text-sm">
+          {multiPlatform && <PlatformFilter value={filter} onChange={changeFilter} />}
+          <ul className={`${multiPlatform ? 'mt-6' : ''} space-y-2 text-sm`}>
             {visible.map((c) => {
               const current = c.id === active;
               return (
@@ -201,9 +206,11 @@ export function Gallery({ pitch, categories }: { pitch: string; categories: Pitc
 
       <div>
         {/* Phones and tablets: filter, then sticky scrolling chips */}
-        <div className="lg:hidden">
-          <PlatformFilter value={filter} onChange={changeFilter} />
-        </div>
+        {multiPlatform && (
+          <div className="lg:hidden">
+            <PlatformFilter value={filter} onChange={changeFilter} />
+          </div>
+        )}
         <nav
           aria-label="Screen categories"
           className="sticky top-0 z-10 -mx-6 mt-4 border-b border-neutral-200/70 bg-white/90 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/90 lg:hidden"

@@ -185,14 +185,16 @@ export default async function PitchPage({ params }: Params) {
           </div>
         </header>
 
-        {/* 2. Video */}
-        <section
-          aria-label="Video walkthrough"
-          className="animate-enter mt-16"
-          style={stagger(1)}
-        >
-          <VideoStage pitch={pitch.slug} videos={pitch.videos} platforms={pitch.platforms} />
-        </section>
+        {/* 2. Video (left out until a pitch has one) */}
+        {pitch.videos.length > 0 && (
+          <section
+            aria-label="Video walkthrough"
+            className="animate-enter mt-16"
+            style={stagger(1)}
+          >
+            <VideoStage pitch={pitch.slug} videos={pitch.videos} platforms={pitch.platforms} />
+          </section>
+        )}
 
         {/* 3. Highlights */}
         <Section title="Highlights" index={2}>
