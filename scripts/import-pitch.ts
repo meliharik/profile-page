@@ -187,7 +187,10 @@ const videos = manifest.videos.map((v) => {
     };
   });
 
-  const posterPng = path.join(cacheDir, 'posters', `${v.platform}.${hash}.png`);
+  // The poster name also depends on the frame time, so changing posterAt
+  // produces a new file instead of reusing the cached one.
+  const posterHash = hashOf(src, `${VIDEO_PROFILE}|poster@${v.posterAt ?? 1}`);
+  const posterPng = path.join(cacheDir, 'posters', `${v.platform}.${posterHash}.png`);
   const posterOut = posterPng.replace(/\.png$/, '.webp');
   if (!existsSync(posterOut)) {
     ensureDir(posterPng);
@@ -199,7 +202,7 @@ const videos = manifest.videos.map((v) => {
     platform: v.platform,
     title: v.title,
     sources,
-    poster: queue(posterOut, `pitches/${slug}/posters/${v.platform}.${hash}.webp`, 'image/webp'),
+    poster: queue(posterOut, `pitches/${slug}/posters/${v.platform}.${posterHash}.webp`, 'image/webp'),
     width: info.width,
     height: info.height,
     ...(info.duration ? { durationSec: Math.round(info.duration) } : {}),

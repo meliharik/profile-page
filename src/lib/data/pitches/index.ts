@@ -26,7 +26,7 @@ export const getPitch = (slug: string): Pitch | undefined => pitches[slug];
 export const platformLabel = { ios: 'iOS', android: 'Android' } as const;
 
 export const statusLabel = {
-  ready: 'Ready',
+  ready: 'Prototype',
   'in-progress': 'In progress',
   planned: 'Planned',
 } as const;
