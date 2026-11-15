@@ -303,7 +303,7 @@ export default async function PitchPage({ params }: Params) {
           </details>
         )}
 
-        <SiteFooter index={7} />
+        <SiteFooter index={7} showUses={false} />
       </div>
     </main>
   );

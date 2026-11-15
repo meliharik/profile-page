@@ -73,13 +73,14 @@ const socials = [
   { label: 'Uses', href: '/uses' },
 ];
 
-export const SiteFooter = ({ index }: { index: number }) => (
+// Pitch pages leave out the Uses link: it's about my setup, not for clients.
+export const SiteFooter = ({ index, showUses = true }: { index: number; showUses?: boolean }) => (
   <footer
     className="animate-enter mt-20 border-t border-neutral-200/70 pt-8 dark:border-neutral-800"
     style={stagger(index)}
   >
     <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
-      {socials.map((social) => (
+      {socials.filter((s) => showUses || s.href !== '/uses').map((social) => (
         <a
           key={social.label}
           href={social.href}
