@@ -7,27 +7,37 @@ import { presentationsData } from '@/lib/data/presentations';
 import { A, Section, SiteFooter, stagger } from '@/components/site';
 import { ThemeToggle } from '@/components/ThemeToggle';
 
-interface MediumPost {
+interface BlogPost {
   title: string;
   link: string;
   pubDate: string;
 }
 
-async function getMediumPosts(): Promise<MediumPost[]> {
+const BLOG_URL = 'https://blog.meliharik.dev';
+
+const decode = (s: string) =>
+  s
+    .replace(/^<!\[CDATA\[([\s\S]*?)\]\]>$/, '$1')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;|&apos;/g, "'")
+    .replace(/&amp;/g, '&')
+    .trim();
+
+async function getBlogPosts(): Promise<BlogPost[]> {
   try {
-    const res = await fetch('https://medium.com/feed/@melihify', {
-      next: { revalidate: 86400 },
+    const res = await fetch(`${BLOG_URL}/rss.xml`, {
+      next: { revalidate: 3600 },
     });
     if (!res.ok) return [];
     const xml = await res.text();
     return [...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)]
       .map((match) => {
         const item = match[1];
-        return {
-          title: item.match(/<title><!\[CDATA\[([\s\S]*?)\]\]><\/title>/)?.[1] ?? '',
-          link: item.match(/<link>([\s\S]*?)<\/link>/)?.[1]?.trim() ?? '',
-          pubDate: item.match(/<pubDate>([\s\S]*?)<\/pubDate>/)?.[1] ?? '',
-        };
+        const tag = (name: string) =>
+          decode(item.match(new RegExp(`<${name}>([\\s\\S]*?)</${name}>`))?.[1] ?? '');
+        return { title: tag('title'), link: tag('link'), pubDate: tag('pubDate') };
       })
       .filter((post) => post.title && post.link)
       .slice(0, 4);
@@ -166,7 +176,7 @@ const personJsonLd = {
 };
 
 export default async function Home() {
-  const posts = await getMediumPosts();
+  const posts = await getBlogPosts();
 
   return (
     <main className="mx-auto max-w-xl px-6 py-24 sm:py-32">
@@ -206,7 +216,7 @@ export default async function Home() {
         <p>
           Building apps in Tallinn, Estonia. 30+ shipped to the App Store and
           Google Play, most recently{' '}
-          <A href="https://transport.meliharik.dev">Hetku</A>, a live transit map
+          <A href="https://hetku.com">Hetku</A>, a live transit map
           for the Baltics.
         </p>
         <p>
@@ -347,7 +357,7 @@ export default async function Home() {
           </div>
           <p className="mt-4 text-sm">
             <a
-              href="https://medium.com/@melihify"
+              href={BLOG_URL}
               target="_blank"
               rel="noreferrer"
               className="text-neutral-400 transition-colors hover:text-neutral-800 dark:text-neutral-500 dark:hover:text-neutral-200"
