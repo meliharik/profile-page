@@ -38,15 +38,18 @@ function device(ua: string) {
             : /Linux/.test(ua)
               ? 'Linux'
               : 'Unknown device';
-  const browser = /Edg\//.test(ua)
+  // iOS browsers all report "Safari" too; their own token comes first (CriOS = Chrome).
+  const browser = /EdgiOS|Edg\//.test(ua)
     ? 'Edge'
-    : /Firefox\//.test(ua)
+    : /FxiOS|Firefox\//.test(ua)
       ? 'Firefox'
-      : /Chrome\//.test(ua)
-        ? 'Chrome'
-        : /Safari\//.test(ua)
-          ? 'Safari'
-          : '';
+      : /SamsungBrowser\//.test(ua)
+        ? 'Samsung Internet'
+        : /CriOS|Chrome\//.test(ua)
+          ? 'Chrome'
+          : /Safari\//.test(ua)
+            ? 'Safari'
+            : '';
   return browser ? `${os} · ${browser}` : os;
 }
 
