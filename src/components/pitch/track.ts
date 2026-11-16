@@ -4,6 +4,9 @@ import { sendGAEvent } from '@next/third-parties/google';
 
 type PitchEvent =
   | { name: 'pitch_video_play'; platform: string }
+  | { name: 'pitch_video_playing'; platform: string }
+  | { name: 'pitch_video_stuck'; platform: string; ready_state: number; network_state: number }
+  | { name: 'pitch_video_watched'; seconds: number; ios_seconds: number; android_seconds: number }
   | { name: 'pitch_cta_click'; cta: string }
   | { name: 'pitch_lightbox_open'; category: string; platform: string };
 
