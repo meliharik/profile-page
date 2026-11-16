@@ -19,7 +19,31 @@ function load(): Record<string, Pitch> {
   return Object.fromEntries(entries.map((p) => [p.slug, p]));
 }
 
-export const pitches: Record<string, Pitch> = load();
+// Video files play from this domain (/pitch-media/*, proxied by Netlify, see
+// public/_redirects): some company networks block firebasestorage.googleapis.com.
+// Images don't need this, they already go through next/image on this domain.
+const STORAGE = /^https:\/\/firebasestorage\.googleapis\.com\/v0\/b\/[^/]+\/o\/pitches%2F([^?]+)\?alt=media$/;
+
+const sameOrigin = (src: string) => {
+  const m = STORAGE.exec(src);
+  return m ? `/pitch-media/${decodeURIComponent(m[1])}` : src;
+};
+
+function withLocalVideos(pitch: Pitch): Pitch {
+  return {
+    ...pitch,
+    videos: pitch.videos.map((v) => {
+      if (!v.sources?.length) return v;
+      const direct = v.sources[0].src;
+      const sources = v.sources.map((s) => ({ ...s, src: sameOrigin(s.src) }));
+      return { ...v, sources, fallbackSrc: sources[0].src !== direct ? direct : undefined };
+    }),
+  };
+}
+
+export const pitches: Record<string, Pitch> = Object.fromEntries(
+  Object.entries(load()).map(([slug, p]) => [slug, withLocalVideos(p)]),
+);
 
 export const getPitch = (slug: string): Pitch | undefined => pitches[slug];
 

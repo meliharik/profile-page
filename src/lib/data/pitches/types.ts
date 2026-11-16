@@ -6,6 +6,8 @@ export interface PitchVideo {
   title: string;
   /** Self-hosted MP4 variants, largest first. The player picks one by viewport width. */
   sources?: Array<{ src: string; width: number; height: number; type: 'video/mp4' }>;
+  /** Direct storage URL of the largest file, tried only if the same-origin copy fails. */
+  fallbackSrc?: string;
   /** YouTube (unlisted) or Vimeo embed URL, used when there is no self-hosted file. */
   embedUrl?: string;
   poster: string;
