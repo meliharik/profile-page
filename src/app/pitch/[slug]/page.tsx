@@ -194,7 +194,12 @@ export default async function PitchPage({ params }: Params) {
             className="animate-enter mt-16"
             style={stagger(1)}
           >
-            <VideoStage pitch={pitch.slug} videos={pitch.videos} platforms={pitch.platforms} />
+            <VideoStage
+              pitch={pitch.slug}
+              company={pitch.company}
+              videos={pitch.videos}
+              platforms={pitch.platforms}
+            />
           </section>
         )}
 

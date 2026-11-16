@@ -1,5 +1,5 @@
-// Sends a push notification (via ntfy) when someone opens a pitch page, so a
-// follow-up can be timed. The ntfy topic works like a password: it lives only
+// Sends a push notification (via ntfy) when someone opens a pitch page, watches
+// its video, or the video fails to start, so a follow-up can be timed. The ntfy topic works like a password: it lives only
 // in the NTFY_TOPIC environment variable, never in this repo. Without it, this
 // endpoint accepts the request and does nothing.
 export const dynamic = 'force-dynamic';
@@ -9,6 +9,14 @@ const BOT = /bot|crawl|spider|preview|headless|lighthouse|slurp|facebookexternal
 const SITE = /^https:\/\/(www\.)?meliharik\.dev$/;
 
 const done = () => new Response(null, { status: 204 });
+
+const PLATFORM: Record<string, string> = { ios: 'iOS', android: 'Android' };
+
+const seconds = (value: unknown) => {
+  const n = Number(value);
+  return Number.isFinite(n) ? Math.min(Math.max(Math.round(n), 0), 3600) : 0;
+};
+const clock = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
 
 const clean = (value: unknown, max: number) =>
   String(value ?? '')
@@ -77,14 +85,38 @@ export async function POST(req: Request) {
   const slug = clean(body.slug, 40);
   if (!SLUG.test(slug)) return done();
   const company = clean(body.company, 60) || slug;
-  const ref = clean(body.ref, 40);
-  const from = clean(body.from, 80);
+  const who = `${place(req) || 'Unknown location'} · ${device(ua)}`;
 
-  const lines = [
-    `${place(req) || 'Unknown location'} · ${device(ua)}`,
-    ref && `Link: ?r=${ref}`,
-    from && `Came from: ${from}`,
-  ].filter(Boolean);
+  let title: string;
+  let lines: string[];
+  let tags = ['eyes'];
+  let priority = 3;
+
+  if (body.kind === 'video') {
+    const watched = (body.watched ?? {}) as Record<string, unknown>;
+    const durations = (body.durations ?? {}) as Record<string, unknown>;
+    const parts = Object.keys(PLATFORM)
+      .filter((p) => seconds(watched[p]) > 0)
+      .map((p) => {
+        const total = seconds(durations[p]);
+        return `${PLATFORM[p]} ${clock(seconds(watched[p]))}${total ? ` of ${clock(total)}` : ''}`;
+      });
+    if (!parts.length) return done();
+    title = `${company} video watched`;
+    lines = [parts.join(' · '), who];
+    tags = ['tv'];
+  } else if (body.kind === 'video-stuck') {
+    const platform = PLATFORM[clean(body.platform, 10)] ?? 'Video';
+    title = `${company} video didn't start`;
+    lines = [`${platform} video stuck after the play click`, who];
+    tags = ['warning'];
+    priority = 4;
+  } else {
+    const ref = clean(body.ref, 40);
+    const from = clean(body.from, 80);
+    title = `${company} pitch opened`;
+    lines = [who, ref && `Link: ?r=${ref}`, from && `Came from: ${from}`].filter(Boolean);
+  }
 
   try {
     await fetch('https://ntfy.sh/', {
@@ -92,9 +124,10 @@ export async function POST(req: Request) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         topic,
-        title: `${company} pitch opened`,
+        title,
         message: lines.join('\n'),
-        tags: ['eyes'],
+        tags,
+        priority,
         click: `https://meliharik.dev/pitch/${slug}`,
       }),
       signal: AbortSignal.timeout(4000),

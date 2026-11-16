@@ -1,8 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import { useId, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import type { Platform, PlatformStatus, PitchVideo } from '@/lib/data/pitches/types';
+import { sendPitchBeacon } from './beacon';
 import { track } from './track';
 
 const LABEL: Record<Platform, string> = { ios: 'iOS', android: 'Android' };
@@ -38,12 +39,19 @@ const Poster = ({ src }: { src: string }) => (
   />
 );
 
+// If a video hasn't started this long after the play click, it's reported as stuck.
+const STUCK_AFTER_MS = 10_000;
+// Watching less than this isn't worth a notification.
+const MIN_WATCHED_S = 3;
+
 export function VideoStage({
   pitch,
+  company,
   videos,
   platforms,
 }: {
   pitch: string;
+  company: string;
   videos: PitchVideo[];
   platforms: Record<Platform, { status: PlatformStatus; note?: string }>;
 }) {
@@ -53,12 +61,54 @@ export function VideoStage({
   const videoRef = useRef<HTMLVideoElement>(null);
   const tabs = useRef<Record<Platform, HTMLButtonElement | null>>({ ios: null, android: null });
 
+  // Playback reporting: did it really start, did it get stuck, how much was watched.
+  const watched = useRef<Record<Platform, number>>({ ios: 0, android: 0 });
+  const lastTime = useRef(0);
+  const playingSeen = useRef(new Set<Platform>());
+  const stuckReported = useRef(false);
+  const watchedReported = useRef(false);
+  const stuckTimer = useRef<number | undefined>(undefined);
+
+  useEffect(() => {
+    const report = () => {
+      if (watchedReported.current) return;
+      const { ios, android } = watched.current;
+      if (ios + android < MIN_WATCHED_S) return;
+      watchedReported.current = true;
+      track(pitch, {
+        name: 'pitch_video_watched',
+        seconds: Math.round(ios + android),
+        ios_seconds: Math.round(ios),
+        android_seconds: Math.round(android),
+      });
+      sendPitchBeacon({
+        kind: 'video',
+        slug: pitch,
+        company,
+        watched: { ios: Math.round(ios), android: Math.round(android) },
+        durations: Object.fromEntries(videos.map((v) => [v.platform, Math.round(v.durationSec ?? 0)])),
+      });
+    };
+    const onVisibility = () => {
+      if (document.visibilityState === 'hidden') report();
+    };
+    document.addEventListener('visibilitychange', onVisibility);
+    window.addEventListener('pagehide', report);
+    return () => {
+      document.removeEventListener('visibilitychange', onVisibility);
+      window.removeEventListener('pagehide', report);
+      window.clearTimeout(stuckTimer.current);
+    };
+  }, [pitch, company, videos]);
+
   const video = videos.find((v) => v.platform === active);
   const ratio = (video ?? videos[0]) ? (video ?? videos[0]).width / (video ?? videos[0]).height : FALLBACK_RATIO;
 
   const select = (p: Platform) => {
     if (p === active) return;
     videoRef.current?.pause();
+    window.clearTimeout(stuckTimer.current);
+    lastTime.current = 0;
     setStarted(false);
     setActive(p);
   };
@@ -68,6 +118,21 @@ export function VideoStage({
     if (!started) track(pitch, { name: 'pitch_video_play', platform: video.platform });
     setStarted(true);
     void videoRef.current?.play();
+
+    window.clearTimeout(stuckTimer.current);
+    const platform = video.platform;
+    stuckTimer.current = window.setTimeout(() => {
+      const el = videoRef.current;
+      if (!el || el.currentTime > 0 || stuckReported.current) return;
+      stuckReported.current = true;
+      track(pitch, {
+        name: 'pitch_video_stuck',
+        platform,
+        ready_state: el.readyState,
+        network_state: el.networkState,
+      });
+      sendPitchBeacon({ kind: 'video-stuck', slug: pitch, company, platform });
+    }, STUCK_AFTER_MS);
   };
 
   const seek = (t: number) => {
@@ -136,6 +201,21 @@ export function VideoStage({
                 controls={started}
                 aria-label={video.title}
                 className="absolute inset-0 h-full w-full object-cover"
+                onPlaying={() => {
+                  window.clearTimeout(stuckTimer.current);
+                  if (playingSeen.current.has(video.platform)) return;
+                  playingSeen.current.add(video.platform);
+                  track(pitch, { name: 'pitch_video_playing', platform: video.platform });
+                }}
+                onTimeUpdate={(e) => {
+                  const t = e.currentTarget.currentTime;
+                  const step = t - lastTime.current;
+                  if (step > 0 && step < 1.5) watched.current[video.platform] += step;
+                  lastTime.current = t;
+                }}
+                onSeeking={(e) => {
+                  lastTime.current = e.currentTarget.currentTime;
+                }}
               >
                 {smaller.map((s) => (
                   <source key={s.src} src={s.src} type={s.type} media="(max-width: 640px)" />
