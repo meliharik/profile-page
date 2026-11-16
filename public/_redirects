@@ -10,3 +10,8 @@
 /yt_support.html                  https://sumtube.meliharik.dev/support  301!
 /home_privacy_policy.html         https://dreamspace.meliharik.dev/privacy  301!
 /home_terms_of_usage.html         https://dreamspace.meliharik.dev/terms    301!
+
+# Pitch videos, served from this domain instead of firebasestorage.googleapis.com:
+# some company networks block that host, which left the player stuck at 0:00.
+# Netlify proxies the file (range requests included) and caches it at the edge.
+/pitch-media/:pitch/:kind/:file  https://firebasestorage.googleapis.com/v0/b/meliharik-dev.firebasestorage.app/o/pitches%2F:pitch%2F:kind%2F:file?alt=media  200!

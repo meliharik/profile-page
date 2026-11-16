@@ -141,6 +141,7 @@ export function VideoStage({
                   <source key={s.src} src={s.src} type={s.type} media="(max-width: 640px)" />
                 ))}
                 {large && <source src={large.src} type={large.type} />}
+                {video.fallbackSrc && <source src={video.fallbackSrc} type="video/mp4" />}
               </video>
               {!started && (
                 <>
