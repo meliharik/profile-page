@@ -44,7 +44,10 @@ interface Manifest {
   platforms: Record<Platform, { status: 'ready' | 'in-progress' | 'planned'; note?: string }>;
   highlights: Array<{ title: string; body: string }>;
   tech: Array<{ name: string; note?: string }>;
-  contact: { email: string; calUrl?: string; callMinutes?: number };
+  contact?: { email: string; calUrl?: string; callMinutes?: number };
+  /** A plain showcase page: no contact, no author. `contact` is then left out. */
+  showcase?: boolean;
+  note?: string;
   credits?: string;
   videos: Array<{
     platform: Platform;
@@ -90,8 +93,9 @@ if (manifest.slug !== slug) {
   console.error(`pitch.json says slug "${manifest.slug}", expected "${slug}"`);
   process.exit(1);
 }
-const required = ['company', 'companyUrl', 'title', 'subtitle', 'date', 'platforms', 'highlights', 'tech', 'contact'] as const;
-const missing = required.filter((k) => !manifest[k]);
+const required = ['company', 'companyUrl', 'title', 'subtitle', 'date', 'platforms', 'highlights', 'tech'] as const;
+const missing: string[] = required.filter((k) => !manifest[k]);
+if (!manifest.showcase && !manifest.contact) missing.push('contact (or "showcase": true)');
 if (missing.length) {
   console.error(`pitch.json is missing: ${missing.join(', ')}`);
   process.exit(1);
@@ -260,7 +264,8 @@ const pitch = {
   platforms: manifest.platforms,
   highlights: manifest.highlights,
   tech: manifest.tech,
-  contact: manifest.contact,
+  ...(manifest.showcase ? { showcase: true } : { contact: manifest.contact }),
+  ...(manifest.note ? { note: manifest.note } : {}),
   videos,
   categories,
   credits,
