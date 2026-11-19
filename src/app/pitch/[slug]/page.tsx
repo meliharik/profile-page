@@ -33,7 +33,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const url = `https://meliharik.dev/pitch/${slug}`;
   const title = `${pitch.company} prototype`;
   return {
-    title,
+    // A showcase page carries no author: not in the tab title, not in the meta tags.
+    title: pitch.showcase ? { absolute: title } : title,
+    ...(pitch.showcase ? { authors: null, creator: null, keywords: null } : {}),
     description: pitch.subtitle,
     alternates: { canonical: url },
     robots: {
@@ -46,7 +48,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       url,
       title: pitch.title,
       description: pitch.subtitle,
-      siteName: 'Melih Arık',
+      ...(pitch.showcase ? {} : { siteName: 'Melih Arık' }),
     },
     twitter: {
       card: 'summary_large_image',
@@ -86,6 +88,7 @@ const formatDate = (iso: string) =>
   });
 
 function ContactButtons({ pitch, from }: { pitch: Pitch; from: 'hero' | 'closing' }) {
+  if (!pitch.contact) return null;
   const { calUrl, callMinutes, email } = pitch.contact;
   return (
     <div className="flex flex-wrap items-center gap-3">
@@ -117,6 +120,8 @@ export default async function PitchPage({ params }: Params) {
   if (!pitch) notFound();
 
   const shotCount = pitch.categories.reduce((n, c) => n + c.shots.length, 0);
+  // A showcase page presents the work and nothing else: no contact, no author.
+  const showcase = pitch.showcase === true || !pitch.contact;
 
   return (
     <main className="px-6 py-20 sm:py-28">
@@ -158,33 +163,49 @@ export default async function PitchPage({ params }: Params) {
             ))}
           </ul>
 
-          <p className="mt-7 border-l-2 border-neutral-200 pl-4 text-sm leading-relaxed text-neutral-500 dark:border-neutral-800 dark:text-neutral-400">
-            I built this concept on my own. It isn&apos;t affiliated with{' '}
-            {pitch.company}, and it runs on mock data. If you want a fully working
-            app built to this standard, get in touch.
-          </p>
-
-          <div className="mt-6">
-            <ContactButtons pitch={pitch} from="hero" />
-          </div>
-
-          <div className="mt-8 flex items-center gap-3 text-sm text-neutral-500 dark:text-neutral-400">
-            <Image
-              src="/profile.jpeg"
-              alt=""
-              width={28}
-              height={28}
-              priority
-              className="h-7 w-7 rounded-full object-cover"
-            />
-            <p>
-              Prepared by <A href="/">Melih Arık</A>
-              <span className="text-neutral-400 dark:text-neutral-500">
-                {' '}
-                · <time dateTime={pitch.date}>{formatDate(pitch.date)}</time>
-              </span>
+          {pitch.note ? (
+            <p className="mt-7 border-l-2 border-neutral-200 pl-4 text-sm leading-relaxed text-neutral-500 dark:border-neutral-800 dark:text-neutral-400">
+              {pitch.note}
             </p>
-          </div>
+          ) : (
+            !showcase && (
+              <p className="mt-7 border-l-2 border-neutral-200 pl-4 text-sm leading-relaxed text-neutral-500 dark:border-neutral-800 dark:text-neutral-400">
+                I built this concept on my own. It isn&apos;t affiliated with{' '}
+                {pitch.company}, and it runs on mock data. If you want a fully working
+                app built to this standard, get in touch.
+              </p>
+            )
+          )}
+
+          {showcase ? (
+            <p className="mt-8 text-sm text-neutral-400 dark:text-neutral-500">
+              <time dateTime={pitch.date}>{formatDate(pitch.date)}</time>
+            </p>
+          ) : (
+            <>
+              <div className="mt-6">
+                <ContactButtons pitch={pitch} from="hero" />
+              </div>
+
+              <div className="mt-8 flex items-center gap-3 text-sm text-neutral-500 dark:text-neutral-400">
+                <Image
+                  src="/profile.jpeg"
+                  alt=""
+                  width={28}
+                  height={28}
+                  priority
+                  className="h-7 w-7 rounded-full object-cover"
+                />
+                <p>
+                  Prepared by <A href="/">Melih Arık</A>
+                  <span className="text-neutral-400 dark:text-neutral-500">
+                    {' '}
+                    · <time dateTime={pitch.date}>{formatDate(pitch.date)}</time>
+                  </span>
+                </p>
+              </div>
+            </>
+          )}
         </header>
 
         {/* 2. Video (left out until a pitch has one) */}
@@ -253,7 +274,9 @@ export default async function PitchPage({ params }: Params) {
           </div>
         </Section>
 
-        {/* 6. About */}
+        {/* 6. About and 7. Closing: not on a showcase page */}
+        {!showcase && (
+        <>
         <Section title="A bit about me" index={5}>
           <div className="flex items-start gap-4">
             <Image
@@ -284,13 +307,15 @@ export default async function PitchPage({ params }: Params) {
             I built this on my own to show what a native {pitch.company} app could
             feel like. Turning it into a real product means your API, accounts,
             payments and store releases. If that sounds interesting, give me{' '}
-            {pitch.contact.callMinutes ? `${pitch.contact.callMinutes} minutes` : 'a few minutes'}{' '}
+            {pitch.contact?.callMinutes ? `${pitch.contact.callMinutes} minutes` : 'a few minutes'}{' '}
             and I&apos;ll walk you through the prototype and what it would take to ship.
           </p>
           <div className="mt-6">
             <ContactButtons pitch={pitch} from="closing" />
           </div>
         </Section>
+        </>
+        )}
 
         {pitch.credits && pitch.credits.length > 0 && (
           <details className="mt-16 text-xs text-neutral-400 dark:text-neutral-500">
@@ -310,7 +335,7 @@ export default async function PitchPage({ params }: Params) {
           </details>
         )}
 
-        <SiteFooter index={7} showUses={false} />
+        {!showcase && <SiteFooter index={7} showUses={false} />}
       </div>
     </main>
   );

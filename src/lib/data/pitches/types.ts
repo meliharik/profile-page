@@ -57,5 +57,13 @@ export interface Pitch extends PitchMedia {
   >;
   highlights: Array<{ title: string; body: string }>;
   tech: Array<{ name: string; note?: string }>;
-  contact: { email: string; calUrl?: string; callMinutes?: number };
+  /** Left out on a showcase page. */
+  contact?: { email: string; calUrl?: string; callMinutes?: number };
+  /**
+   * A plain showcase of the work: no contact buttons, no author line, no
+   * "about me" and no closing pitch. Used when the page is not a cold pitch.
+   */
+  showcase?: boolean;
+  /** Replaces the default "I built this on my own" note under the hero. */
+  note?: string;
 }

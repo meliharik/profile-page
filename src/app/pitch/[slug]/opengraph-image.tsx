@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 import { getPitch, pitches } from '@/lib/data/pitches';
 
-export const alt = 'Native iOS & Android prototype by Melih Arık';
+export const alt = 'Native iOS & Android prototype';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 export const dynamicParams = false;
@@ -49,9 +49,11 @@ export default async function PitchOpengraphImage({
         <div style={{ fontSize: 40, color: '#a3a3a3', marginTop: 20 }}>
           Native iOS & Android prototype
         </div>
-        <div style={{ fontSize: 28, color: '#525252', marginTop: 48 }}>
-          Melih Arık · meliharik.dev
-        </div>
+        {!pitch?.showcase && (
+          <div style={{ fontSize: 28, color: '#525252', marginTop: 48 }}>
+            Melih Arık · meliharik.dev
+          </div>
+        )}
       </div>
     ),
     size,
